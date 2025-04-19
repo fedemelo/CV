@@ -1,0 +1,33 @@
+.education-item {
+  margin-bottom: 1.5rem;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+p.small {
+  font-size: 0.9rem;
+}
+
+.institution {
+  font-weight: bold;
+}
+
+.honors {
+  font-style: italic;
+}
+
+.indented-details {
+  direction: column;
+  align-items: center;
+  margin-left: 1rem;
+}
