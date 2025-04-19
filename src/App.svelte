@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { CV_DATA } from './data/cv-data';
+  import { HEADER } from './data/header';
   import Header from './components/Header.svelte';
 </script>
 
 <main class="cv-container">
-  <Header name={CV_DATA.name} contact={CV_DATA.contact} />
+  <Header header={HEADER} />
 </main>
 
 <style>
