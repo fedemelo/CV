@@ -1,0 +1,13 @@
+.cv-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  border-bottom: #000 0.5px solid;
+  padding-block-end: 0.2rem;  /* Title and border */
+  margin-block-end: 0.4rem;  /* Border and paragraph */
+}
