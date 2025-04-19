@@ -5,7 +5,7 @@ export interface Header {
     url: `https://${string}`;
     label: string;
   };
-  linkedin: {
+  linkedIn: {
     url: `https://linkedin.com/in/${string}`;
     label: string;
   };
@@ -22,7 +22,7 @@ export const HEADER: Header = {
     url: "https://fedemelo.github.io/",
     label: "fedemelo.github.io"
   },
-  linkedin: {
+  linkedIn: {
     url: "https://linkedin.com/in/federico-melo",
     label: "federico-melo"
   },
