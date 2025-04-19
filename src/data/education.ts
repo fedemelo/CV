@@ -22,8 +22,8 @@ export const EDUCATION: Education[] = [
     endDate: "Dec, 2024",
     gpa: "4.92/5.00",
     details: [
-      // "Best cumulative GPA in the Systems and Computing Engineering program in the XXI century",
-      // "Highest cumulative GPA in the Faculty of Engineering in the last 17 years",
+      "Best cumulative GPA in the Systems and Computing Engineering program in the XXI century",
+      "Highest cumulative GPA in the Faculty of Engineering in the last 17 years",
     ],
   },
   {
