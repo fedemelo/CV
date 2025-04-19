@@ -7,6 +7,16 @@ h1 {
   font-size: 1.5rem;
   font-weight: bold;
   padding-bottom: 0.5em;
+  position: relative;
+  text-align: center;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;  /* Start at 10% */
+  width: 80%;  /* Take up 80% of the width */
   border-bottom: #000 1px solid;
 }
 
