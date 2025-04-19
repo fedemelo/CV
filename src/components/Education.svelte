@@ -3,7 +3,7 @@
   export let education: Education[];
 </script>
 
-<section class="section">
+<section>
   <h2>Education</h2>
   {#each education.filter((edu) => !edu.isHidden) as edu}
     <div class="education-item">
