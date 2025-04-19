@@ -1,0 +1,15 @@
+.award-item {
+  margin-bottom: 1.2rem;
+}
+
+.award-title {
+  font-weight: bold;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  text-align: justify;
+  text-justify: inter-word;
+}

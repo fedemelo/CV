@@ -2,6 +2,7 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+  font-size: 1rem;
 }
 
 h2 {
@@ -10,4 +11,14 @@ h2 {
   border-bottom: #000 0.5px solid;
   padding-block-end: 0.2rem;  /* Title and border */
   margin-block-end: 0.4rem;  /* Border and paragraph */
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+p.small {
+  font-size: 0.9rem;
 }

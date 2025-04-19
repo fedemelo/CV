@@ -1,9 +1,11 @@
+import type { MonthYear } from "./types";
+
 export interface Education {
   degree: string;
   institution: string;
   location: string;
-  startDate?: `${Month}, 20${string}`;
-  endDate?: `${Month}, 20${string}`;
+  startDate?: MonthYear;
+  endDate?: MonthYear;
   honors?: string;
   gpa?: `${string}.${string}/${string}.${string}`;
   details?: string[];
@@ -34,17 +36,3 @@ export const EDUCATION: Education[] = [
     isHidden: true,
   }
 ];
-
-type Month =
-  | "Jan"
-  | "Feb"
-  | "Mar"
-  | "Apr"
-  | "May"
-  | "Jun"
-  | "Jul"
-  | "Aug"
-  | "Sep"
-  | "Oct"
-  | "Nov"
-  | "Dec";
