@@ -1,0 +1,10 @@
+h2 {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  border-bottom: #000 0.5px solid;
+}
+
+p {
+  text-align: justify;
+  text-justify: inter-word;
+}
