@@ -29,7 +29,7 @@
       </div>
       {#if teach.supervisor}
         <div class="row">
-          <p class="supervisor">Supervisor: {teach.supervisor}</p>
+          <p class="supervisor, font-small">Supervisor: {teach.supervisor}</p>
         </div>
       {/if}
       <div class="indented-details">
