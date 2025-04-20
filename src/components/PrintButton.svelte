@@ -6,24 +6,27 @@
 
   async function handlePrint() {
     generating = true;
+    
     const element = document.querySelector(".cv-container");
-
     if (!element) {
       console.error("CV container not found");
       generating = false;
       return;
     }
 
+    // Clone the element to avoid modifying the original HTML
     const clonedElement = element.cloneNode(true) as HTMLElement;
-    
-    const a4Width = 210; // A4 width in mm
-    const desiredMargin = 25.4; // 1 inch in mm
-    // Must match global CSS cv-container padding
-    const cvContainerPadding = 7;
 
-    clonedElement.style.setProperty('width', `${a4Width - desiredMargin*2}mm`);
-    clonedElement.style.setProperty('font-size', '10pt');
+    // Remove margin and padding from the cloned element
+    clonedElement.style.setProperty('margin', '0');
+    clonedElement.style.setProperty('padding', '0');
     
+    const a4Width = 210;  // A4 width in mm
+    const margin = 25.4;  // 1 inch in mm
+
+    clonedElement.style.setProperty('width', `${a4Width - margin*2}mm`);
+    clonedElement.style.setProperty('font-size', '10pt');
+
     // Remove styles from links
     clonedElement.querySelectorAll("a").forEach((link) => {
       link.style.color = "black";
@@ -32,8 +35,8 @@
 
     const opt = {
       margin: [
-        desiredMargin-cvContainerPadding, 
-        desiredMargin-cvContainerPadding
+        margin-10,  // Top margin slightly reduced
+        margin
       ],
       filename: "CV_Federico_Melo_Barrero.pdf",
       image: {
