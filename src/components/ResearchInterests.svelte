@@ -1,10 +1,13 @@
 <script lang="ts">
-  export let researchInterests: string;
+  import type { ResearchInterests } from '../data/researchInterests';
+  export let researchInterests: ResearchInterests;
 </script>
 
 <section>
-  <h2>Research Interests</h2>
-  <p>{researchInterests}</p>
+  {#if !researchInterests.isHidden}
+    <h2>Research Interests</h2>
+    <p>{researchInterests}</p>
+  {/if}
 </section>
 
 <style>
