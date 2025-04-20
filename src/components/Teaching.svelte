@@ -8,7 +8,7 @@
 <section>
   <h2>Teaching Experience</h2>
   {#each teaching.filter((teach) => !teach.isHidden) as teach}
-    <div class="item">
+    <div class="margin-bottom">
       <div class="row">
         <p class="institution">{teach.institution}</p>
         <Location location={{
@@ -29,7 +29,7 @@
       </div>
       {#if teach.supervisor}
         <div class="row">
-          <p class="supervisor, font-small">Supervisor: {teach.supervisor}</p>
+          <p class="supervisor font-small">Supervisor: {teach.supervisor}</p>
         </div>
       {/if}
       <div class="indented-details">

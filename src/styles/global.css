@@ -54,6 +54,6 @@ p {
   text-align: justify;
   text-justify: inter-word;
 }
-.item {
+.margin-bottom {
   margin-bottom: var(--font-base);
 }
