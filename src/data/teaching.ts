@@ -2,14 +2,13 @@ import type { Location, Course, Period, Hideable, MonthYear } from "./types";
 
 // UTA = Undergraduate Teaching Assistant;
 // URTA = Undergraduate Research Teaching Assistant;
-type TeachingRole = "UTA" | "URTA" | "Tutor" | "Lab Assistant" | "Grader";
+type TeachingRole = "UTA" | "URTA" | "Tutor" | "Grader";
 
 export function getFullTeachingRoleName(role: Teaching['role']): string {
   const roleNames = {
     'UTA': 'Undergraduate Teaching Assistant',
     'URTA': 'Undergraduate Research Teaching Assistant',
     'Tutor': 'Tutor',
-    'Lab Assistant': 'Laboratory Assistant',
     'Grader': 'Grader'
   };
   return roleNames[role];
