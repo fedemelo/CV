@@ -17,7 +17,7 @@ declare module 'html2pdf.js' {
       orientation?: 'portrait' | 'landscape';
     };
     pagebreak?: {
-      mode?: string[];  // Changed to string[]
+      mode?: string[];
       before?: string[];
       after?: string[];
       avoid?: string[];
