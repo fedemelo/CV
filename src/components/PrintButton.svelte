@@ -22,7 +22,7 @@
         quality: 100,
       },
       html2canvas: { 
-        scale: 2,
+        scale: 10,  // Maximum scale for best quality
         useCORS: true,
         letterRendering: true
       },
