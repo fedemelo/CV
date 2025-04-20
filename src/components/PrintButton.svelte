@@ -63,9 +63,10 @@
 
 <button
   class="print-button"
+  class:disabled={generating}
   on:click={handlePrint}
   disabled={generating}
-  title="Generate PDF"
+  title={generating ? "Generating PDF..." : "Generate PDF"}
 >
   <Printer size={24} opacity={generating ? 0.5 : 1} />
   {#if generating}
