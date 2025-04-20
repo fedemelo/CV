@@ -2,8 +2,7 @@
   "name": "CV",
   "homepage": "https://fedemelo.github.io/cv/",
   "version": "1.0.0",
-  "repository": "https://github.com/fedemelo/CV",
-  "author": "Federico Melo <f.melo@uniandes.edu.co>",
+  "author": "Federico Melo Barrero",
   "license": "MIT",
   "type": "module",
   "scripts": {
