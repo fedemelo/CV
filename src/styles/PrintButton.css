@@ -30,45 +30,28 @@
 
 .loading {
   position: absolute;
-  width: 80%;
-  height: 80%;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  border-top-color: white;
-  animation: spin 0.8s ease-in-out infinite;
-}
-
-.loading::before,
-.loading::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-}
-
-.loading::before {
   width: 70%;
   height: 70%;
   border: 2px solid transparent;
+  border-radius: 50%;
   border-top-color: white;
-  animation: spin 1.2s ease-in-out infinite;
-}
-
-.loading::after {
-  width: 60%;
-  height: 60%;
-  border: 2px solid transparent;
-  border-top-color: white;
-  animation: spin 1.6s ease-in-out infinite;
+  border-left-color: white;
+  animation: spin 0.8s linear infinite;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
   }
-  100% {
-    transform: rotate(360deg);
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
   }
+}
+
+.print-button:disabled svg {
+  opacity: 0.3;
+  transition: opacity 0.2s ease;
 }
