@@ -18,11 +18,13 @@ h1::after {
   bottom: 0;
   left: 10%;  /* Start at 10% */
   width: 80%;  /* Take up 80% of the width */
-  border-bottom: #000 1px solid;
+  border-bottom: #000 1.8px solid;
 }
 
 .contact-info {
   font-size: 0.9rem;
+  width: fit-content;
+  margin: 0 auto;  /* Centers the container */
 }
 
 .contact-info p {
@@ -36,4 +38,16 @@ h1::after {
 }
 .contact-info a:hover {
   text-decoration: underline;
+}
+
+.columns-container {
+  display: flex;
+  gap: 5rem;
+  justify-content: center;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
