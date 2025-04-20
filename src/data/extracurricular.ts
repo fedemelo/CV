@@ -19,13 +19,13 @@ export const EXTRACURRICULARS: Extracurricular[] = [
       },
       {
         title:
-          "Swimming Team member at the University of the Andes, earning 41 medals, 24 gold.",
+          "Swimming Team member at the University of the Andes, earning 41 medals, 24 gold",
         startYear: 2020,
         endYears: 2024,
       },
       {
         title:
-          "Democratically elected Captain of the Swimming Team for two consecutive years.",
+          "Democratically elected Captain of the Swimming Team for two consecutive years",
         startYear: 2022,
         endYears: 2024,
       },
