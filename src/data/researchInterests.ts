@@ -1,6 +1,6 @@
 export interface ResearchInterests {
   text: string;
-  isHidden: boolean;
+  isHidden?: boolean;
 }
 
 export const RESEARCH_INTERESTS: ResearchInterests = {
@@ -8,5 +8,4 @@ export const RESEARCH_INTERESTS: ResearchInterests = {
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod hendrerit tortor. Duis malesuada elit vitae enim luctus porta. Duis tempus faucibus nisi eget sodales. Phasellus convallis varius enim, in aliquet urna posuere vel. Fusce semper nibh vitae iaculis lobortis. Sed hendrerit nunc
 `,
-  isHidden: true,
 }

@@ -6,10 +6,6 @@
 <section>
   {#if !researchInterests.isHidden}
     <h2>Research Interests</h2>
-    <p>{researchInterests}</p>
+    <p>{researchInterests.text}</p>
   {/if}
 </section>
-
-<style>
-  @import '../styles/ResearchInterests.css';
-</style>
