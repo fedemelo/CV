@@ -1,7 +1,7 @@
 {
   "name": "CV",
+  "homepage": "https://fedemelo.github.io/cv/",
   "version": "1.0.0",
-  "main": "index.js",
   "repository": "https://github.com/fedemelo/CV",
   "author": "Federico Melo <f.melo@uniandes.edu.co>",
   "license": "MIT",
@@ -10,6 +10,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "predeploy": "yarn build",
     "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
