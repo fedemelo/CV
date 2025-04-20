@@ -22,7 +22,6 @@ h1::after {
 }
 
 .contact-info {
-  font-size: 0.9rem;
   width: fit-content;
   margin: 0 auto;  /* Centers the container */
 }
