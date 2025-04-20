@@ -1,14 +1,11 @@
-import type { MonthYear } from "./types";
+import type { Hideable, Location, MonthYear } from "./types";
 
 export type WorkMode = 'remote' | 'onsite' | 'hybrid';
 type EmploymentType = 'full-time' | 'part-time' | 'contract';
 
-export interface WorkExperience {
+export interface WorkExperience extends Location, Hideable {
   title: string;
   company: string;
-  city: string;
-  state?: string;
-  country?: string;
   startDate: MonthYear;
   endDate?: MonthYear;
   description: string;
@@ -18,7 +15,6 @@ export interface WorkExperience {
   workMode: WorkMode;
   employmentType: EmploymentType;
   isCurrent: boolean;
-  isHidden?: boolean;
   isInternship?: boolean;
 }
 
