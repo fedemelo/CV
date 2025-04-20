@@ -27,6 +27,8 @@ ul {
 
 li {
   margin-bottom: 0.2rem;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .indented-details {
