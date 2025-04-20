@@ -13,4 +13,6 @@ type Month =
   | "Dec";
 
 export type MonthYear =
-  | `${Month}, 20${string}`
+  | `${Month}, 20${number}`
+
+export type Period = `${'Fall' | 'Spring'} 20${number}`

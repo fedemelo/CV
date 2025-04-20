@@ -1,9 +1,9 @@
-import type { MonthYear } from "./types";
+import type { MonthYear, Period } from "./types";
 
 export interface Award {
   title: string;
   description: string;
-  date: MonthYear;
+  date: MonthYear | number | Period;
 }
 
 export const AWARDS: Award[] = [
@@ -23,26 +23,26 @@ export const AWARDS: Award[] = [
   {
     title: "Ramón de Zubiría Award",
     description: `Honored with the Ramón de Zubiría Award ("Distinción Ramón de Zubiría") for academic excellence at the University of the Andes, awarded annually to the top undergraduate student with the highest cumulative GPA in their program, with a cumulative GPA of 4.91 / 5.00 in Systems and Computing Engineering.`,
-    date: "Nov, 2024"
+    date: 2024,
   },
   {
     title: "Ramón de Zubiría Award",
     description: `Honored with the Ramón de Zubiría Award ("Distinción Ramón de Zubiría") for academic excellence at the University of the Andes, awarded annually to the top undergraduate student with the highest cumulative GPA in their program, with a cumulative GPA of 4.90 / 5.00 in Systems and Computing Engineering.`,
-    date: "Nov, 2023"
+    date: 2023,
   },
   {
     title: "Semester Excellence Award",
     description: `Recipient of the Semester Excellence Award ("Distinción de Excelencia Semestral") for achieving the highest semester GPA in the Systems and Computing Engineering undergraduate program during the first semester of 2023 at the University of the Andes, with a semester GPA of 4.97 / 5.00.`,
-    date: "Nov, 2023"
+    date: "Spring 2023"
   },
   {
     title: "Semester Excellence Award",
     description: `Recipient of the Semester Excellence Award ("Distinción de Excelencia Semestral") for achieving the highest semester GPA in the Physics undergraduate program during the first semester of 2021 at the University of the Andes, with a semester GPA of 4.86 / 5.00.`,
-    date: "Nov, 2021"
+    date: "Spring 2021"
   },
   {
     title: "Semester Excellence Award",
     description: `Recipient of the Semester Excellence Award ("Distinción de Excelencia Semestral") for achieving the highest semester GPA in the Physics undergraduate program during the second semester of 2020 at the University of the Andes, with a semester GPA of 4.90 / 5.00.`,
-    date: "Jun, 2021"
+    date: "Fall 2020"
   }
 ];
