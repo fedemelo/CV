@@ -27,6 +27,7 @@ h1::after {
 
 .contact-info p {
   margin: 0.1rem 0;
+  text-align: center;
 }
 
 .contact-info a {
