@@ -3,7 +3,7 @@
   export let header: Header;
 </script>
 
-<header>
+<header class="margin-bottom">
   <h1>{header.name}</h1>
   <div class="contact-info">
     <div class="columns-container">
