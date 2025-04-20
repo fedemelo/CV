@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Education } from "../data/education";
+  import Location from "./Location.svelte";
   export let education: Education[];
 </script>
 
@@ -9,7 +10,11 @@
     <div class="education-item">
       <div class="row">
         <p class="institution">{edu.institution}</p>
-        <p class="small">{edu.location}</p>
+        <Location location={{
+          city: edu.city,
+          state: edu.state,
+          country: edu.country,
+        }} />
       </div>
       <div class="row">
         <p>{edu.degree}</p>

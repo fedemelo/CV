@@ -17,7 +17,7 @@ export type MonthYear =
 
 export type Period = `${'Fall' | 'Spring'} 20${number}`
 
-export interface Course {
+export interface Course extends Hideable {
   name: string;
   originalName?: string;
   code: string;
@@ -25,4 +25,14 @@ export interface Course {
   credits?: number;
   description?: string;
   link?: string;
+}
+
+export interface Location {
+  city: string;
+  state?: string;
+  country?: string;
+}
+
+export interface Hideable {
+  isHidden?: boolean;
 }

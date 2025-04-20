@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { WorkExperience, WorkMode } from "../data/workExperience";
+  import Location from "./Location.svelte";
   export let workExperience: WorkExperience[];
 </script>
 
@@ -9,9 +10,7 @@
     <div class="work-item">
       <div class="row">
         <p class="company">{work.company}</p>
-        <p class="small">
-          {work.city}{work.state ? `, ${work.state}` : ''}{work.country ? `, ${work.country}` : ''}{work.workMode == 'remote' as WorkMode  ? ' (Remote)' : ''}
-        </p>
+        <Location location={{ city: work.city, state: work.state, country: work.country }} workMode={work.workMode} />
       </div>
       <div class="row">
         <p class="position">{work.title}{work.isInternship ? ' (internship)' : ''}</p>
