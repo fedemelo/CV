@@ -15,7 +15,7 @@ type Month =
 export type MonthYear =
   | `${Month}, 20${number}`
 
-export type Period = `${'Fall' | 'Spring'} 20${number}`
+export type Period = `${'Summer' | 'Fall' | 'Spring'} 20${number}`
 
 export interface Course extends Hideable {
   name: string;

@@ -67,7 +67,7 @@ export const TEACHING: Teaching[] = [
     },
     department: "Mathematics",
     institution: "University of the Andes",
-    period: "Spring 2022",
+    period: "Summer 2024",
     supervisor: "Prof. Jacinto Puig, Ph.D.",
     responsibilities: [
       "Designed, corrected, and graded vector calculus problem sets",
