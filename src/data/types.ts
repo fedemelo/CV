@@ -16,3 +16,13 @@ export type MonthYear =
   | `${Month}, 20${number}`
 
 export type Period = `${'Fall' | 'Spring'} 20${number}`
+
+export interface Course {
+  name: string;
+  originalName?: string;
+  code: string;
+  department?: string;
+  credits?: number;
+  description?: string;
+  link?: string;
+}
