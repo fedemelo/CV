@@ -15,17 +15,15 @@
     }
 
     const clonedElement = element.cloneNode(true) as HTMLElement;
+    
     const a4Width = 210; // A4 width in mm
     const desiredMargin = 25.4; // 1 inch in mm
     // Must match global CSS cv-container padding
     const cvContainerPadding = 7;
 
-    const printStyles = {
-      width: `${a4Width - desiredMargin*2}mm`,
-    };
-
-    Object.assign(clonedElement.style, printStyles);
-
+    clonedElement.style.setProperty('width', `${a4Width - desiredMargin*2}mm`);
+    clonedElement.style.setProperty('font-size', '10pt');
+    
     // Remove styles from links
     clonedElement.querySelectorAll("a").forEach((link) => {
       link.style.color = "black";
