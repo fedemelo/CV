@@ -1,11 +1,15 @@
 .coursework-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 1.9rem;
 }
 
 .area {
   font-weight: bold;
+}
+
+p {
+  text-align: left;
 }
 
 @media (max-width: 768px) {
