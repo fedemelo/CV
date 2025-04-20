@@ -14,7 +14,7 @@
       </div>
       <div class="row">
         <p class="position">{work.title}{work.isInternship ? ' (internship)' : ''}</p>
-        <p class="small">
+        <p class="font-small">
           {work.startDate} - {work.isCurrent ? 'Present' : work.endDate}
         </p>
       </div>
@@ -25,7 +25,7 @@
           <p class="section-title">Key Responsibilities:</p>
           <ul>
             {#each work.responsibilities as responsibility}
-              <li class="small">{responsibility}</li>
+              <li class="font-small">{responsibility}</li>
             {/each}
           </ul>
         {/if}
@@ -34,7 +34,7 @@
           <p class="section-title">Achievements:</p>
           <ul>
             {#each work.achievements as achievement}
-              <li class="small">{achievement}</li>
+              <li class="font-small">{achievement}</li>
             {/each}
           </ul>
         {/if}

@@ -11,6 +11,10 @@
   --font-xxl: 2em;
 }
 
+.font-small {
+  font-size: var(--font-small);
+}
+
 .cv-container {
   max-width: 800px;
   margin: 0 auto;
@@ -19,6 +23,10 @@
   font-family: 'EB Garamond', serif;
 }
 
+h1 {
+  font-size: var(--font-xxl);
+  font-weight: bold;
+}
 h2 {
   text-transform: uppercase;
   font-size: var(--font-xl);
@@ -46,10 +54,6 @@ p {
   text-align: justify;
   text-justify: inter-word;
 }
-p.small {
-  font-size: var(--font-small);
-}
-
 .item {
   margin-bottom: var(--font-base);
 }
