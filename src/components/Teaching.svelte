@@ -8,7 +8,7 @@
 <section>
   <h2>Teaching Experience</h2>
   {#each teaching.filter((teach) => !teach.isHidden) as teach}
-    <div class="teaching-item">
+    <div class="item">
       <div class="row">
         <p class="institution">{teach.institution}</p>
         <Location location={{

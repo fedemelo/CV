@@ -37,3 +37,53 @@ p {
 p.small {
   font-size: 0.9rem;
 }
+
+.item {
+  margin-bottom: 1.2rem;
+}
+
+@media print {
+  /* Hide everything outside the CV */
+  body > *:not(.cv-container) {
+    display: none;
+  }
+
+  section {
+    break-inside: auto;
+  }
+  h2, h3, h4 {
+    break-after: avoid;
+  }
+  h2, h3, h4, p {
+    break-inside: avoid;
+  }
+
+  /* Remove any backgrounds */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background-color: white !important;
+  }
+
+  /* Ensure the CV takes the full width but maintains margins */
+  .cv-container {
+    width: 210mm;  /* A4 width */
+    padding: 20mm;
+    margin: 0 auto;
+  }
+
+  body {
+    color: black;
+  }
+
+  /* Make links visible but not blue */
+  a {
+    color: black;
+    text-decoration: none;
+  }
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+}

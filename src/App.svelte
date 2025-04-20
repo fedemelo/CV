@@ -22,6 +22,8 @@
 
   import { TEACHING } from './data/teaching';
   import Teaching from './components/Teaching.svelte';
+  
+  import PrintButton from './components/PrintButton.svelte';
 </script>
 
 <main class="cv-container">
@@ -34,3 +36,5 @@
   <RelevantCoursework relevantCoursework={RELEVANT_COURSEWORK} />
   <Extracurricular extracurriculars={EXTRACURRICULARS} />
 </main>
+
+<PrintButton />

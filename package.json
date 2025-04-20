@@ -21,6 +21,8 @@
     "vite": "^latest"
   },
   "dependencies": {
-    "@tsconfig/svelte": "^5.0.4"
+    "@tsconfig/svelte": "^5.0.4",
+    "html2pdf.js": "^0.10.3",
+    "lucide-svelte": "^0.501.0"
   }
 }

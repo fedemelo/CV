@@ -6,7 +6,7 @@
 <section>
   <h2>Awards and Honors</h2>
   {#each awards as award}
-    <div class="award-item">
+    <div class="item">
       <div class="row">
         <p class="award-title">{award.title}</p>
         <p class="small">{award.date}</p>
