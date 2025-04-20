@@ -12,6 +12,8 @@
   import Awards from './components/Awards.svelte';
   import Extracurricular from './components/Extracurricular.svelte';
   import { EXTRACURRICULARS } from './data/extracurricular';
+  import RelevantCoursework from './components/RelevantCoursework.svelte';
+  import { RELEVANT_COURSEWORK } from './data/relevantCoursework';
 </script>
 
 <main class="cv-container">
@@ -19,5 +21,6 @@
   <ResearchInterests researchInterests={RESEARCH_INTERESTS} />
   <Education education={EDUCATION} />
   <Awards awards={AWARDS} />
+  <RelevantCoursework relevantCoursework={RELEVANT_COURSEWORK} />
   <Extracurricular extracurriculars={EXTRACURRICULARS} />
 </main>

@@ -1,0 +1,25 @@
+.coursework-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.coursework-item {
+  margin-bottom: 1.2rem;
+}
+
+.area {
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .coursework-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .coursework-container {
+    grid-template-columns: 1fr; /* 1 column on small screens */
+  }
+}
