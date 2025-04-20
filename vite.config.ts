@@ -6,9 +6,6 @@ export default defineConfig({
   base: '/cv/',
   build: {
     outDir: 'dist',
-    sourcemap: true
-  },
-  server: {
-    open: true
+    assetsDir: 'assets',
   }
 })
