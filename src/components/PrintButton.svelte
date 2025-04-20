@@ -16,10 +16,12 @@
 
     const clonedElement = element.cloneNode(true) as HTMLElement;
     const a4Width = 210; // A4 width in mm
-    const margin = 25.4; // 1 inch in mm
+    const desiredMargin = 25.4; // 1 inch in mm
+    // Must match global CSS cv-container padding
+    const cvContainerPadding = 7;
 
     const printStyles = {
-      width: `${a4Width - margin * 2}mm`,
+      width: `${a4Width - desiredMargin*2}mm`,
     };
 
     Object.assign(clonedElement.style, printStyles);
@@ -31,7 +33,10 @@
     });
 
     const opt = {
-      margin: [margin, margin],
+      margin: [
+        desiredMargin-cvContainerPadding, 
+        desiredMargin-cvContainerPadding
+      ],
       filename: "CV_Federico_Melo_Barrero.pdf",
       image: {
         type: "jpeg",

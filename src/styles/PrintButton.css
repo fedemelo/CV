@@ -50,8 +50,3 @@
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
-
-.print-button:disabled svg {
-  opacity: 0.3;
-  transition: opacity 0.2s ease;
-}
