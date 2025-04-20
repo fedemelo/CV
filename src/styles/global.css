@@ -5,10 +5,10 @@
   font-size: 16px;
   
   --font-base: 1rem;
-  --font-small: 0.875em;
-  --font-large: 1.25em;
-  --font-xl: 1.5em;
-  --font-xxl: 2em;
+  --font-small: 0.9em;
+  --font-large: 1.1em;
+  --font-xl: 1.2em;
+  --font-xxl: 1.5em;
 }
 
 .font-small {
