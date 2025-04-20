@@ -19,6 +19,9 @@
 
   import { WORK_EXPERIENCE } from './data/workExperience';
   import WorkExperience from './components/WorkExperience.svelte';
+
+  import { TEACHING } from './data/teaching';
+  import Teaching from './components/Teaching.svelte';
 </script>
 
 <main class="cv-container">
@@ -27,6 +30,7 @@
   <Education education={EDUCATION} />
   <Awards awards={AWARDS} />
   <WorkExperience workExperience={WORK_EXPERIENCE} />
+  <Teaching teaching={TEACHING} />
   <RelevantCoursework relevantCoursework={RELEVANT_COURSEWORK} />
   <Extracurricular extracurriculars={EXTRACURRICULARS} />
 </main>

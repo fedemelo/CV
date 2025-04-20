@@ -1,0 +1,28 @@
+
+.teaching-item {
+  margin-bottom: 1.2rem;
+}
+
+.institution {
+  font-weight: bold;
+}
+
+.position {
+  font-style: italic;
+}
+
+.supervisor {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+ul {
+  margin: 0.2rem 0;
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.2rem;
+  text-align: justify;
+  text-justify: inter-word;
+}

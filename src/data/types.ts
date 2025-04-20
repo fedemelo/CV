@@ -21,7 +21,6 @@ export interface Course extends Hideable {
   name: string;
   originalName?: string;
   code: string;
-  department?: string;
   credits?: number;
   description?: string;
   link?: string;
