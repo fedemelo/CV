@@ -23,11 +23,10 @@ h1::after {
 
 .contact-info {
   font-size: 0.9rem;
-  line-height: 1.4;
 }
 
 .contact-info p {
-  margin: 0.3rem 0;
+  margin: 0.1rem 0;
 }
 
 .contact-info a {

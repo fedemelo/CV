@@ -7,9 +7,11 @@
 
   import { EDUCATION } from './data/education';
   import Education from './components/Education.svelte';
-  
+
   import { AWARDS } from './data/awards';
   import Awards from './components/Awards.svelte';
+  import Extracurricular from './components/Extracurricular.svelte';
+  import { EXTRACURRICULARS } from './data/extracurricular';
 </script>
 
 <main class="cv-container">
@@ -17,4 +19,5 @@
   <ResearchInterests researchInterests={RESEARCH_INTERESTS} />
   <Education education={EDUCATION} />
   <Awards awards={AWARDS} />
+  <Extracurricular extracurriculars={EXTRACURRICULARS} />
 </main>

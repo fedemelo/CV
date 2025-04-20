@@ -2,22 +2,10 @@
   margin-bottom: 1.2rem;
 }
 
-p {
-  margin: 0;
-  padding: 0;
-  font-weight: normal;
-}
-
 .institution {
   font-weight: bold;
 }
 
 .honors {
   font-style: italic;
-}
-
-.indented-details {
-  direction: column;
-  align-items: center;
-  margin-left: 1rem;
 }
