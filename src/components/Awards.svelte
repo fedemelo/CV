@@ -9,7 +9,7 @@
     <div class="item">
       <div class="row">
         <p class="award-title">{award.title}</p>
-        <p class="small">{award.date}</p>
+        <p class="font-small">{award.date}</p>
       </div>
       <p>{award.description}</p>
     </div>

@@ -18,7 +18,7 @@
       </div>
       <div class="row">
         <p>{edu.degree}</p>
-        <p class="small">
+        <p class="font-small">
           {edu.startDate ? `${edu.startDate} - ` : ''}{edu.endDate}
         </p>
       </div>
@@ -29,11 +29,11 @@
       </div>
       <div class="indented-details">
         {#if edu.gpa}
-          <p class="small">GPA: {edu.gpa}</p>
+          <p class="font-small">GPA: {edu.gpa}</p>
         {/if}
         {#if edu.details?.length}
           {#each edu.details as detail}
-            <p class="small">{detail}</p>
+            <p class="font-small">{detail}</p>
           {/each}
         {/if}
       </div>

@@ -5,6 +5,6 @@
   export let workMode: WorkMode | undefined = undefined;
 </script>
 
-<p class="small">
+<p class="font-small">
   {location.city}{location.state ? `, ${location.state}` : ''}{location.country ? `, ${location.country}` : ''}{workMode && (workMode == 'remote' as WorkMode  ? ' (Remote)' : '')}
 </p>

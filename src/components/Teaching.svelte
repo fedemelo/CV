@@ -19,7 +19,7 @@
       </div>
       <div class="row">
         <p class="position">{getFullTeachingRoleName(teach.role)}{teach.course ? ` - ${teach.course.name}` : ''}</p>
-        <p class="small">
+        <p class="font-small">
           {#if teach.period}
             {teach.period}
           {:else}
@@ -36,7 +36,7 @@
         {#if teach.responsibilities?.length}
           <ul>
             {#each teach.responsibilities as responsibility}
-              <li class="small">{responsibility}</li>
+              <li class="font-small">{responsibility}</li>
             {/each}
           </ul>
         {/if}

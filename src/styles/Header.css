@@ -1,12 +1,10 @@
 header {
   text-align: center;
-  margin-block-start: 2rem;
-  margin-block-end: 1rem;
+  margin-block-start: 2em;
+  margin-block-end: 1em;
 }
 
 h1 {
-  font-size: 1.5rem;
-  font-weight: bold;
   padding-bottom: 0.5em;
   position: relative;
   text-align: center;
@@ -21,16 +19,6 @@ h1::after {
   border-bottom: #000 1.8px solid;
 }
 
-.contact-info {
-  width: fit-content;
-  margin: 0 auto;  /* Centers the container */
-}
-
-.contact-info p {
-  margin: 0.1rem 0;
-  text-align: center;
-}
-
 .contact-info a {
   color: #1b7627;
   text-decoration: none;
@@ -41,10 +29,9 @@ h1::after {
 
 .columns-container {
   display: flex;
-  gap: 5rem;
+  gap: 5em;
   justify-content: center;
 }
-
 .column {
   display: flex;
   flex-direction: column;
