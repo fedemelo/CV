@@ -10,10 +10,15 @@
 
   import { AWARDS } from './data/awards';
   import Awards from './components/Awards.svelte';
-  import Extracurricular from './components/Extracurricular.svelte';
+
   import { EXTRACURRICULARS } from './data/extracurricular';
-  import RelevantCoursework from './components/RelevantCoursework.svelte';
+  import Extracurricular from './components/Extracurricular.svelte';
+
   import { RELEVANT_COURSEWORK } from './data/relevantCoursework';
+  import RelevantCoursework from './components/RelevantCoursework.svelte';
+
+  import { WORK_EXPERIENCE } from './data/workExperience';
+  import WorkExperience from './components/WorkExperience.svelte';
 </script>
 
 <main class="cv-container">
@@ -21,6 +26,7 @@
   <ResearchInterests researchInterests={RESEARCH_INTERESTS} />
   <Education education={EDUCATION} />
   <Awards awards={AWARDS} />
+  <WorkExperience workExperience={WORK_EXPERIENCE} />
   <RelevantCoursework relevantCoursework={RELEVANT_COURSEWORK} />
   <Extracurricular extracurriculars={EXTRACURRICULARS} />
 </main>
