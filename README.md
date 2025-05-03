@@ -1,7 +1,7 @@
 # CV
-Federico Melo Barrero's curriculum vitae
+Federico Melo Barrero's curriculum vitae [in the web](https://fedemelo.github.io/CV/).
 
-Features a [web view](https://fedemelo.github.io/CV/) with PDF generation.
+If you're looking for my resume instead, you can find it [here](https://fedemelo.github.io/resume/).
 
 ## Tech Stack
 
