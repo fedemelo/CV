@@ -12,12 +12,12 @@
           Email: <a href={`mailto:${header.email}`}>{header.email}</a>
         </p>
         <p>
-          LinkedIn: <a href={header.linkedIn.url}>{header.linkedIn.label}</a>
+          LinkedIn: <a href={`https://linkedin.com/in/${header.linkedIn}`}>{header.linkedIn}</a>
         </p>
       </div>
       <div class="column">
-        <p>Webpage: <a href={header.webpage.url}>{header.webpage.label}</a></p>
-        <p>GitHub: <a href={header.github.url}>{header.github.label}</a></p>
+        <p>Webpage: <a href={`https://${header.webpage}/`}>{header.webpage}</a></p>
+        <p>GitHub: <a href={`https://github.com/${header.github}`}>{header.github}</a></p>
       </div>
     </div>
   </div>

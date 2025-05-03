@@ -1,33 +1,15 @@
 export interface Header {
   name: string;
   email: `${string}@${string}.${string}`;
-  webpage: {
-    url: `https://${string}`;
-    label: string;
-  };
-  linkedIn: {
-    url: `https://linkedin.com/in/${string}`;
-    label: string;
-  };
-  github: {
-    url: `https://github.com/${string}`;
-    label: string;
-  };
+  webpage: string;
+  linkedIn: string;
+  github: string;
 }
 
 export const HEADER: Header = {
   name: "Federico Melo Barrero",
   email: "f.melo@uniandes.edu.co",
-  webpage: {
-    url: "https://fedemelo.github.io/",
-    label: "fedemelo.github.io"
-  },
-  linkedIn: {
-    url: "https://linkedin.com/in/federico-melo",
-    label: "federico-melo"
-  },
-  github: {
-    url: "https://github.com/fedemelo",
-    label: "fedemelo"
-  }
+  webpage: "fedemelo.github.io",
+  linkedIn: "federico-melo",
+  github: "fedemelo",
 }
