@@ -79,8 +79,16 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       "Docker",
       "Firebase",
     ],
-    responsibilities: [""],  // TODO: Add responsibilities
-    achievements: [""], // TODO: Add achievements
+    responsibilities: [
+      "Designed and implemented el backend del Perfil del Estudiante mediante un REST API service using FastAPI to expose student data as resources. Dicho API acabó alimentando hasta 3 servicios distintos de la Universidad.",
+      "Implemented an independent React.js frontend module que permitía a profesores y administrativos filtrar a los estudiantes por prácticamente cualquier criterio, y acceder a su Perfil del Estudiante como un tablero de control interactivo con acceso controlado a informacion sensible", // TODO: Cómo hice esto eficientemente?
+      "Architected cross-VM communication for continuous data updates, ensuring data and code quality through tools like Docker, Nginx, Airflow, and SonarQube"
+    ],
+    achievements: [
+      "Los filtros de búsqueda de estudiantes y el Perfil del Estudiante permitieron a la Universidad dejar de contratar a una plataforma externa de gestión de estudiantes y consejería, representando un ahorro anual de 100M COP (USD 20K)",  // TODO: Verify money
+      "Las consejerias de la Universidad migraron completamente a la nueva plataforma",
+      "Co-inventé un sistema que reconoce patrones de riesgo personales o académicos en los estudiantes y lo alerta a los stakeholders correspondientes, permitiendo intervencion oportuna en casos críticos",
+    ],
     workMode: "onsite",
     employmentType: "contract",
     isCurrent: false,
