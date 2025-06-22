@@ -5,6 +5,8 @@ type EmploymentType = 'full-time' | 'part-time' | 'contract';
 
 export interface WorkExperience extends Location, Hideable {
   title: string;
+  team?: string;
+  squad?: string;
   company: string;
   startDate: MonthYear;
   endDate?: MonthYear;
@@ -21,6 +23,7 @@ export interface WorkExperience extends Location, Hideable {
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
     title: "Software Engineer",
+    team: "Parsing",
     company: "Canals AI",
     city: "Coral Gables",
     state: "FL",
@@ -60,6 +63,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
   {
     title: "Software Engineer",
     company: "Universidad de los Andes",
+    team: "Vice Dean's Office of Student Affairs",
     city: "Bogotá",
     country: "Colombia",
     startDate: "May, 2025",
@@ -85,6 +89,8 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
   {
     title: "Software Developer I",
     company: "Caseware International Inc.",
+    team: "Data Analytics",
+    squad: "Notebook Ninjas",
     city: "Toronto",
     state: "ON",
     country: "Canada",
