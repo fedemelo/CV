@@ -32,9 +32,7 @@ interface PdfGenerationConfig {
 
 const getCvElement = (): HTMLElement => {
   const element = document.querySelector(".cv-container");
-  if (!element) {
-    throw new Error("CV container not found");
-  }
+  if (!element) throw new Error("CV container not found");
   return element as HTMLElement;
 };
 
