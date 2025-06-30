@@ -22,7 +22,7 @@
       <div class="row">
         <p class="position">{getFullTeachingRoleName(teach.role)}{teach.course ? ` - ${teach.course.name}` : ''}</p>
         <p class="font-small">
-          {getPeriodFromDates(teach.startDate, teach.endDate)}
+          {getPeriodFromDates(teach.startDate, teach.endDate, teach.isCurrent)}
         </p>
       </div>
       {#if teach.supervisor}

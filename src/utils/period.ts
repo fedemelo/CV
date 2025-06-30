@@ -8,7 +8,10 @@ export function getPeriodFromDate(date: Date): Period {
   return `${period} ${year}`;
 }
 
-export function getPeriodFromDates(startDate: Date, endDate: Date): Period | `${Period} - ${Period}` {
+export function getPeriodFromDates(startDate: Date, endDate: Date, isCurrent: boolean): Period | `${Period} - ${Period}` {
+  if (isCurrent)
+    return getPeriodFromDate(startDate);
+
   if (startDate.getFullYear() !== endDate.getFullYear())
     return `${getPeriodFromDate(startDate)} - ${getPeriodFromDate(endDate)}`;
   
