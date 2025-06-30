@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { WorkMode } from "../data/workExperience";
-  import type { Location } from "../data/types";
+  import type { WorkMode } from "../../data/workExperience";
+  import type { Location } from "../../data/types";
   export let location: Location;
   export let workMode: WorkMode | undefined = undefined;
 </script>

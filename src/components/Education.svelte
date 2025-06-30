@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Education } from "../data/education";
   import { getYearRange } from "../utils/year";
-  import Location from "./Location.svelte";
+  import Location from "./generic/Location.svelte";
   export let education: Education[];
 </script>
 

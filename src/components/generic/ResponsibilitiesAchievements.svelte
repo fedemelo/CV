@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { WorkExperience } from "../data/workExperience";
-  import type { Teaching } from "../data/teaching";
+  import type { WorkExperience } from "../../data/workExperience";
+  import type { Teaching } from "../../data/teaching";
   export let experience: WorkExperience | Teaching;
 </script>
 
@@ -29,5 +29,5 @@
 </div>
 
 <style>
-  @import "../styles/ResponsibilitiesAchievements.css";
+  @import "../../styles/ResponsibilitiesAchievements.css";
 </style>

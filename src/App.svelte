@@ -24,7 +24,7 @@
   import Teaching from './components/Teaching.svelte';
   
   import PrintButton from './components/PrintButton.svelte';
-  import Footer from './components/Footer.svelte';
+  import Footer from './components/generic/Footer.svelte';
 </script>
 
 <main class="cv-container">

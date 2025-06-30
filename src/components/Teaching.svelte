@@ -1,8 +1,8 @@
 <script lang="ts">
   import { getFullTeachingRoleName, type Teaching } from "../data/teaching";
   import { getPeriodFromDates } from "../utils/period";
-  import Location from "./Location.svelte";
-  import ResponsibilitiesAchievements from "./ResponsibilitiesAchievements.svelte";
+  import Location from "./generic/Location.svelte";
+  import ResponsibilitiesAchievements from "./generic/ResponsibilitiesAchievements.svelte";
 
   export let teaching: Teaching[];
 </script>
