@@ -28,7 +28,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     city: "Coral Gables",
     state: "FL",
     country: "USA",
-    startDate: new Date("2024-12-09"),
+    startDate: new Date("2024-12-09T12:00:00-05:00"),
     description: "Engineer AI-powered systems to parse diverse order formats (emails, PDFs, spreadsheets, images, handwritten documents) from wholesale distributors into structured product data.",
     technologies: [
       "TypeScript",
@@ -63,8 +63,8 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
   {
     title: "Full-Stack Developer",
     team: "Vice Dean's Office of Student Affairs",
-    startDate: new Date("2024-02-15"),
-    endDate: new Date("2025-07-31"),
+    startDate: new Date("2024-02-15T12:00:00-05:00"),
+    endDate: new Date("2025-07-31T12:00:00-05:00"),
     description: "Built a full-stack comprehensive student data system for the Universidad de los Andes, which allowed the university to discontinue an external student counseling platform, saving approximately 100M COP ($20K USD) annually",  // TODO: Verify money
     technologies: [
       "Python",
@@ -104,8 +104,8 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     city: "Toronto",
     state: "ON",
     country: "Canada",
-    startDate: new Date("2024-01-15"),
-    endDate: new Date("2024-07-12"),
+    startDate: new Date("2024-01-15T12:00:00-05:00"),
+    endDate: new Date("2024-07-12T12:00:00-05:00"),
     description: "Software Developer I at the Notebook Ninjas squad on the Data Analytics team.",
     technologies: [
       "Python",
@@ -129,8 +129,8 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
   {
     title: "Backend Developer",
     team: "Engineering Dean's Office",
-    startDate: new Date("2023-08-21"),
-    endDate: new Date("2023-12-09"),
+    startDate: new Date("2023-08-21T12:00:00-05:00"),
+    endDate: new Date("2023-12-09T12:00:00-05:00"),
     description: "Backend developer on the Professors' Portfolio project, a web application for managing faculty academic and administrative information, under Prof. José Bocanegra, Ph.D.",
     technologies: [
       "Java",

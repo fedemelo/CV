@@ -14,12 +14,12 @@ export const AWARDS: Award[] = [
   {
     title: "Summa Cum Laude",
     description: `Summa Cum Laude is the highest undergraduate academic honor. Eligibility requires a cumulative GPA within the top 1% of graduates from the faculty over the past five years, and demonstrated integral merits in an interview before a commission appointed by the Academic Council.`,
-    date: new Date("2025-04-07"),
+    date: new Date("2025-04-07T12:00:00-05:00"),
   },
   {
     title: "Athletic Career Distinction",
     description: `The Athletic Career Distinction is awarded to a single student in the graduating class for exemplary leadership, commitment, and ethics in sports. Awarded citing 41 medals, including 24 gold medals, and two years as elected captain.`,
-    date: new Date("2025-04-07"),
+    date: new Date("2025-04-07T12:00:00-05:00"),
   },
   {
     title: "Ramón de Zubiría Awardee",
@@ -27,11 +27,11 @@ export const AWARDS: Award[] = [
     instances: [
       {
         description: `Cumulative GPA of 4.90 / 5.00 in Systems and Computing Engineering`,
-        date: new Date("2023-11-15"),
+        date: new Date("2023-11-15T12:00:00-05:00"),
       }, 
       {
         description: `Cumulative GPA of 4.91 / 5.00 in Systems and Computing Engineering`,
-        date: new Date("2024-11-13"),
+        date: new Date("2024-11-13T12:00:00-05:00"),
       }, 
     ],
   },
@@ -41,15 +41,15 @@ export const AWARDS: Award[] = [
     instances: [
       {
         description: `Semester GPA of 4.90 / 5.00 in Physics`,
-        date: new Date("2021-06-30"),
+        date: new Date("2021-06-30T12:00:00-05:00"),
       },
       {
         description: `Semester GPA of 4.86 / 5.00 in Physics`,
-        date: new Date("2021-11-30"),
+        date: new Date("2021-11-30T12:00:00-05:00"),
       },
       {
         description: `Semester GPA of 4.97 / 5.00 in Systems and Computing Engineering`,
-        date: new Date("2023-11-15"),
+        date: new Date("2023-11-15T12:00:00-05:00"),
       },
     ],
   },
