@@ -1,4 +1,4 @@
-import { getPeriodFromDates, getPeriodFromDate, type Period } from './period';
+import { getPeriodFromDate } from './period';
 
 export type YearRange = `${number} - ${number}`;
 
@@ -19,7 +19,6 @@ export function getYearRange(startDate: Date | undefined, endDate?: Date): `${nu
 }
 
 export function getYearSequence(dates: Date[]): string {
-  console.log(dates);
   if (dates.length === 1) return getYearRange(dates[0]);
 
   const groupedByYear = Object.groupBy(dates, date => date.getFullYear());
