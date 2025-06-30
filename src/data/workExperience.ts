@@ -2,7 +2,7 @@ import { UNIANDES } from "./constants";
 import type { Hideable, Location } from "./types";
 
 export type WorkMode = 'remote' | 'onsite' | 'hybrid';
-type EmploymentType = 'full-time' | 'part-time' | 'contract';
+type EmploymentType = 'full-time' | 'part-time' | 'contract' | 'internship';
 
 export interface WorkExperience extends Location, Hideable {
   title: string;
@@ -18,7 +18,6 @@ export interface WorkExperience extends Location, Hideable {
   workMode: WorkMode;
   employmentType: EmploymentType;
   isCurrent: boolean;
-  isInternship?: boolean;
 }
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
@@ -62,7 +61,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     isCurrent: true,
   },
   {
-    title: "Software Engineer",
+    title: "Full-Stack Developer",
     team: "Vice Dean's Office of Student Affairs",
     startDate: new Date("2024-02-15"),
     endDate: new Date("2025-07-31"),
@@ -124,8 +123,29 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       "Engage in the full software development lifecycle, including collaborating on SPIKEs and RFCs, managing Jira tickets, and participating in the implementation, testing, and review of pull requests"
     ],
     workMode: "remote",
-    employmentType: "full-time",
-    isInternship: true,
+    employmentType: "internship",
     isCurrent: false,
+  },
+  {
+    title: "Backend Developer",
+    team: "Engineering Dean's Office",
+    startDate: new Date("2023-08-21"),
+    endDate: new Date("2023-12-09"),
+    description: "Backend developer on the Professors' Portfolio project, a web application for managing faculty academic and administrative information, under Prof. José Bocanegra, Ph.D.",
+    technologies: [
+      "Java",
+      "Spring Boot",
+      "SQL",
+      "Oracle SQL Developer",
+    ],
+    responsibilities: [
+      "Engaged in design and documentation phases of the project's backend architecture",
+      "Implemented persistence, logic, and control layers using Java and Spring framework",
+      "Devised efficient methods for migrating large volumes of unstructured data into relational databases"
+    ],
+    workMode: "onsite",
+    employmentType: "contract",
+    isCurrent: false,
+    ...UNIANDES,
   }
 ]
