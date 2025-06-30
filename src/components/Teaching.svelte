@@ -1,5 +1,6 @@
 <script lang="ts">
   import { getFullTeachingRoleName, type Teaching } from "../data/teaching";
+  import { getPeriodFromDates } from "../utils/period";
   import Location from "./Location.svelte";
 
   export let teaching: Teaching[];
@@ -20,11 +21,7 @@
       <div class="row">
         <p class="position">{getFullTeachingRoleName(teach.role)}{teach.course ? ` - ${teach.course.name}` : ''}</p>
         <p class="font-small">
-          {#if teach.period}
-            {teach.period}
-          {:else}
-            {teach.startDate} - {teach.isCurrent ? 'Present' : teach.endDate}
-          {/if}
+          {getPeriodFromDates(teach.startDate, teach.endDate)}
         </p>
       </div>
       {#if teach.supervisor}

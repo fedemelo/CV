@@ -14,7 +14,7 @@ describe("getPeriodFromDates", () => {
     expect(result).toBe("Summer 2024");
   });
 
-  // CupiTaller
+  // CupiTaller, tutor
   it('should return "Spring 2022" for February 1 to June 4, 2022', () => {
     const result = getPeriodFromDates(
       new Date("2022-02-01T12:00:00-05:00"),
@@ -39,6 +39,14 @@ describe("getPeriodFromDates", () => {
       new Date("2021-05-29T12:00:00-05:00")
     );
     expect(result).toBe("Spring 2021");
+  });
+
+  // CupiTaller
+  it('should return "Fall 2022" for August 8, 2022', () => {
+    const result = getPeriodFromDate(
+      new Date("2022-08-08T12:00:00-05:00"),
+    );
+    expect(result).toBe("Fall 2022");
   });
 
   // Spring 2021 Excellence Award
