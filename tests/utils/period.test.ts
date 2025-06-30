@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { getPeriodFromDates } from "../../src/utils/period";
+import { getPeriodFromDate, getPeriodFromDates } from "../../src/utils/period";
 
 describe("getPeriodFromDates", () => {
   // Tests only real dates for now, as I do not intend to check that the
@@ -40,4 +40,21 @@ describe("getPeriodFromDates", () => {
     );
     expect(result).toBe("Spring 2021");
   });
+
+  // Spring 2021 Excellence Award
+  it('should return "Spring 2021" for June 30, 2021', () => {
+    const result = getPeriodFromDate(
+      new Date("2021-06-30"),
+    );
+    expect(result).toBe("Spring 2021");
+  });
+
+  // Fall 2021 Excellence Award
+  it('should return "Fall 2021" for November 30, 2021', () => {
+    const result = getPeriodFromDate(
+      new Date("2021-11-30"),
+    );
+    expect(result).toBe("Fall 2021");
+  });
+  
 });
