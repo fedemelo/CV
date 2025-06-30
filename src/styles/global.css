@@ -45,6 +45,7 @@ h2 {
   direction: column;
   align-items: center;
   margin-left: var(--font-base);
+  padding-top: 0 !important;
 }
 
 p {
