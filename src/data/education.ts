@@ -5,8 +5,8 @@ export interface Education extends Location, Hideable {
   degree: string;
   organization: string;
   startDate?: Date;
-  graduationDate?: Date;
-  trueEndDate?: Date;  // Kept for historical reasons
+  graduationDate?: Date;  // Kept for historical reasons
+  trueEndDate?: Date;  // Actual date used for the year range
   honors?: string;
   gpa?: `${string}.${string}/${string}.${string}`;
   details?: string[];
@@ -22,8 +22,8 @@ export const EDUCATION: Education[] = [
     trueEndDate: new Date("2024-12-08"),  // Sunday, last day to turn in deliverables
     gpa: "4.92/5.00",
     details: [
-      "Best cumulative GPA in the Systems and Computing Engineering program in the XXI century",
       "Highest cumulative GPA in the Faculty of Engineering in the last 17 years",
+      "Best cumulative GPA in the Systems and Computing Engineering program in the XXI century",
     ],
   },
   {
