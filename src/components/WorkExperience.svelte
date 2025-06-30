@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { WorkExperience } from "../data/workExperience";
+  import { getYearRange } from "../utils/year";
   import Location from "./Location.svelte";
   export let workExperience: WorkExperience[];
 </script>
@@ -15,14 +16,14 @@
       <div class="row">
         <p class="position">{work.title}</p>
         <p class="font-small">
-          {work.startDate} - {work.isCurrent ? 'Present' : work.endDate}
+          {getYearRange(work.startDate, work.endDate, work.isCurrent)}
         </p>
       </div>
       <div class="indented-details">
         <p>{work.description}</p>
         
         {#if work.responsibilities?.length}
-          <p class="section-title">Key Responsibilities:</p>
+          <p class="section-title">Responsibilities:</p>
           <ul>
             {#each work.responsibilities as responsibility}
               <li class="font-small">{responsibility}</li>
@@ -39,10 +40,11 @@
           </ul>
         {/if}
 
-        {#if work.technologies?.length}
+        <!-- Decided not to show technologies for now -->
+        <!-- {#if work.technologies?.length}
           <p class="section-title">Technologies:</p>
           <p class="small technologies">{work.technologies.join(' • ')}</p>
-        {/if}
+        {/if} -->
       </div>
     </div>
   {/each}
