@@ -8,12 +8,13 @@
   <h2>Awards and Honors</h2>
   {#each awards as award}
     <div class="margin-bottom">
+      <p class="award-title">{award.title}</p>
       <div class="row">
-        <p class="award-title">{award.title}</p>
+        <p class="font-small">{award.organization}</p>
         {#if award.date}
-          <p class="font-small">{getYearRange(award.date)}</p>
+          <p>{getYearRange(award.date)}</p>
         {:else if award.instances}
-          <p class="font-small">{getYearSequence(award.instances.map((instance) => instance.date))}</p>
+          <p>{getYearSequence(award.instances.map((instance) => instance.date))}</p>
         {/if}
       </div>
       <p>{award.description}</p>
