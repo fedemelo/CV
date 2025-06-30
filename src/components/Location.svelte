@@ -6,7 +6,9 @@
 </script>
 
 <p class="font-small">
-  {location.city}{location.state ? `, ${location.state}` : ''}
-  {location.country ? `, ${location.country}` : ''}
-  {workMode ? (workMode == 'remote' ? ' (Remote)' : '') : ''}
+  {[location.city,
+    location.state,
+    location.country,
+    ].filter(Boolean).join(', ')}
+  {workMode && workMode == 'remote' ? ' (Remote)' : ''}
 </p>
