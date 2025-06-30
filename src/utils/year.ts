@@ -1,8 +1,12 @@
 import { getPeriodFromDate } from './period';
 
-export type YearRange = `${number} - ${number}`;
+export type YearRange = `${number} - ${number}` | `${number} - Present`;
 
-export function getYearRange(startDate: Date | undefined, endDate?: Date): `${number}` | YearRange {
+export function getYearRange(
+  startDate: Date | undefined,
+   endDate?: Date, 
+   isCurrent?: boolean
+): `${number}` | YearRange {
   if (!startDate && !endDate)
     throw new Error("No dates provided");
   
@@ -10,7 +14,7 @@ export function getYearRange(startDate: Date | undefined, endDate?: Date): `${nu
     return `${endDate.getFullYear()}`;
 
   if (!endDate)
-    return `${startDate.getFullYear()}`;
+    return isCurrent ? `${startDate.getFullYear()} - Present` : `${startDate.getFullYear()}`;
 
   if (startDate.getFullYear() === endDate.getFullYear())
     return `${startDate.getFullYear()}`;
