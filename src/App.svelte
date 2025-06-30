@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { HEADER } from './data/header';
-  import Header from './components/Header.svelte';
+  import { PERSONAL_INFO } from './data/personalInfo';
+  import PersonalInfo from './components/PersonalInfo.svelte';
 
   import { RESEARCH_INTERESTS } from './data/researchInterests';
   import ResearchInterests from './components/ResearchInterests.svelte';
@@ -28,7 +28,7 @@
 </script>
 
 <main class="cv-container">
-  <Header header={HEADER} />
+  <PersonalInfo personalInfo={PERSONAL_INFO} />
   <ResearchInterests researchInterests={RESEARCH_INTERESTS} />
   <Education education={EDUCATION} />
   <Awards awards={AWARDS} />
