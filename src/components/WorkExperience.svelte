@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { WorkExperience, WorkMode } from "../data/workExperience";
+  import type { WorkExperience } from "../data/workExperience";
   import Location from "./Location.svelte";
   export let workExperience: WorkExperience[];
 </script>
@@ -9,11 +9,11 @@
   {#each workExperience.filter((work) => !work.isHidden) as work}
     <div class="work-item">
       <div class="row">
-        <p class="company">{work.company}</p>
+        <p class="company">{work.organization}</p>
         <Location location={{ city: work.city, state: work.state, country: work.country }} workMode={work.workMode} />
       </div>
       <div class="row">
-        <p class="position">{work.title}{work.isInternship ? ' (internship)' : ''}</p>
+        <p class="position">{work.title}</p>
         <p class="font-small">
           {work.startDate} - {work.isCurrent ? 'Present' : work.endDate}
         </p>

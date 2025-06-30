@@ -6,5 +6,5 @@
 </script>
 
 <p class="font-small">
-  {location.city}{location.state ? `, ${location.state}` : ''}{location.country ? `, ${location.country}` : ''}{workMode && (workMode == 'remote' as WorkMode  ? ' (Remote)' : '')}
+  {location.city}{location.state ? `, ${location.state}` : ''}{location.country ? `, ${location.country}` : ''}{workMode && (workMode == 'remote' ? ' (Remote)' : '')}
 </p>

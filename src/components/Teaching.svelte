@@ -10,7 +10,7 @@
   {#each teaching.filter((teach) => !teach.isHidden) as teach}
     <div class="margin-bottom">
       <div class="row">
-        <p class="institution">{teach.institution}</p>
+        <p class="institution">{teach.organization}</p>
         <Location location={{
           city: teach.city,
           state: teach.state,
