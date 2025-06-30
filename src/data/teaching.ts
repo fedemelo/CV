@@ -1,15 +1,17 @@
-import type { Location, Course, Period, Hideable, MonthYear } from "./types";
+import { UNIANDES } from "./constants";
+import type { Location, Course, Period, Hideable } from "./types";
 
 // UTA = Undergraduate Teaching Assistant;
 // URTA = Undergraduate Research Teaching Assistant;
-type TeachingRole = "UTA" | "URTA" | "Tutor" | "Grader";
+type TeachingRole = "UTA" | "URTA" | "Tutor" | "Grader" | "Lecturer";
 
 export function getFullTeachingRoleName(role: Teaching['role']): string {
   const roleNames = {
     'UTA': 'Undergraduate Teaching Assistant',
     'URTA': 'Undergraduate Research Teaching Assistant',
     'Tutor': 'Tutor',
-    'Grader': 'Grader'
+    'Grader': 'Grader',
+    'Lecturer': 'Lecturer'
   };
   return roleNames[role];
 }
@@ -18,43 +20,61 @@ export interface Teaching extends Location, Hideable {
   role: TeachingRole;
   course?: Course;
   department?: string;
-  institution: string;
+  organization: string;
+
+  description?: string;
 
   period?: Period;
-  startDate?: MonthYear;
-  endDate?: MonthYear;
+  startDate?: Date;  // Dates are registered merely for historical reasons
+  endDate?: Date;
 
   supervisor?: string;
-  responsibilities: string[];
+  responsibilities?: string[];
+  achievements?: string[];
   isCurrent?: boolean;
 }
 
 export const TEACHING: Teaching[] = [
   {
-    role: "URTA",
+    role: "Lecturer",
     course: {
-      name: "CupiTaller (university's programming support center)",
-      originalName: "CupiTaller",
-      code: "VICE-3001",
+      name: "Introduction to Programming",
+      originalName: "Introducción a la Programación",
+      code: "ISIS-1221",
     },
     department: "Systems and Computing Engineering",
-    institution: "University of the Andes",
-    startDate: "Aug, 2022",
-    endDate: "Dec, 2024",
+    period: "Spring 2025",
+    isCurrent: true,
+    isHidden: true,  // Soon enough!
+    ...UNIANDES,
+  },
+  {
+    role: "URTA",
+    course: {
+      name: "CupiTaller",
+      originalName: "CupiTaller",
+      code: "VICE-3001",
+      credits: 6,
+    },
+    department: "Systems and Computing Engineering",
+    startDate: new Date("2022-08-08"),
+    endDate: new Date("2024-12-07"),
     supervisor: "Prof. Eduardo Rosales, Ph.D.",
+    description: "Collaborated in a 7-person team under Prof. Eduardo Rosales, Ph.D., to manage the university's programming support center",
     responsibilities: [
-      "Designed and co-built CupiHorarios, a scheduling web app (FastAPI, React.js) using Pyomo to generate optimal schedules for the 7-person team to have full coverage of the help center's operational hours",
-      "Led the design, development, and maintenance of CupiFeedback, a performance feedback web app (FastAPI, React.js) for tutors based on student surveys",
-      "Collaborated in the design and development of CupiMonitores, a web app (NestJS, Next.js) for university-wide TA grading and management",
       "Conducted tutor candidate interviews",
-      "Created programming problem sets and automated solution verification for Senecode, the University's coding problems website",
+      "Created programming problem sets and automated solution verification",  // Senecode
       "Maintained a TypeScript-based Discord bot to automatize remote tutoring tracking",
       "Managed schedules for ~40 tutors and ~70 TAs, overseeing a system that enabled 1500+ students to book sessions",
-      "Managed the “Programming in Python” and “Introduction to Object Oriented Programming in Java” courses, offered publicly by the University of the Andes on Coursera",
+      "Oversaw the university's Coursera courses “Programming in Python” and “Introduction to Object Oriented Programming in Java”",
     ],
-    isCurrent: true,
-    city: "Bogotá",
-    country: "Colombia",
+    achievements: [
+      "Designed and co-built CupiHorarios, a scheduling web app (FastAPI, Pyomo, React) to generate optimal schedules ensuring full coverage during operational hours",
+      "Co-designed and co-built CupiFeedback, a performance feedback web app (FastAPI, React) based on student surveys",
+      "Co-designed CupiMonitores, a web app for university-wide TA grading and management",
+    ],
+    isCurrent: false,
+    ...UNIANDES,
   },
   {
     role: "UTA",
@@ -65,17 +85,13 @@ export const TEACHING: Teaching[] = [
       credits: 3,
     },
     department: "Mathematics",
-    institution: "University of the Andes",
     period: "Summer 2024",
+    startDate: new Date("2024-06-04"),
+    endDate: new Date("2024-07-26"),
     supervisor: "Prof. Jacinto Puig, Ph.D.",
-    responsibilities: [
-      "Designed, corrected, and graded vector calculus problem sets",
-      "Held weekly office hours to assist students with course material and address questions",
-      "Organized comprehensive pre-exam review sessions, emphasizing clarity on key concepts",
-    ],
+    description: "Designed and graded problem sets, and held weekly office hours under Professor Jacinto Puig, Ph.D.",
     isCurrent: false,
-    city: "Bogotá",
-    country: "Colombia",
+    ...UNIANDES,
   },
   {
     role: "Tutor",
@@ -85,15 +101,12 @@ export const TEACHING: Teaching[] = [
       code: "ISIS-1211",
     },
     department: "Systems and Computing Engineering",
-    institution: "University of the Andes",
     period: "Spring 2022",
-    responsibilities: [
-      "Conducted daily Python tutoring sessions",
-      "Assisted more than 100 students in understanding programming concepts",
-    ],
+    startDate: new Date("2022-02-01"),
+    endDate: new Date("2022-06-04"),
+    description: "Conducted daily Python tutoring sessions assisting ~100 students at the university's programming support center",
     isCurrent: false,
-    city: "Bogotá",
-    country: "Colombia",
+    ...UNIANDES,
   },
   {
     role: "UTA",
@@ -104,19 +117,16 @@ export const TEACHING: Teaching[] = [
       credits: 3,
     },
     department: "Systems and Computing Engineering",
-    institution: "University of the Andes",
     period: "Spring 2021",
+    startDate: new Date("2021-02-01"),
+    endDate: new Date("2021-06-05"),
     supervisor: "Prof. Diego Salinas",
-    responsibilities: [
-      "Provided support to the professor during programming teaching laboratories, assisting ~40 students",
-      "Corrected and graded basic programming projects",
-    ],
+    description: "Assisted ~40 students during Python programming laboratories and graded programming projects",
     isCurrent: false,
-    city: "Bogotá",
-    country: "Colombia",
+    ...UNIANDES,
   },
   {
-    role: "Grader",
+    role: "UTA",
     course: {
       name: "Differential Calculus",
       originalName: "Cálculo Diferencial",
@@ -124,14 +134,12 @@ export const TEACHING: Teaching[] = [
       credits: 3,
     },
     department: "Mathematics",
-    institution: "University of the Andes",
     period: "Spring 2021",
+    startDate: new Date("2021-01-25"),
+    endDate: new Date("2021-05-29"),
     supervisor: "Prof. Alexander Murcia, Ph.D.",
-    responsibilities: [
-      "Corrected and graded differential calculus worksheets and assessments",
-    ],
+    description: "Graded calculus worksheets",
     isCurrent: false,
-    city: "Bogotá",
-    country: "Colombia",
+    ...UNIANDES,
   },
 ];
