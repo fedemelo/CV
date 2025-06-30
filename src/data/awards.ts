@@ -3,10 +3,10 @@ import type { Period } from "../utils/period";
 export interface Award {
   title: string;
   description: string;
-  date?: Date | number | Period;  // Use if obtained once
+  date?: Date;  // Use if obtained once
   instances?: {
     description: string;
-    date: Date | number | Period;
+    date: Date;
   }[];
 }
 
