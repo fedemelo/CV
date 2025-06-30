@@ -88,7 +88,7 @@ export const TEACHING: Teaching[] = [
     startDate: new Date("2024-06-04T12:00:00-05:00"),
     endDate: new Date("2024-07-26T12:00:00-05:00"),
     supervisor: "Prof. Jacinto Puig, Ph.D.",
-    description: "Designed and graded problem sets, and held weekly office hours under Professor Jacinto Puig, Ph.D.",
+    description: "Designed and graded problem sets, and held weekly office hours",
     isCurrent: false,
     ...UNIANDES,
   },
