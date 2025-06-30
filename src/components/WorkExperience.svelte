@@ -2,6 +2,7 @@
   import type { WorkExperience } from "../data/workExperience";
   import { getYearRange } from "../utils/year";
   import Location from "./Location.svelte";
+  import ResponsibilitiesAchievements from "./ResponsibilitiesAchievements.svelte";
   export let workExperience: WorkExperience[];
 </script>
 
@@ -19,33 +20,12 @@
           {getYearRange(work.startDate, work.endDate, work.isCurrent)}
         </p>
       </div>
-      <div class="indented-details">
-        <p>{work.description}</p>
-        
-        {#if work.responsibilities?.length}
-          <p class="section-title">Responsibilities:</p>
-          <ul>
-            {#each work.responsibilities as responsibility}
-              <li class="font-small">{responsibility}</li>
-            {/each}
-          </ul>
-        {/if}
-
-        {#if work.achievements?.length}
-          <p class="section-title">Achievements:</p>
-          <ul>
-            {#each work.achievements as achievement}
-              <li class="font-small">{achievement}</li>
-            {/each}
-          </ul>
-        {/if}
-
-        <!-- Decided not to show technologies for now -->
-        <!-- {#if work.technologies?.length}
-          <p class="section-title">Technologies:</p>
-          <p class="small technologies">{work.technologies.join(' • ')}</p>
-        {/if} -->
-      </div>
+      <ResponsibilitiesAchievements experience={work} />
+      <!-- Decided not to show technologies for now -->
+      <!-- {#if work.technologies?.length}
+        <p class="section-title">Technologies:</p>
+        <p class="small technologies">{work.technologies.join(' • ')}</p>
+      {/if} -->
     </div>
   {/each}
 </section>

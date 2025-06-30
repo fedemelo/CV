@@ -2,6 +2,7 @@
   import { getFullTeachingRoleName, type Teaching } from "../data/teaching";
   import { getPeriodFromDates } from "../utils/period";
   import Location from "./Location.svelte";
+  import ResponsibilitiesAchievements from "./ResponsibilitiesAchievements.svelte";
 
   export let teaching: Teaching[];
 </script>
@@ -29,15 +30,7 @@
           <p class="supervisor font-small">Supervisor: {teach.supervisor}</p>
         </div>
       {/if}
-      <div class="indented-details">
-        {#if teach.responsibilities?.length}
-          <ul>
-            {#each teach.responsibilities as responsibility}
-              <li class="font-small">{responsibility}</li>
-            {/each}
-          </ul>
-        {/if}
-      </div>
+      <ResponsibilitiesAchievements experience={teach} />
     </div>
   {/each}
 </section>
