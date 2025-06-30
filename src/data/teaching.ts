@@ -1,5 +1,5 @@
 import { UNIANDES } from "./constants";
-import type { Location, Course, Period, Hideable } from "./types";
+import type { Location, Course, Hideable } from "./types";
 
 // UTA = Undergraduate Teaching Assistant;
 // URTA = Undergraduate Research Teaching Assistant;
@@ -24,7 +24,6 @@ export interface Teaching extends Location, Hideable {
 
   description?: string;
 
-  period?: Period;
   startDate?: Date;  // Dates are registered merely for historical reasons
   endDate?: Date;
 
@@ -43,7 +42,8 @@ export const TEACHING: Teaching[] = [
       code: "ISIS-1221",
     },
     department: "Systems and Computing Engineering",
-    period: "Spring 2025",
+    // startDate: 
+    // endDate: 
     isCurrent: true,
     isHidden: true,  // Soon enough!
     ...UNIANDES,
@@ -85,7 +85,6 @@ export const TEACHING: Teaching[] = [
       credits: 3,
     },
     department: "Mathematics",
-    period: "Summer 2024",
     startDate: new Date("2024-06-04"),
     endDate: new Date("2024-07-26"),
     supervisor: "Prof. Jacinto Puig, Ph.D.",
@@ -101,7 +100,6 @@ export const TEACHING: Teaching[] = [
       code: "ISIS-1211",
     },
     department: "Systems and Computing Engineering",
-    period: "Spring 2022",
     startDate: new Date("2022-02-01"),
     endDate: new Date("2022-06-04"),
     description: "Conducted daily Python tutoring sessions assisting ~100 students at the university's programming support center",
@@ -117,7 +115,6 @@ export const TEACHING: Teaching[] = [
       credits: 3,
     },
     department: "Systems and Computing Engineering",
-    period: "Spring 2021",
     startDate: new Date("2021-02-01"),
     endDate: new Date("2021-06-05"),
     supervisor: "Prof. Diego Salinas",
@@ -134,7 +131,6 @@ export const TEACHING: Teaching[] = [
       credits: 3,
     },
     department: "Mathematics",
-    period: "Spring 2021",
     startDate: new Date("2021-01-25"),
     endDate: new Date("2021-05-29"),
     supervisor: "Prof. Alexander Murcia, Ph.D.",

@@ -1,4 +1,3 @@
-export type Period = `${'Summer' | 'Fall' | 'Spring'} 20${number}`
 
 export interface Course extends Hideable {
   name: string;
