@@ -13,21 +13,15 @@ export const EXTRACURRICULARS: Extracurricular[] = [
     events: [
       {
         title:
-          "8 National Swimming Championships & 4-time Bogotá City Team member",
-        startYear: 2016,
-        endYears: 2019,
-      },
-      {
-        title:
-          "Swimming Team member at the University of the Andes, earning 41 medals, 24 gold",
+          "Universidad de los Andes Swimming Team member, earning 41 medals (24 gold) and serving as Captain for two years",
         startYear: 2020,
         endYears: 2024,
       },
       {
         title:
-          "Democratically elected Captain of the Swimming Team for two consecutive years",
-        startYear: 2022,
-        endYears: 2024,
+          "8 National Swimming Championships & 4-time Bogotá City Team member",
+        startYear: 2016,
+        endYears: 2019,
       },
     ],
   },
