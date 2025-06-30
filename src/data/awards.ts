@@ -21,7 +21,7 @@ export const AWARDS: Award[] = [
   },
   {
     title: "Athletic Career Distinction",
-    description: `The Athletic Career Distinction is awarded to a single student in the graduating class for exemplary leadership, commitment, and ethics in sports. Awarded citing 41 medals, including 24 gold medals, and two years as elected captain.`,
+    description: `The Athletic Career Distinction is awarded to a single student in the graduating class for exemplary leadership, commitment, and ethics in sports. Awarded citing 41 swimming medals, including 24 gold, and two years as elected team captain.`,
     date: new Date("2025-04-07T12:00:00-05:00"),
     ...UNIANDES,
   },
