@@ -1,4 +1,5 @@
-import type { Hideable, Location, MonthYear } from "./types";
+import { UNIANDES } from "./constants";
+import type { Hideable, Location } from "./types";
 
 export type WorkMode = 'remote' | 'onsite' | 'hybrid';
 type EmploymentType = 'full-time' | 'part-time' | 'contract';
@@ -7,9 +8,9 @@ export interface WorkExperience extends Location, Hideable {
   title: string;
   team?: string;
   squad?: string;
-  company: string;
-  startDate: MonthYear;
-  endDate?: MonthYear;
+  organization: string;
+  startDate: Date;
+  endDate?: Date;
   description: string;
   technologies: string[];
   responsibilities: string[];
@@ -24,20 +25,20 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
   {
     title: "Software Engineer",
     team: "Parsing",
-    company: "Canals AI",
+    organization: "Canals AI",
     city: "Coral Gables",
     state: "FL",
     country: "USA",
-    startDate: "Dec, 2024",
-    description: "Build AI-powered systems to parse diverse order formats (emails, PDFs, spreadsheets, images, handwritten documents) from wholesale distributors into structured product data.",
+    startDate: new Date("2024-12-09"),
+    description: "Engineer AI-powered systems to parse diverse order formats (emails, PDFs, spreadsheets, images, handwritten documents) from wholesale distributors into structured product data.",
     technologies: [
       "TypeScript",
       "Fastify",
       "Svelte",
       "AWS (RDS, ECS)",
       "Redis",
+      "SQL",
       "PostgreSQL",
-      "Docker",
       "Anthropic",
       "OpenAI"
     ],
@@ -62,48 +63,50 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
   },
   {
     title: "Software Engineer",
-    company: "Universidad de los Andes",
     team: "Vice Dean's Office of Student Affairs",
-    city: "Bogotá",
-    country: "Colombia",
-    startDate: "May, 2025",
-    endDate: "Jul, 2025",
-    description: "Software Engineer at the Universidad de los Andes",
+    startDate: new Date("2024-02-15"),
+    endDate: new Date("2025-07-31"),
+    description: "Built a full-stack comprehensive student data system for the Universidad de los Andes, which allowed the university to discontinue an external student counseling platform, saving approximately 100M COP ($20K USD) annually",  // TODO: Verify money
     technologies: [
       "Python",
+      "Polars",
       "FastAPI",
       "TypeScript",
-      "React",
+      "React (MUI)",
+      "SQL",
       "PostgreSQL",
       "Coolify",
       "Docker",
       "Firebase",
     ],
     responsibilities: [
-      "Designed and implemented el backend del Perfil del Estudiante mediante un REST API service using FastAPI to expose student data as resources. Dicho API acabó alimentando hasta 3 servicios distintos de la Universidad.",
-      "Implemented an independent React.js frontend module que permitía a profesores y administrativos filtrar a los estudiantes por prácticamente cualquier criterio, y acceder a su Perfil del Estudiante como un tablero de control interactivo con acceso controlado a informacion sensible", // TODO: Cómo hice esto eficientemente?
-      "Architected cross-VM communication for continuous data updates, ensuring data and code quality through tools like Docker, Nginx, Airflow, and SonarQube"
+      "Design and build from scratch a backend system (Python, Polars, FastAPI) to process and expose comprehensive student data through REST API endpoints",
+      "Extend a web application (TypeScript, React, MUI) with an independent module that allows for advanced filtering capabilities, role-based access controls for faculty and administrative staff, and the Student Profile—a suite of interactive dashboards displaying comprehensive student data that allowed for data-driven decision-making",
+      "Architect and manage cross-VM communication systems for real-time data synchronization and system integration",
+      "Ensure code quality and system reliability through containerization, continuous integration, and monitoring tools",
+      "Design and co-implemented a comprehensive risk detection system that identifies academic and personal risk patterns in students and alerts relevant stakeholders for timely intervention"
     ],
     achievements: [
-      "Los filtros de búsqueda de estudiantes y el Perfil del Estudiante permitieron a la Universidad dejar de contratar a una plataforma externa de gestión de estudiantes y consejería, representando un ahorro anual de 100M COP (USD 20K)",  // TODO: Verify money
-      "Las consejerias de la Universidad migraron completamente a la nueva plataforma",
-      "Co-inventé un sistema que reconoce patrones de riesgo personales o académicos en los estudiantes y lo alerta a los stakeholders correspondientes, permitiendo intervencion oportuna en casos críticos",
+      "The backend system ultimately fed 3 distinct university services through a unified REST API",
+      "The advanced student search and filtering system enabled the university to discontinue an external student counseling platform, saving approximately 100M COP ($20K USD) annually",  // TODO: Verify money
+      "Co-implemented a risk detection system that identified imminent academic and personal risk patterns in students. It successfully alerted relevant stakeholders on 1000+ critical cases" // TODO: Verify numbers
     ],
     workMode: "onsite",
     employmentType: "contract",
     isCurrent: false,
     isHidden: true,
+    ...UNIANDES,
   },
   {
     title: "Software Developer I",
-    company: "Caseware International Inc.",
+    organization: "Caseware International Inc.",
     team: "Data Analytics",
     squad: "Notebook Ninjas",
     city: "Toronto",
     state: "ON",
     country: "Canada",
-    startDate: "Jan, 2024",
-    endDate: "Jul, 2024",
+    startDate: new Date("2024-01-15"),
+    endDate: new Date("2024-07-12"),
     description: "Software Developer I at the Notebook Ninjas squad on the Data Analytics team.",
     technologies: [
       "Python",
