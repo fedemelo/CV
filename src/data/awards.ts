@@ -1,48 +1,56 @@
-import type { MonthYear, Period } from "./types";
+import type { Period } from "../utils/period";
 
 export interface Award {
   title: string;
   description: string;
-  date: MonthYear | number | Period;
+  date?: Date | number | Period;  // Use if obtained once
+  instances?: {
+    description: string;
+    date: Date | number | Period;
+  }[];
 }
 
 export const AWARDS: Award[] = [
   {
     title: "Summa Cum Laude",
-    description: `Graduated with the highest honors, Summa Cum Laude, from the University of the Andes, recognizing exceptional academic performance and holistic merits.
-
-    Eligibility requires a cumulative GPA within the top 1% of graduates from the Engineering School over the past five years, and demonstrated comprehensive merits in an interview before a commission appointed by the Academic Council. Achieved a cumulative GPA of 4.92/5.00 in Systems and Computing Engineering, the highest in the evaluation period.
-    `,
-    date: "Apr, 2025"
+    description: `Summa Cum Laude is the highest undergraduate academic honor. Eligibility requires a cumulative GPA within the top 1% of graduates from the faculty over the past five years, and demonstrated integral merits in an interview before a commission appointed by the Academic Council.`,
+    date: new Date("2025-04-07"),
   },
   {
     title: "Athletic Career Distinction",
-    description: `Graduated with the Athletic Career Distinction ("Distinción a la Trayectoria Deportiva") from the University of the Andes, awarded for exemplary leadership, commitment, and ethics in sports. Achieved 41 medals, including 24 golds, and served as elected captain for two consecutive years.`,
-    date: "Apr, 2025"
+    description: `The Athletic Career Distinction is awarded to a single student in the graduating class for exemplary leadership, commitment, and ethics in sports. Awarded citing 41 medals, including 24 gold medals, and two years as elected captain.`,
+    date: new Date("2025-04-07"),
   },
   {
-    title: "Ramón de Zubiría Award",
-    description: `Honored with the Ramón de Zubiría Award ("Distinción Ramón de Zubiría") for academic excellence at the University of the Andes, awarded annually to the top undergraduate student with the highest cumulative GPA in their program, with a cumulative GPA of 4.91 / 5.00 in Systems and Computing Engineering.`,
-    date: 2024,
+    title: "Ramón de Zubiría Awardee",
+    description: `Recognition awarded annually to the undergraduate student with the highest cumulative GPA among all students in their major`,
+    instances: [
+      {
+        description: `Cumulative GPA of 4.90 / 5.00 in Systems and Computing Engineering`,
+        date: new Date("2023-11-15"),
+      }, 
+      {
+        description: `Cumulative GPA of 4.91 / 5.00 in Systems and Computing Engineering`,
+        date: new Date("2024-11-13"),
+      }, 
+    ],
   },
   {
-    title: "Ramón de Zubiría Award",
-    description: `Honored with the Ramón de Zubiría Award ("Distinción Ramón de Zubiría") for academic excellence at the University of the Andes, awarded annually to the top undergraduate student with the highest cumulative GPA in their program, with a cumulative GPA of 4.90 / 5.00 in Systems and Computing Engineering.`,
-    date: 2023,
+    title: "Semester Excellence Awardee",
+    description: `Recognition awarded to the student who achieved the highest semester GPA in their undergraduate program during the immediately preceding semester.`,
+    instances: [
+      {
+        description: `Semester GPA of 4.90 / 5.00 in Physics`,
+        date: new Date("2021-06-30"),
+      },
+      {
+        description: `Semester GPA of 4.86 / 5.00 in Physics`,
+        date: new Date("2021-11-30"),
+      },
+      {
+        description: `Semester GPA of 4.97 / 5.00 in Systems and Computing Engineering`,
+        date: new Date("2023-11-15"),
+      },
+    ],
   },
-  {
-    title: "Semester Excellence Award",
-    description: `Recipient of the Semester Excellence Award ("Distinción de Excelencia Semestral") for achieving the highest semester GPA in the Systems and Computing Engineering undergraduate program during the first semester of 2023 at the University of the Andes, with a semester GPA of 4.97 / 5.00.`,
-    date: "Spring 2023"
-  },
-  {
-    title: "Semester Excellence Award",
-    description: `Recipient of the Semester Excellence Award ("Distinción de Excelencia Semestral") for achieving the highest semester GPA in the Physics undergraduate program during the first semester of 2021 at the University of the Andes, with a semester GPA of 4.86 / 5.00.`,
-    date: "Spring 2021"
-  },
-  {
-    title: "Semester Excellence Award",
-    description: `Recipient of the Semester Excellence Award ("Distinción de Excelencia Semestral") for achieving the highest semester GPA in the Physics undergraduate program during the second semester of 2020 at the University of the Andes, with a semester GPA of 4.90 / 5.00.`,
-    date: "Fall 2020"
-  }
 ];
