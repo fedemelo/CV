@@ -20,7 +20,7 @@
       <div class="row">
         <p>{edu.degree}</p>
         <p class="font-small">
-          {getYearRange(edu.startDate, edu.trueEndDate)}
+          {getYearRange(edu.startDate, edu.trueEndDate ?? edu.graduationDate)}
         </p>
       </div>
       <div class="row">
