@@ -1,9 +1,4 @@
-import type { Course } from "./types";
-
-export interface RelevantCoursework {
-  area: string;
-  courses: Course[];
-}
+import type { Course, RelevantCoursework } from "../../api/schemas/index";
 
 export const RELEVANT_COURSEWORK: RelevantCoursework[] = [
   {
