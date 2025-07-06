@@ -17,7 +17,9 @@
           <p>{getYearSequence(award.instances.map((instance) => instance.date))}</p>
         {/if}
       </div>
-      <p>{award.description}</p>
+      <div class="indented-details">
+        <p>{award.description}</p>
+      </div>
     </div>
   {/each}
 </section>
