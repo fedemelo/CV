@@ -1,24 +1,7 @@
 import { UNIANDES } from "./constants";
-import type { Hideable, Location } from "./types";
+import type { WorkExperience, WorkMode, EmploymentType } from "../../api/schemas/index";
 
-export type WorkMode = 'remote' | 'onsite' | 'hybrid';
-type EmploymentType = 'full-time' | 'part-time' | 'contract' | 'internship';
-
-export interface WorkExperience extends Location, Hideable {
-  title: string;
-  team?: string;
-  squad?: string;
-  organization: string;
-  startDate: Date;
-  endDate?: Date;
-  description: string;
-  technologies: string[];
-  responsibilities: string[];
-  achievements?: string[];
-  workMode: WorkMode;
-  employmentType: EmploymentType;
-  isCurrent?: boolean;
-}
+export type { WorkMode, EmploymentType };
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
