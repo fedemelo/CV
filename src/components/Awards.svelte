@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Award } from "../data/awards";
+  import type { Award } from "../../api/schemas/index";
   import { getYearRange, getYearSequence } from "../utils/year";
   export let awards: Award[];
 </script>
