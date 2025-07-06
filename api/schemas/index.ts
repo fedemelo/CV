@@ -141,7 +141,6 @@ export const HealthCheckSchema = z.object({
   uptime: z.number(),
 });
 
-// Export types derived from schemas - these are now our single source of truth
 export type WorkExperience = z.infer<typeof WorkExperienceSchema>;
 export type Education = z.infer<typeof EducationSchema>;
 export type Language = z.infer<typeof LanguageSchema>;

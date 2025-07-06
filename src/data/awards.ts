@@ -1,16 +1,5 @@
 import { UNIANDES } from "./constants";
-import type { Location } from "./types";
-
-export interface Award extends Location {
-  title: string;
-  description: string;
-  organization: string;
-  date?: Date;  // Use if obtained once
-  instances?: {
-    description: string;
-    date: Date;
-  }[];
-}
+import type { Award } from "../../api/schemas/index";
 
 export const AWARDS: Award[] = [
   {
