@@ -1,7 +1,7 @@
 .coursework-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.9rem;
+  grid-template-columns: max-content max-content max-content;
+  gap: 2rem;
 }
 
 .area {
@@ -14,12 +14,14 @@ p {
 
 @media (max-width: 768px) {
   .coursework-container {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    grid-template-columns: max-content max-content;
+    gap: 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
   .coursework-container {
-    grid-template-columns: 1fr; /* 1 column on small screens */
+    grid-template-columns: max-content;
+    gap: 1rem;
   }
 }
