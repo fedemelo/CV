@@ -8,7 +8,7 @@
   <h2>Awards and Honors</h2>
   {#each awards as award}
     <div class="margin-bottom">
-      <p class="award-title">{award.title}</p>
+      <p style="font-weight: bold;">{award.title}</p>
       <div class="row">
         <p class="font-small">{award.organization}</p>
         {#if award.date}
@@ -21,7 +21,3 @@
     </div>
   {/each}
 </section>
-
-<style>
-  @import "../styles/Awards.css";
-</style>
