@@ -1,18 +1,4 @@
-import type { Hideable } from "./types";
-
-export interface Language {
-  name: string;
-  proficiency: string;
-  certifications?: Certification[];
-}
-
-interface Certification extends Hideable {
-  name: string;
-  id: string;
-  grade: `${number}/${number}`;
-  cefrLevel: "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
-  date: Date;
-}
+import type { Language } from "../../api/schemas/index";
 
 export const LANGUAGES: Language[] = [
   {
