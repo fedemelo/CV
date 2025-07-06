@@ -1,41 +1,9 @@
 import { UNIANDES } from "./constants";
-import type { Location, Course, Hideable } from "./types";
-
-// UTA = Undergraduate Teaching Assistant;
-// URTA = Undergraduate Research Teaching Assistant;
-type TeachingRole = "UTA" | "URTA" | "Tutor" | "Grader" | "Lecturer";
-
-export function getFullTeachingRoleName(role: Teaching['role']): string {
-  const roleNames = {
-    'UTA': 'Undergraduate Teaching Assistant',
-    'URTA': 'Undergraduate Research Teaching Assistant',
-    'Tutor': 'Tutor',
-    'Grader': 'Grader',
-    'Lecturer': 'Lecturer'
-  };
-  return roleNames[role];
-}
-
-export interface Teaching extends Location, Hideable {
-  role: TeachingRole;
-  course?: Course;
-  department?: string;
-  organization: string;
-
-  description?: string;
-
-  startDate: Date;
-  endDate?: Date;
-
-  supervisor?: string;
-  responsibilities?: string[];
-  achievements?: string[];
-  isCurrent?: boolean;
-}
+import type { Teaching } from "../../api/schemas/index";
 
 export const TEACHING: Teaching[] = [
   {
-    role: "Lecturer",
+    title: "Lecturer",
     course: {
       name: "Introduction to Programming",
       originalName: "Introducción a la Programación",
@@ -48,7 +16,7 @@ export const TEACHING: Teaching[] = [
     ...UNIANDES,
   },
   {
-    role: "URTA",
+    title: "Undergraduate Research Teaching Assistant",
     course: {
       name: "CupiTaller",
       originalName: "CupiTaller",
@@ -76,7 +44,7 @@ export const TEACHING: Teaching[] = [
     ...UNIANDES,
   },
   {
-    role: "UTA",
+    title: "Undergraduate Teaching Assistant",
     course: {
       name: "Vector Calculus",
       originalName: "Cálculo Vectorial",
@@ -92,7 +60,7 @@ export const TEACHING: Teaching[] = [
     ...UNIANDES,
   },
   {
-    role: "Tutor",
+    title: "Tutor",
     course: {
       name: "CupiTaller",
       originalName: "CupiTaller",
@@ -106,7 +74,7 @@ export const TEACHING: Teaching[] = [
     ...UNIANDES,
   },
   {
-    role: "UTA",
+    title: "Undergraduate Teaching Assistant",
     course: {
       name: "Introduction to Programming",
       originalName: "Introducción a la Programación",
@@ -122,7 +90,7 @@ export const TEACHING: Teaching[] = [
     ...UNIANDES,
   },
   {
-    role: "UTA",
+    title: "Undergraduate Teaching Assistant",
     course: {
       name: "Differential Calculus",
       originalName: "Cálculo Diferencial",
