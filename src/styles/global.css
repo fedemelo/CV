@@ -41,7 +41,7 @@ h2 {
   direction: column;
   align-items: center;
   margin-left: var(--font-base);
-  padding-top: 0 !important;
+  margin-top: 0.2rem;
 }
 
 p {
