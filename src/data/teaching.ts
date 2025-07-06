@@ -24,7 +24,7 @@ export interface Teaching extends Location, Hideable {
 
   description?: string;
 
-  startDate?: Date;  // Dates are registered merely for historical reasons
+  startDate: Date;
   endDate?: Date;
 
   supervisor?: string;
@@ -42,10 +42,9 @@ export const TEACHING: Teaching[] = [
       code: "ISIS-1221",
     },
     department: "Systems and Computing Engineering",
-    // startDate: 
-    // endDate: 
+    startDate: new Date("2025-08-04T12:00:00-05:00"),
+    description: "Taught the course to ~25 students",
     isCurrent: true,
-    isHidden: true,  // Soon enough!
     ...UNIANDES,
   },
   {
