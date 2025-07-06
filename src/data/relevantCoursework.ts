@@ -7,6 +7,40 @@ export interface RelevantCoursework {
 
 export const RELEVANT_COURSEWORK: RelevantCoursework[] = [
   {
+    area: "Computer Science",
+    courses: [
+      {
+        name: "Languages and Automata",
+        originalName: "Lenguajes y Máquinas",
+        code: "ISIS-1106",
+        credits: 3
+      },
+      {
+        name: "Reinforcement Learning",
+        code: "ISIS-4222",
+        credits: 4
+      },
+      {
+        name: "Modeling, Simulation and Optimization",
+        originalName: "Modelado, Simulación y Optimización",
+        code: "ISIS-3302",
+        credits: 3
+      },
+      {
+        name: "Algorithm Design and Analysis",
+        originalName: "Diseño y Análisis de Algoritmos",
+        code: "ISIS-1105",
+        credits: 3
+      },
+      {
+        name: "Data Structures and Algorithms",
+        originalName: "Estructuras de Datos y Algoritmos",
+        code: "ISIS-1225",
+        credits: 3
+      }
+    ]
+  },
+  {
     area: "Mathematics",
     courses: [
       {
@@ -49,40 +83,6 @@ export const RELEVANT_COURSEWORK: RelevantCoursework[] = [
         name: "Calculus I, II, III",
         originalName: "Cálculo Diferencial, Cálculo Integral y Cálculo Vectorial",
         code: "MATE-1203/1214/1207",
-        credits: 3
-      }
-    ]
-  },
-  {
-    area: "Computer Science",
-    courses: [
-      {
-        name: "Reinforcement Learning",
-        code: "ISIS-4222",
-        credits: 4
-      },
-      {
-        name: "Languages and Automata",
-        originalName: "Lenguajes y Máquinas",
-        code: "ISIS-1106",
-        credits: 3
-      },
-      {
-        name: "Modeling, Simulation and Optimization",
-        originalName: "Modelado, Simulación y Optimización",
-        code: "ISIS-3302",
-        credits: 3
-      },
-      {
-        name: "Algorithm Design and Analysis",
-        originalName: "Diseño y Análisis de Algoritmos",
-        code: "ISIS-1105",
-        credits: 3
-      },
-      {
-        name: "Data Structures and Algorithms",
-        originalName: "Estructuras de Datos y Algoritmos",
-        code: "ISIS-1225",
         credits: 3
       }
     ]
