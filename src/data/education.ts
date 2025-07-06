@@ -1,16 +1,5 @@
 import { UNIANDES } from "./constants";
-import type { Hideable, Location} from "./types";
-
-export interface Education extends Location, Hideable {
-  degree: string;
-  organization: string;
-  startDate?: Date;
-  graduationDate?: Date;  // Kept for historical reasons
-  trueEndDate?: Date;  // Actual date used for the year range
-  honors?: string;
-  gpa?: `${string}.${string}/${string}.${string}`;
-  details?: string[];
-}
+import type { Education } from "../../api/schemas/index";
 
 export const EDUCATION: Education[] = [
   {
