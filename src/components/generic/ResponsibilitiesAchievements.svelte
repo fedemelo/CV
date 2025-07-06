@@ -13,7 +13,7 @@
     <p class="section-title">Responsibilities:</p>
     <ul>
       {#each experience.responsibilities as responsibility}
-        <li class="font-small">{responsibility}</li>
+        <li>{responsibility}</li>
       {/each}
     </ul>
   {/if}
@@ -22,7 +22,7 @@
     <p class="section-title">Achievements:</p>
     <ul>
       {#each experience.achievements as achievement}
-        <li class="font-small">{achievement}</li>
+        <li>{achievement}</li>
       {/each}
     </ul>
   {/if}

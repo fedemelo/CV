@@ -21,13 +21,13 @@
       </div>
       <div class="row">
         <p class="position">{getFullTeachingRoleName(teach.role)}{teach.course ? ` - ${teach.course.name}` : ''}</p>
-        <p class="font-small">
+        <p>
           {getPeriodFromDates(teach.startDate, teach.endDate, teach.isCurrent)}
         </p>
       </div>
       {#if teach.supervisor}
         <div class="row">
-          <p class="supervisor font-small">Supervisor: {teach.supervisor}</p>
+          <p class="supervisor">Supervisor: {teach.supervisor}</p>
         </div>
       {/if}
       <ResponsibilitiesAchievements experience={teach} />

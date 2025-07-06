@@ -10,7 +10,7 @@
     <div class="margin-bottom">
       <p style="font-weight: bold;">{award.title}</p>
       <div class="row">
-        <p class="font-small">{award.organization}</p>
+        <p>{award.organization}</p>
         {#if award.date}
           <p>{getYearRange(award.date)}</p>
         {:else if award.instances}

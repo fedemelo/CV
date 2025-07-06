@@ -5,7 +5,7 @@
   export let workMode: WorkMode | undefined = undefined;
 </script>
 
-<p class="font-small">
+<p>
   {[location.city,
     location.state,
     location.country,

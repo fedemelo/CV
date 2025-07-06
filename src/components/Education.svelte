@@ -19,7 +19,7 @@
       </div>
       <div class="row">
         <p>{edu.degree}</p>
-        <p class="font-small">
+        <p>
           {getYearRange(edu.startDate, edu.trueEndDate ?? edu.graduationDate)}
         </p>
       </div>
@@ -30,11 +30,11 @@
       </div>
       <div class="indented-details">
         {#if edu.gpa}
-          <p class="font-small">GPA: {edu.gpa}</p>
+          <p>GPA: {edu.gpa}</p>
         {/if}
         {#if edu.details?.length}
           {#each edu.details as detail}
-            <p class="font-small">{detail}</p>
+            <p>{detail}</p>
           {/each}
         {/if}
       </div>

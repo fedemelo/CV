@@ -16,7 +16,7 @@
       </div>
       <div class="row">
         <p class="position">{work.title}</p>
-        <p class="font-small">
+        <p>
           {getYearRange(work.startDate, work.endDate, work.isCurrent)}
         </p>
       </div>

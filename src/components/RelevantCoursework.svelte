@@ -14,7 +14,7 @@
         </div>
         <div class="indented-details">
           {#each area.courses as course}
-            <p class="font-small">{course.name}</p>
+            <p>{course.name}</p>
           {/each}
         </div>
       </div>
