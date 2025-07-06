@@ -14,9 +14,6 @@
         {#each extracurricular.events as event}
           <div class="row">
             <p>{event.title}</p>
-            <p>
-              {event.startYear} - {event.endYears}
-            </p>
           </div>
         {/each}
       </div>
