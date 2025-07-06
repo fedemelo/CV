@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Extracurricular } from "../data/extracurricular";
+  import type { Extracurricular } from "../../api/schemas";
   export let extracurriculars: Extracurricular[];
 </script>
 
@@ -13,7 +13,7 @@
       <div class="indented-details">
         {#each extracurricular.events as event}
           <div class="row">
-            <p>{event.title}</p>
+            <p>{event}</p>
           </div>
         {/each}
       </div>
