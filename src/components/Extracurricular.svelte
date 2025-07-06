@@ -8,7 +8,7 @@
   {#each extracurriculars as extracurricular}
     <div class="extracurricular-item">
       <div class="row">
-        <p class="activity-title">{extracurricular.description}</p>
+        <p style="font-weight: bold;">{extracurricular.description}</p>
       </div>
       <div class="indented-details">
         {#each extracurricular.events as event}
@@ -23,7 +23,3 @@
     </div>
   {/each}
 </section>
-
-<style>
-  @import "../styles/Extracurricular.css";
-</style>
