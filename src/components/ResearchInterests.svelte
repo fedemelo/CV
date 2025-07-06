@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { ResearchInterests } from '../data/researchInterests';
-  export let researchInterests: ResearchInterests;
+  import type { ResearchInterest } from '../../api/schemas';
+  export let researchInterests: ResearchInterest;
 </script>
 
 <section>
