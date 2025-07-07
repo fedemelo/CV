@@ -29,9 +29,13 @@
   },
   "dependencies": {
     "@fastify/cors": "^11.0.1",
+    "@fastify/swagger": "^9.5.1",
+    "@fastify/swagger-ui": "^5.2.3",
     "@tsconfig/svelte": "^4.0.1",
     "fastify": "^5.4.0",
     "html2pdf.js": "^0.10.3",
-    "lucide-svelte": "^0.501.0"
+    "lucide-svelte": "^0.501.0",
+    "zod": "^3.25.74",
+    "zod-to-json-schema": "^3.24.6"
   }
 }
