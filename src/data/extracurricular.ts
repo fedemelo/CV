@@ -1,4 +1,4 @@
-import type { Extracurricular } from "../../api/schemas";
+import type { Extracurricular } from "../../api/schemas/extracurricular";
 
 export const EXTRACURRICULARS: Extracurricular[] = [
   {

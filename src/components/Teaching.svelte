@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { type Teaching } from "../../api/schemas/index";
+  import type { Teaching } from "../../api/schemas/teaching";
   import { getPeriodFromDates } from "../utils/period";
   import Location from "./generic/Location.svelte";
   import ResponsibilitiesAchievements from "./generic/ResponsibilitiesAchievements.svelte";

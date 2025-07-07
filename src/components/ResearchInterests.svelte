@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ResearchInterest } from '../../api/schemas';
+  import type { ResearchInterest } from '../../api/schemas/researchInterest';
   export let researchInterests: ResearchInterest;
 </script>
 

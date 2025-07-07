@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Extracurricular } from "../../api/schemas";
+  import type { Extracurricular } from "../../api/schemas/extracurricular";
   export let extracurriculars: Extracurricular[];
 </script>
 

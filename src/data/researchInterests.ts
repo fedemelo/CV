@@ -1,4 +1,4 @@
-import type { ResearchInterest } from "../../api/schemas/index";
+import type { ResearchInterest } from "../../api/schemas/researchInterest";
 
 export const RESEARCH_INTERESTS: ResearchInterest = {
   text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis ex sit amet leo aliquam rhoncus. Morbi ut ante nisi. Sed dictum mauris justo, et convallis nisi ultricies at. Mauris a dignissim odio. In faucibus orci id ante posuere, et sollicitudin lacus eleifend. Duis eu massa euismod, semper orci quis, aliquet risus. Nullam ut ex eget quam condimentum aliquam. Nullam luctus sapien quis enim ultrices pulvinar.

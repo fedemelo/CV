@@ -1,5 +1,5 @@
 import { UNIANDES } from "./constants";
-import type { Teaching } from "../../api/schemas/index";
+import type { Teaching } from "../../api/schemas/teaching";
 
 export const TEACHING: Teaching[] = [
   {

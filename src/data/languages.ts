@@ -1,4 +1,4 @@
-import type { Language } from "../../api/schemas/index";
+import type { Language } from "../../api/schemas/language";
 
 export const LANGUAGES: Language[] = [
   {

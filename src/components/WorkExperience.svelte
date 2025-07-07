@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { WorkExperience } from "../data/workExperience";
+  import type { WorkExperience } from "../../api/schemas/workExperience";
   import { getYearRange } from "../utils/year";
   import Location from "./generic/Location.svelte";
   import ResponsibilitiesAchievements from "./generic/ResponsibilitiesAchievements.svelte";

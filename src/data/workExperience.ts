@@ -1,7 +1,5 @@
 import { UNIANDES } from "./constants";
-import type { WorkExperience, WorkMode, EmploymentType } from "../../api/schemas/index";
-
-export type { WorkMode, EmploymentType };
+import type { WorkExperience } from "../../api/schemas/workExperience";
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {

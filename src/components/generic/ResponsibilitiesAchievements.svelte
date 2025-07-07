@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { WorkExperience } from "../../data/workExperience";
-  import type { Teaching } from "../../data/teaching";
+  import type { WorkExperience } from "../../../api/schemas/workExperience";
+  import type { Teaching } from "../../../api/schemas/teaching";
   export let experience: WorkExperience | Teaching;
 </script>
 
