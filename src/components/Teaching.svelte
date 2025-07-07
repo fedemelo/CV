@@ -20,7 +20,7 @@
         }} />
       </div>
       <div class="row">
-        <p class="position">{teach.title}{teach.course ? ` - ${teach.course}` : ''}</p>
+        <p class="position">{teach.title}{teach.course ? ` - ${teach.course.name}` : ''}</p>
         <p>
           {getPeriodFromDates(teach.startDate, teach.endDate, teach.isCurrent)}
         </p>
