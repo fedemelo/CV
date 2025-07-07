@@ -4,6 +4,7 @@ import { LocationSchema } from "./location";
 
 export type WorkExperience = z.infer<typeof WorkExperienceSchema>;
 
+export type WorkMode = z.infer<typeof WorkModeSchema>;
 export const WorkModeSchema = z.enum(['remote', 'onsite', 'hybrid']);
 export const EmploymentTypeSchema = z.enum(['full-time', 'part-time', 'contract', 'internship']);
 
