@@ -15,6 +15,7 @@ export async function registerSwagger(fastify: FastifyInstance) {
       consumes: ['application/json'],
       produces: ['application/json'],
       tags: [
+        { name: 'Personal Info', description: 'Personal contact information endpoints' },
         { name: 'Awards', description: 'Awards and achievements endpoints' },
         { name: 'Education', description: 'Education history endpoints' },
         { name: 'Work Experience', description: 'Work experience endpoints' },

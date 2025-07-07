@@ -8,8 +8,10 @@ import { relevantCourseworkRoutes } from './relevant-coursework';
 import { researchInterestsRoutes } from './research-interests';
 import { teachingRoutes } from './teaching';
 import { healthRoutes } from './health';
+import { personalInfoRoutes } from './personalInfo';
 
 export async function registerRoutes(fastify: FastifyInstance) {
+  await fastify.register(personalInfoRoutes);
   await fastify.register(educationRoutes);
   await fastify.register(workExperienceRoutes);
   await fastify.register(languagesRoutes);
