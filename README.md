@@ -18,5 +18,5 @@ Deployment to GitHub Pages is manual but straightforward: `yarn deploy`.
 To run the frontend locally, run `yarn dev`.
 The frontend will be available at `http://localhost:5173`.
 
-To run the API locally, run `yarn dev:api`.
+To run the API locally, run `yarn api:dev`.
 The API documentation will be available at `http://localhost:8003/docs`.
