@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { PersonalInfo } from "../data/personalInfo";
+  import type { PersonalInfo } from "../../api/schemas/personalInfo";
   export let personalInfo: PersonalInfo;
 </script>
 
@@ -12,12 +12,12 @@
           Email: <a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a>
         </p>
         <p>
-          LinkedIn: <a href={`https://linkedin.com/in/${personalInfo.linkedIn}`}>{personalInfo.linkedIn}</a>
+          LinkedIn: <a href={`https://linkedin.com/in/${personalInfo.linkedInPath}`}>{personalInfo.linkedInPath}</a>
         </p>
       </div>
       <div class="column">
         <p>Webpage: <a href={`https://${personalInfo.webpage}/`}>{personalInfo.webpage}</a></p>
-        <p>GitHub: <a href={`https://github.com/${personalInfo.github}`}>{personalInfo.github}</a></p>
+        <p>GitHub: <a href={`https://github.com/${personalInfo.gitHubPath}`}>{personalInfo.gitHubPath}</a></p>
       </div>
     </div>
   </div>

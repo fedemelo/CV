@@ -1,15 +1,9 @@
-export interface PersonalInfo {
-  name: string;
-  email: `${string}@${string}.${string}`;
-  webpage: string;
-  linkedIn: string;
-  github: string;
-}
+import type { PersonalInfo } from "../../api/schemas/personalInfo";
 
 export const PERSONAL_INFO: PersonalInfo = {
   name: "Federico Melo Barrero",
   email: "f.melo@uniandes.edu.co",
   webpage: "fedemelo.github.io",
-  linkedIn: "federico-melo",
-  github: "fedemelo",
+  linkedInPath: "federico-melo",
+  gitHubPath: "fedemelo",
 }

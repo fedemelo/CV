@@ -6,6 +6,6 @@ export const PersonalInfoSchema = z.object({
   name: z.string(),
   email: z.string().email(),
   webpage: z.string().url(),
-  linkedIn: z.string(),
-  github: z.string(),
+  linkedInPath: z.string(),
+  gitHubPath: z.string(),
 }); 
