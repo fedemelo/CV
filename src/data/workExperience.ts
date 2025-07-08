@@ -19,9 +19,13 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       "Redis",
       "SQL",
       "PostgreSQL",
-      "Anthropic",
-      "OpenAI",
+      "Anthropic API",
+      "OpenAI API",
+      "Groq API",
+      "Gemini API",
       "Hex",
+      "Polars",
+      "Plotly",
       "ClickUp",
     ],
     responsibilities: [
@@ -33,7 +37,8 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       "Built DOM traversal highlighting system enabling accurate side-by-side product highlighting in spreadsheets and tables",
       "Implemented coordinate-mapping system for precise OCR data highlighting in scanned documents",
       "Reduced weekly highlighting errors by 2/3 in first OKR period",
-      "Developed prompt reliability improvements with re-run logic and monitoring dashboards for parsing performance",
+      "Created monitoring dashboards (Polars, Plotly) to monitor parsing performance, which eventually scaled to monitor all Canals' teams",
+      "Developed prompt reliability improvements with validation and re-run logic",
       "Enhanced developer experience through automation scripts and E2E testing improvements"
     ],
 
