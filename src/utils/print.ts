@@ -18,6 +18,10 @@ interface PdfGenerationConfig {
     scale: number;
     useCORS: boolean;
     letterRendering: boolean;
+    allowTaint?: boolean;
+    backgroundColor?: string;
+    scrollX?: number;
+    scrollY?: number;
   };
   jsPDF: {
     unit: string;
@@ -65,6 +69,17 @@ const removeLinksStyling = (element: HTMLElement): void => {
   });
 };
 
+const fixTextSpacing = (element: HTMLElement): void => {
+  // Fix text justification issues that can cause spacing problems in PDF
+  element.querySelectorAll("p, li").forEach((textElement) => {
+    const el = textElement as HTMLElement;
+    el.style.setProperty('word-spacing', 'normal');
+    el.style.setProperty('letter-spacing', 'normal');
+  });
+  
+  element.style.setProperty('text-rendering', 'optimizeSpeed');
+};
+
 const getPdfConfig = (
   options: PrintOptions,
   filename: string
@@ -81,7 +96,11 @@ const getPdfConfig = (
   html2canvas: {
     scale: options.baseScale,
     useCORS: true,
-    letterRendering: true,
+    letterRendering: false,  // Clearer text rendering
+    allowTaint: true,
+    backgroundColor: '#ffffff',
+    scrollX: 0,
+    scrollY: 0,
   },
   jsPDF: {
     unit: "mm",
@@ -107,7 +126,8 @@ export const generatePdf = async (): Promise<void> => {
     const element = getCvElement();
     const clonedElement = prepareClonedElement(element, printOptions);
     removeLinksStyling(clonedElement);
-    
+    fixTextSpacing(clonedElement);
+
     const pdfConfig = getPdfConfig(
       printOptions, 
       "CV_Federico_Melo_Barrero.pdf"
