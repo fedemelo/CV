@@ -22,6 +22,9 @@
 
   import { TEACHING } from './data/teaching';
   import Teaching from './components/Teaching.svelte';
+
+  import { SKILLS } from './data/skills';
+  import Skills from './components/Skills.svelte';
   
   import PrintButton from './components/PrintButton.svelte';
   import Footer from './components/generic/Footer.svelte';
@@ -35,6 +38,7 @@
   <WorkExperience workExperience={WORK_EXPERIENCE} />
   <Teaching teaching={TEACHING} />
   <RelevantCoursework relevantCoursework={RELEVANT_COURSEWORK} />
+  <Skills skills={SKILLS} />
   <Extracurricular extracurriculars={EXTRACURRICULARS} />
 </main>
 
