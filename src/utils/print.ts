@@ -70,7 +70,6 @@ const removeLinksStyling = (element: HTMLElement): void => {
 };
 
 const fixTextSpacing = (element: HTMLElement): void => {
-  // Fix text justification issues that can cause spacing problems in PDF
   element.querySelectorAll("p, li").forEach((textElement) => {
     const el = textElement as HTMLElement;
     el.style.setProperty('word-spacing', 'normal');
@@ -78,6 +77,13 @@ const fixTextSpacing = (element: HTMLElement): void => {
   });
   
   element.style.setProperty('text-rendering', 'optimizeSpeed');
+};
+
+const fixH2FontSize = (element: HTMLElement): void => {
+  element.querySelectorAll("h2").forEach((h2Element) => {
+    const el = h2Element as HTMLElement;
+    el.style.setProperty('font-size', '10pt');
+  });
 };
 
 const getPdfConfig = (
@@ -119,7 +125,7 @@ export const generatePdf = async (): Promise<void> => {
     margin: 25.4,  // 1 inch in mm
     a4Width: 210,  // A4 width in mm
     baseScale: 10,
-    baseFontSize: '10pt'
+    baseFontSize: '10pt',
   };
 
   try {
@@ -127,6 +133,7 @@ export const generatePdf = async (): Promise<void> => {
     const clonedElement = prepareClonedElement(element, printOptions);
     removeLinksStyling(clonedElement);
     fixTextSpacing(clonedElement);
+    fixH2FontSize(clonedElement);
 
     const pdfConfig = getPdfConfig(
       printOptions, 
