@@ -89,7 +89,7 @@ export const TEACHING: Teaching[] = [
     startDate: new Date("2021-02-01T12:00:00-05:00"),
     endDate: new Date("2021-06-05T12:00:00-05:00"),
     supervisor: "Prof. Diego Salinas",
-    description: "Assisted ~25 students with fundamental procedural programming concepts (variables, control structures, functions, data structures) and matrix operations using Python-specific libraries (`matplotlib`, `pandas`, `numpy`). Graded programming projects and provided feedback on coding practices and problem-solving approaches.",
+    description: "Assisted ~25 students with fundamental procedural programming concepts (variables, control structures, functions, data structures) and matrix operations using Python-specific libraries (matplotlib, pandas, numpy). Graded programming projects and provided feedback on coding practices and problem-solving approaches.",
     isCurrent: false,
     ...UNIANDES,
   },
