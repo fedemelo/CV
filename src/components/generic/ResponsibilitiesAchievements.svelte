@@ -3,15 +3,11 @@
   import type { Teaching } from "../../../api/schemas/teaching";
   export let experience: WorkExperience | Teaching;
   export let separateSections: boolean = true; // Default to separate sections for work experience
-
-  function formatCodeText(text: string): string {
-    return text.replace(/`([^`]+)`/g, '<code>$1</code>');
-  }
 </script>
 
 <div class="indented-details">
   {#if experience.description}
-    <p>{@html formatCodeText(experience.description)}</p>
+    <p>{experience.description}</p>
   {/if}
   
   {#if separateSections}
@@ -20,7 +16,7 @@
       <p class="section-title">Responsibilities:</p>
       <ul>
         {#each experience.responsibilities as responsibility}
-          <li>{@html formatCodeText(responsibility)}</li>
+          <li>{responsibility}</li>
         {/each}
       </ul>
     {/if}
@@ -29,7 +25,7 @@
       <p class="section-title">Achievements:</p>
       <ul>
         {#each experience.achievements as achievement}
-          <li>{@html formatCodeText(achievement)}</li>
+          <li>{achievement}</li>
         {/each}
       </ul>
     {/if}
@@ -39,13 +35,13 @@
       <ul>
         {#if experience.achievements?.length}
           {#each experience.achievements as achievement}
-            <li>{@html formatCodeText(achievement)}</li>
+            <li>{achievement}</li>
           {/each}
         {/if}
         
         {#if experience.responsibilities?.length}
           {#each experience.responsibilities as responsibility}
-            <li>{@html formatCodeText(responsibility)}</li>
+            <li>{responsibility}</li>
           {/each}
         {/if}
       </ul>
@@ -55,12 +51,4 @@
 
 <style>
   @import "../../styles/ResponsibilitiesAchievements.css";
-  
-  :global(code) {
-    font-family: 'Courier New', Monaco, monospace;
-    background-color: #f4f4f4;
-    padding: 2px 4px;
-    border-radius: 3px;
-    font-size: 0.9em;
-  }
 </style>
