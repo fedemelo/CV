@@ -13,9 +13,9 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     description: "Parsed diverse order formats (emails, PDFs, spreadsheets, images, handwritten documents) from wholesale distributors into structured product data.",
     achievements: [
       "Built visual highlighting systems using DOM traversal, coordinate mapping, and string comparison to map parsed products to source documents, reducing weekly errors by 2/3 in first OKR period",
-      "Improved parsing accuracy" + // TODO: Get numbers on this. "by x%"
-      " and speed" + // Numbers!
-      " through LLM prompt engineering, caching, model fine-tuning, and validation logic",
+      "Improved parsing accuracy" // TODO: Get numbers on this. "by x%"
+      + " and speed" // Numbers!
+      + " through LLM prompt engineering, caching, model fine-tuning, and validation logic",
       "Developed text extraction algorithms for complex layouts (nested tables, side-by-side formats, schematics) supporting most file formats (PDF, DOCX, XLSX, MSG, EML, TIFF, etc.)",
       "Created performance monitoring dashboards (Polars, Plotly) for Parsing team, later scaled to monitor 3 company teams (30+ engineers overall)",
       "Built automated reliability tools that improved developer QOL and caught non-deterministic parsing failures before they reached customers",
