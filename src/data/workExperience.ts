@@ -10,7 +10,16 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     state: "FL",
     country: "USA",
     startDate: new Date("2024-12-09T12:00:00-05:00"),
-    description: "Engineer AI-powered systems to parse diverse order formats (emails, PDFs, spreadsheets, images, handwritten documents) from wholesale distributors into structured product data.",
+    description: "Parsed diverse order formats (emails, PDFs, spreadsheets, images, handwritten documents) from wholesale distributors into structured product data.",
+    achievements: [
+      "Built visual highlighting systems using DOM traversal, coordinate mapping, and string comparison to map parsed products to source documents, reducing weekly errors by 2/3 in first OKR period",
+      "Improved parsing accuracy" + // TODO: Get numbers on this. "by x%"
+      " and speed" + // Numbers!
+      " through LLM prompt engineering, caching, model fine-tuning, and validation logic",
+      "Developed text extraction algorithms for complex layouts (nested tables, side-by-side formats, schematics) supporting most file formats (PDF, DOCX, XLSX, MSG, EML, TIFF, etc.)",
+      "Created performance monitoring dashboards (Polars, Plotly) for Parsing team, later scaled to monitor 3 company teams (30+ engineers overall)",
+      "Built automated reliability tools that improved developer QOL and caught non-deterministic parsing failures before they reached customers",
+    ],
     technologies: [
       "TypeScript",
       "Fastify",
@@ -28,20 +37,6 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       "Plotly",
       "ClickUp",
     ],
-    responsibilities: [
-      "Build highlighting systems using DOM traversal, coordinate mapping, and string comparison to visually map parsed products to source documents",
-      "Develop text extraction algorithms and table parsing logic for complex layouts including handwritten documents, side-by-side tables, and formats like MSG, EML, TIFF, DOCX",
-      "Optimize parsing accuracy through LLM prompt engineering, caching, model fine-tuning, and industry-specific logic",
-    ],
-    achievements: [
-      "Built DOM traversal highlighting system enabling accurate side-by-side product highlighting in spreadsheets and tables",
-      "Implemented coordinate-mapping system for precise OCR data highlighting in scanned documents",
-      "Reduced weekly highlighting errors by 2/3 in first OKR period",
-      "Created monitoring dashboards (Polars, Plotly) to monitor parsing performance, which eventually scaled to monitor all Canals' teams",
-      "Developed prompt reliability improvements with validation and re-run logic",
-      "Enhanced developer experience through automation scripts and E2E testing improvements"
-    ],
-
     workMode: "remote",
     employmentType: "full-time",
     isCurrent: true,
