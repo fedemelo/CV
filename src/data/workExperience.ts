@@ -60,14 +60,13 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       "Firebase",
     ],
     responsibilities: [
-      "Design and build a backend system (Python, Polars, FastAPI) to process and expose student data through REST API endpoints",
-      "Extend a web application (TypeScript, React, MUI) with an independent module with advanced filtering capabilities, role-based access control, and a suite of interactive dashboards displaying student data",
-      "Architect and manage cross-VM communication systems",
+      "Designed and built a system (Python, Polars) from scratch to process student data with advanced filters and aggregations. The system ultimately fed 3 distinct university services through a unified REST API (FastAPI)",
+      "Extended a web application (TypeScript, React, MUI) with advanced filtering, report generation, dynamic graphing, and role-based access control dashboards",
+      "Enabled the university to discontinue an external student counseling platform through the advanced student analytics system, saving approximately 100M COP (~$25K USD) annually",  // TODO: Verify money
+      "Designed and co-implemented an academic and personal risk detection system that successfully alerted relevant stakeholders on 1000+ critical cases", // TODO: Verify numbers
+      "Architected and managed cross-VM communication systems for sensitive data, using air-gapping techniques and network management tools",
     ],
     achievements: [
-      "The backend system ultimately fed 3 distinct university services through a unified REST API",
-      "The advanced student search and filtering system enabled the university to discontinue an external student counseling platform, saving approximately 100M COP (~$25K USD) annually",  // TODO: Verify money
-      "Designed and co-implemented an academic and personal risk detection system  that successfully alerted relevant stakeholders on 1000+ critical cases" // TODO: Verify numbers
     ],
     workMode: "onsite",
     employmentType: "contract",
