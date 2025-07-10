@@ -59,14 +59,12 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       "Docker",
       "Firebase",
     ],
-    responsibilities: [
+    achievements: [
       "Designed and built a system (Python, Polars) from scratch to process student data with advanced filters and aggregations. The system ultimately fed 3 distinct university services through a unified REST API (FastAPI)",
       "Extended a web application (TypeScript, React, MUI) with advanced filtering, report generation, dynamic graphing, and role-based access control dashboards",
       "Enabled the university to discontinue an external student counseling platform through the advanced student analytics system, saving approximately 100M COP (~$25K USD) annually",  // TODO: Verify money
       "Designed and co-implemented an academic and personal risk detection system that successfully alerted relevant stakeholders on 1000+ critical cases", // TODO: Verify numbers
       "Architected and managed cross-VM communication systems for sensitive data, using air-gapping techniques and network management tools",
-    ],
-    achievements: [
     ],
     workMode: "onsite",
     employmentType: "contract",
@@ -82,7 +80,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     country: "Canada",
     startDate: new Date("2024-01-15T12:00:00-05:00"),
     endDate: new Date("2024-07-12T12:00:00-05:00"),
-    description: "Software Developer I at the Notebook Ninjas squad on the Data Analytics team.",
+    description: "Developed data analysis solutions and optimized backend services for financial auditing workflows on the Data Analytics team.",
     technologies: [
       "Python",
       "Jupyter",
@@ -91,12 +89,10 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       "Jira"
     ],
     achievements: [
-      `Recognized as part of the Data Analytics team with the June Team Award for "delivering impactful contributions and hard work"`,
-    ],
-    responsibilities: [
-      "Develop Jupyter notebooks for financial and auditing-related data analysis",
-      "Address bugs and implement optimizations in Java and TypeScript services using AWS technologies",
-      "Write and deliver technical reports such as SPIKEs and RFCs"
+      "Awarded the June Team Award for 'delivering impactful contributions and hard work' as part of the Data Analytics team",
+      "Developed Python-based Jupyter notebooks for financial and auditing data analysis", // TODO: Get scale of data processed, for impact
+      "Optimized Java and TypeScript microservices performance using AWS S3 and DynamoDB, identifying and resolving bugs to improve system stability",
+      "Authored and delivered technical reports (SPIKEs, RFCs) that influenced team architecture decisions and established best practices for data validation logic",
     ],
     workMode: "remote",
     employmentType: "internship",
@@ -113,12 +109,11 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       "SQL",
       "Oracle SQL Developer",
     ],
-    responsibilities: [
-      "Engaged in design and documentation phases of the project's backend architecture",
-      "Implemented persistence, logic, and control layers using Java and Spring framework",
-    ],
     achievements: [
-      "Devised efficient methods for migrating large volumes of unstructured data into relational databases"
+      "Designed and implemented backend architecture for the Professors' Portfolio system (Java, Spring Boot), serving faculty members across the Engineering School",
+      "Built persistence, logic, and control layers with CRUD operations, custom logic, and RESTful API endpoints",
+      "Devised efficient data migration methods to store large volumes of unstructured faculty data into relational databases (Oracle SQL Developer)",
+      "Collaborated with Prof. José Bocanegra, Ph.D. on system architecture documentation and technical specifications, contributing to project planning and implementation roadmaps",
     ],
     workMode: "onsite",
     employmentType: "contract",
