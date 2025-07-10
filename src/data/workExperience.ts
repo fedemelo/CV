@@ -46,7 +46,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     team: "Vice Dean's Office of Student Affairs",
     startDate: new Date("2024-02-15T12:00:00-05:00"),
     endDate: new Date("2025-07-31T12:00:00-05:00"),
-    description: "Built a full-stack student data system for the Universidad de los Andes, which allowed the university to discontinue an external student counseling platform, saving approximately 100M COP (~$25K USD) annually",  // TODO: Verify money
+    description: "Built a full-stack student data system for the Universidad de los Andes.",
     technologies: [
       "Python",
       "Polars",
@@ -102,7 +102,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     team: "Engineering Dean's Office",
     startDate: new Date("2023-08-21T12:00:00-05:00"),
     endDate: new Date("2023-12-09T12:00:00-05:00"),
-    description: "Backend developer on the Professors' Portfolio project, a web application for managing faculty academic and administrative information, under Prof. José Bocanegra, Ph.D.",
+    description: "Backend developer on the Professors' Portfolio project, a web application for managing faculty academic and administrative information.",
     technologies: [
       "Java",
       "Spring Boot",
