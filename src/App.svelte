@@ -25,6 +25,9 @@
 
   import { SKILLS } from './data/skills';
   import Skills from './components/Skills.svelte';
+
+  import { PUBLICATIONS } from './data/publications';
+  import Publications from './components/Publications.svelte';
   
   import PrintButton from './components/PrintButton.svelte';
   import Footer from './components/generic/Footer.svelte';
@@ -37,6 +40,7 @@
   <Awards awards={AWARDS} />
   <WorkExperience workExperience={WORK_EXPERIENCE} />
   <Teaching teaching={TEACHING} />
+  <Publications publications={PUBLICATIONS} />
   <RelevantCoursework relevantCoursework={RELEVANT_COURSEWORK} />
   <Skills skills={SKILLS} />
   <Extracurricular extracurriculars={EXTRACURRICULARS} />

@@ -10,6 +10,7 @@ import { teachingRoutes } from './teaching';
 import { healthRoutes } from './health';
 import { personalInfoRoutes } from './personalInfo';
 import { skillsRoutes } from './skills';
+import { publicationsRoutes } from './publications';
 
 export async function registerRoutes(fastify: FastifyInstance) {
   await fastify.register(personalInfoRoutes);
@@ -22,5 +23,6 @@ export async function registerRoutes(fastify: FastifyInstance) {
   await fastify.register(researchInterestsRoutes);
   await fastify.register(teachingRoutes);
   await fastify.register(skillsRoutes);
+  await fastify.register(publicationsRoutes);
   await fastify.register(healthRoutes);
 } 
