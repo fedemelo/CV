@@ -30,7 +30,7 @@
           <p class="supervisor">Supervisor: {teach.supervisor}</p>
         </div>
       {/if}
-      <ResponsibilitiesAchievements experience={teach} separateSections={false} />
+      <ResponsibilitiesAchievements experience={teach}/>
     </div>
   {/each}
 </section>

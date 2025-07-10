@@ -21,11 +21,6 @@
         </p>
       </div>
       <ResponsibilitiesAchievements experience={work} />
-      <!-- Decided not to show technologies for now -->
-      <!-- {#if work.technologies?.length}
-        <p class="section-title">Technologies:</p>
-        <p class="small technologies">{work.technologies.join(' • ')}</p>
-      {/if} -->
     </div>
   {/each}
 </section>
