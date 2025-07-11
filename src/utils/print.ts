@@ -115,7 +115,7 @@ const getPdfConfig = (
   },
   pagebreak: {
     mode: ["css", "legacy"],
-    avoid: ["h1", "h2", "h3", "h4", "h5", "h6", "p", ".row", ".item", "li"],
+    avoid: ["h1", "h2", "h3", "h4", "h5", "h6", "p", ".row", ".item", "li", ".no-break"],
   },
 });
 
