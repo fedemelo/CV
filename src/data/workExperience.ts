@@ -99,7 +99,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
   },
   {
     title: "Backend Developer",
-    team: "Engineering Dean's Office",
+    team: "Engineering Faculty Research Center (CIFI)",
     startDate: new Date("2023-08-21T12:00:00-05:00"),
     endDate: new Date("2023-12-09T12:00:00-05:00"),
     description: "Backend developer on the Professors' Portfolio project, a web application for managing faculty academic and administrative information.",
