@@ -16,7 +16,6 @@ export const TeachingSchema = z.object({
   startDate: z.date(),
   endDate: z.date().optional(),
   description: z.string(),
-  responsibilities: z.array(z.string()),
   achievements: z.array(z.string()).optional(),
   isCurrent: z.boolean().optional(),
 });

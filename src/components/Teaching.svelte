@@ -2,7 +2,7 @@
   import type { Teaching } from "../../api/schemas/teaching";
   import { getPeriodFromDates } from "../utils/period";
   import Location from "./generic/Location.svelte";
-  import ResponsibilitiesAchievements from "./generic/ResponsibilitiesAchievements.svelte";
+  import Achievements from "./generic/Achievements.svelte";
 
   export let teaching: Teaching[];
 </script>
@@ -30,7 +30,7 @@
           <p class="supervisor">Supervisor: {teach.supervisor}</p>
         </div>
       {/if}
-      <ResponsibilitiesAchievements experience={teach}/>
+      <Achievements experience={teach}/>
     </div>
   {/each}
 </section>

@@ -2,7 +2,7 @@
   import type { WorkExperience } from "../../api/schemas/workExperience";
   import { getYearRange } from "../utils/year";
   import Location from "./generic/Location.svelte";
-  import ResponsibilitiesAchievements from "./generic/ResponsibilitiesAchievements.svelte";
+  import Achievements from "./generic/Achievements.svelte";
   export let workExperience: WorkExperience[];
 </script>
 
@@ -20,7 +20,7 @@
           {getYearRange(work.startDate, work.endDate, work.isCurrent)}
         </p>
       </div>
-      <ResponsibilitiesAchievements experience={work} />
+      <Achievements experience={work} />
     </div>
   {/each}
 </section>

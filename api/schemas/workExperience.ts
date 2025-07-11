@@ -19,7 +19,6 @@ export const WorkExperienceSchema = z.object({
   endDate: z.date().optional(),
   description: z.string(),
   technologies: z.array(z.string()),
-  responsibilities: z.array(z.string()),
   achievements: z.array(z.string()).optional(),
   workMode: WorkModeSchema,
   employmentType: EmploymentTypeSchema,
