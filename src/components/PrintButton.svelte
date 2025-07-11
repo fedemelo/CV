@@ -3,11 +3,12 @@
   import { generatePdf } from "../utils/print";
 
   let generating = false;
+  export let currentView: 'cv' | 'resume';
 
   async function handlePrint() {
     generating = true;
     try {
-      await generatePdf();
+      await generatePdf(currentView);
     } finally {
       generating = false;
     }

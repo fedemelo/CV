@@ -30,7 +30,7 @@
   import Publications from './components/Publications.svelte';
 </script>
 
-<main class="cv-container">
+<main>
   <PersonalInfo personalInfo={PERSONAL_INFO} />
   <ResearchInterests researchInterests={RESEARCH_INTERESTS} />
   <Education education={EDUCATION} />

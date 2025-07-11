@@ -35,8 +35,8 @@ interface PdfGenerationConfig {
 }
 
 const getCvElement = (): HTMLElement => {
-  const element = document.querySelector(".cv-container");
-  if (!element) throw new Error("CV container not found");
+  const element = document.querySelector(".print-container");
+  if (!element) throw new Error("Print container not found");
   return element as HTMLElement;
 };
 
@@ -120,7 +120,7 @@ const getPdfConfig = (
 });
 
 // Main print function
-export const generatePdf = async (): Promise<void> => {
+export const generatePdf = async (view: 'cv' | 'resume'): Promise<void> => {
   const printOptions: PrintOptions = {
     margin: 25.4,  // 1 inch in mm
     a4Width: 210,  // A4 width in mm
@@ -137,7 +137,7 @@ export const generatePdf = async (): Promise<void> => {
 
     const pdfConfig = getPdfConfig(
       printOptions, 
-      "CV_Federico_Melo_Barrero.pdf"
+      `${view === 'cv' ? "CV" : "Resume"}_Federico_Melo_Barrero.pdf`
     );
 
     await html2pdf()

@@ -18,14 +18,16 @@
     on:view-change={handleViewChange} 
   />
   
+  <div class="print-container">
   {#if currentView === 'cv'}
     <CV />
   {:else}
     <Resume />
   {/if}
+</div>
   
   <Footer />
-  <PrintButton />
+  <PrintButton {currentView} />
 </div>
 
 <style>

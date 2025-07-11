@@ -14,31 +14,9 @@
   import Skills from './components/Skills.svelte';
 </script>
 
-<main class="resume-container">
+<main>
   <PersonalInfo personalInfo={PERSONAL_INFO} />
   <WorkExperience experiences={[...WORK_EXPERIENCE, ...TEACHING]} />
   <Education education={EDUCATION} />
   <Skills skills={SKILLS} />
 </main>
-
-<style>
-  .resume-container {
-    max-width: 8.5in;
-    margin: 0 auto;
-    padding: 0.5in;
-    font-size: 11px;
-    font-family: 'Arial', sans-serif;
-    line-height: 1.4;
-    color: #333;
-    background: white;
-  }
-
-  /* Print styles for one-page constraint */
-  @media print {
-    .resume-container {
-      margin: 0;
-      padding: 0.5in;
-      font-size: 10px;
-    }
-  }
-</style> 
