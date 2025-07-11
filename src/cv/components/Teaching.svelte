@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { Teaching } from "../../api/schemas/teaching";
-  import { getPeriodFromDates } from "../utils/period";
-  import Location from "./generic/Location.svelte";
-  import Achievements from "./generic/Achievements.svelte";
+  import type { Teaching } from "../../../api/schemas/teaching";
+  import { getPeriodFromDates } from "../../utils/period";
+  import Location from "../../components/Location.svelte";
+  import Achievements from "../../components/Achievements.svelte";
 
   export let teaching: Teaching[];
 </script>

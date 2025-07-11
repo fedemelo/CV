@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Publication } from "../../api/schemas/publication";
+  import type { Publication } from "../../../api/schemas/publication";
   export let publications: Publication[];
 </script>
 

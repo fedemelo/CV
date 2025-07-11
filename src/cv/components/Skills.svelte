@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Skill } from "../../api/schemas/skill";
+  import type { Skill } from "../../../api/schemas/skill";
   export let skills: Skill[];
 </script>
 

@@ -12,5 +12,5 @@
 </footer>
 
 <style>
-  @import "../../styles/Footer.css";
+  @import "../styles/Footer.css";
 </style>

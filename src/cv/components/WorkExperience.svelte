@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { WorkExperience } from "../../api/schemas/workExperience";
-  import { getYearRange } from "../utils/year";
-  import Location from "./generic/Location.svelte";
-  import Achievements from "./generic/Achievements.svelte";
+  import type { WorkExperience } from "../../../api/schemas/workExperience";
+  import { getYearRange } from "../../utils/year";
+  import Location from "../../components/Location.svelte";
+  import Achievements from "../../components/Achievements.svelte";
   export let workExperience: WorkExperience[];
 </script>
 

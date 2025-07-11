@@ -1,6 +1,6 @@
 <!-- src/components/RelevantCoursework.svelte -->
 <script lang="ts">
-  import type { RelevantCoursework } from "../../api/schemas/relevantCoursework";
+  import type { RelevantCoursework } from "../../../api/schemas/relevantCoursework";
   export let relevantCoursework: RelevantCoursework[];
 </script>
 
