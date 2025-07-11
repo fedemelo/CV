@@ -4,7 +4,7 @@
 </script>
 
 <header class="margin-bottom">
-  <h1>{personalInfo.name}</h1>
+  <h1 style="font-variant: small-caps;">{personalInfo.name}</h1>
   <div class="contact-info">
     <div class="columns-container">
       <div class="column">
