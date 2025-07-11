@@ -23,6 +23,7 @@ export const EDUCATION: Education[] = [
     graduationDate: new Date("2020-06-26T12:00:00-05:00"),
     honors: "Valedictorian",
     gpa: "92.21 / 100.00",
-    isHidden: true,
+    showInCV: false,
+    showInResume: false,
   }
 ];

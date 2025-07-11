@@ -15,7 +15,8 @@ export const LANGUAGES: Language[] = [
         grade: "8.0/9.0",
         cefrLevel: "C1",
         id: "19CO001251MELF015A",
-        isHidden: true,
+        showInCV: false,
+        showInResume: false,
       },
       {
         name: "TOEFL",
@@ -23,7 +24,8 @@ export const LANGUAGES: Language[] = [
         grade: "110/120",
         cefrLevel: "C1",
         id: "7824 1022 0180 2567",
-        isHidden: true,
+        showInCV: false,
+        showInResume: false,
       },
       {
         name: "IELTS",

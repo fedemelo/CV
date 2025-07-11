@@ -41,6 +41,7 @@ export const TEACHING: Teaching[] = [
       "Led tutor recruitment and training processes, conducting candidate interviews and occasionally providing coverage during tutor absences, teaching data structures and algorithms concepts",
     ],
     isCurrent: false,
+    showInResume: false,
     ...UNIANDES,
   },
   {
@@ -61,6 +62,7 @@ export const TEACHING: Teaching[] = [
       "Helped students apply these concepts to real-world problems, mainly involving constrained and unconstrained optimization",
     ],
     isCurrent: false,
+    showInResume: false,
     ...UNIANDES,
   },
   {
@@ -78,6 +80,7 @@ export const TEACHING: Teaching[] = [
       "Guided students through problems involving classic data structures (arrays, linked lists, trees, tries, hash maps, graphs) and algorithmic problem-solving techniques",
     ],
     isCurrent: false,
+    showInResume: false,
     ...UNIANDES,
   },
   {
@@ -97,6 +100,7 @@ export const TEACHING: Teaching[] = [
       "Graded programming projects and provided feedback on coding practices and problem-solving approaches",
     ],
     isCurrent: false,
+    showInResume: false,
     ...UNIANDES,
   },
   {
@@ -116,6 +120,7 @@ export const TEACHING: Teaching[] = [
       "Graded worksheets and provided individualized support",
     ],
     isCurrent: false,
+    showInResume: false,
     ...UNIANDES,
   },
 ];

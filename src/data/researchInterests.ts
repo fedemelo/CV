@@ -5,5 +5,5 @@ export const RESEARCH_INTERESTS: ResearchInterest = {
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod hendrerit tortor. Duis malesuada elit vitae enim luctus porta. Duis tempus faucibus nisi eget sodales. Phasellus convallis varius enim, in aliquet urna posuere vel. Fusce semper nibh vitae iaculis lobortis. Sed hendrerit nunc
 `,
-  isHidden: true,
+  showInCV: false,
 }
