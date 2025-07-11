@@ -9,7 +9,7 @@ export async function relevantCourseworkRoutes(fastify: FastifyInstance) {
     tag: 'Relevant Coursework',
     summary: 'Get relevant coursework',
     description: 'Returns a list of relevant coursework and academic courses',
-    data: RELEVANT_COURSEWORK.filter(r => !r.isHidden),
+    data: RELEVANT_COURSEWORK.filter(r => r.showInCV),
     schema: RelevantCourseworkSchema,
   });
 } 

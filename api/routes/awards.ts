@@ -9,7 +9,7 @@ export async function awardsRoutes(fastify: FastifyInstance) {
     tag: 'Awards',
     summary: 'Get awards and achievements',
     description: 'Returns a list of awards, honors, and achievements',
-    data: AWARDS.filter(a => !a.isHidden),
+    data: AWARDS.filter(a => !a.showInCV),
     schema: AwardSchema,
   });
 } 

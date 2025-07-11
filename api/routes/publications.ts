@@ -9,7 +9,7 @@ export async function publicationsRoutes(fastify: FastifyInstance) {
     tag: 'Publications',
     summary: 'Get publications',
     description: 'Returns a list of academic publications',
-    data: PUBLICATIONS.filter(p => !p.isHidden),
+    data: PUBLICATIONS.filter(p => p.showInCV),
     schema: PublicationSchema,
   });
 } 

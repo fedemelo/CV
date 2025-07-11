@@ -9,7 +9,7 @@ export async function teachingRoutes(fastify: FastifyInstance) {
     tag: 'Teaching',
     summary: 'Get teaching experience',
     description: 'Returns a list of teaching experience and positions',
-    data: TEACHING.filter(t => !t.isHidden),
+    data: TEACHING.filter(t => t.showInCV),
     schema: TeachingSchema,
   });
 } 

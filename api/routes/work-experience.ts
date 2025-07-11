@@ -9,7 +9,7 @@ export async function workExperienceRoutes(fastify: FastifyInstance) {
     tag: 'Work Experience',
     summary: 'Get work experience history',
     description: 'Returns a list of work experience history',
-    data: WORK_EXPERIENCE.filter(w => !w.isHidden),
+    data: WORK_EXPERIENCE.filter(w => w.showInCV),
     schema: WorkExperienceSchema,
   });
 } 

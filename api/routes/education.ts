@@ -9,7 +9,7 @@ export async function educationRoutes(fastify: FastifyInstance) {
     tag: 'Education',
     summary: 'Get education history',
     description: 'Returns a list of education history',
-    data: EDUCATION.filter(e => !e.isHidden),
+    data: EDUCATION.filter(e => e.showInCV),
     schema: EducationSchema,
   });
 } 

@@ -9,7 +9,7 @@ export async function researchInterestsRoutes(fastify: FastifyInstance) {
     tag: 'Research Interests',
     summary: 'Get research interests',
     description: 'Returns a list of research interests and areas of focus',
-    data: [RESEARCH_INTERESTS].filter(r => !r.isHidden),
+    data: [RESEARCH_INTERESTS].filter(r => r.showInCV),
     schema: ResearchInterestSchema,
   });
 } 

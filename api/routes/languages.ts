@@ -9,7 +9,7 @@ export async function languagesRoutes(fastify: FastifyInstance) {
     tag: 'Languages',
     summary: 'Get languages',
     description: 'Returns a list of languages with proficiency levels',
-    data: LANGUAGES.filter(l => !l.isHidden),
+    data: LANGUAGES.filter(l => l.showInCV),
     schema: LanguageSchema,
   });
 } 

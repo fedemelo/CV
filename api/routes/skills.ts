@@ -9,7 +9,7 @@ export async function skillsRoutes(fastify: FastifyInstance) {
     tag: 'Skills',
     summary: 'Get technical skills',
     description: 'Returns a list of technical skills organized by category',
-    data: SKILLS.filter(s => !s.isHidden),
+    data: SKILLS.filter(s => s.showInCV),
     schema: SkillSchema,
   });
 } 

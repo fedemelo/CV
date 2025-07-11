@@ -9,7 +9,7 @@ export async function extracurricularRoutes(fastify: FastifyInstance) {
     tag: 'Extracurricular',
     summary: 'Get extracurricular activities',
     description: 'Returns a list of extracurricular activities',
-    data: EXTRACURRICULARS.filter(e => !e.isHidden),
+    data: EXTRACURRICULARS.filter(e => e.showInCV),
     schema: ExtracurricularSchema,
   });
 } 
