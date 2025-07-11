@@ -34,20 +34,5 @@
 </section>
 
 <style>
-  .publication {
-    margin-bottom: 1rem;
-  }
-  
-  .publication p {
-    text-align: left;
-  }
-  
-  .publication a {
-    color: #0066cc;
-    text-decoration: underline;
-  }
-  
-  .publication a:hover {
-    text-decoration: none;
-  }
+  @import "../styles/Publications.css";
 </style> 
