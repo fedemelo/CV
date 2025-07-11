@@ -8,7 +8,7 @@
 <section>
   <h2>Awards and Honors</h2>
   {#each filterForCV(awards) as award}
-    <div class="margin-bottom">
+    <div class="margin-bottom no-break">
       <p style="font-weight: bold;">{award.title}</p>
       <div class="row">
         <p>{award.organization}</p>

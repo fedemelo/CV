@@ -11,26 +11,36 @@
   <h2>Teaching Experience</h2>
   {#each filterForCV(teaching) as teach}
     <div class="margin-bottom">
-      <div class="row">
-        <p class="institution">{teach.organization}</p>
-        <Location location={{
-          city: teach.city,
-          state: teach.state,
-          country: teach.country
-        }} />
-      </div>
-      <div class="row">
-        <p class="position">{teach.title}{teach.course ? ` - ${teach.course.name}` : ''}</p>
-        <p>
-          {getPeriodFromDates(teach.startDate, teach.endDate, teach.isCurrent)}
-        </p>
-      </div>
-      {#if teach.supervisor}
+      <div class="no-break">
         <div class="row">
-          <p class="supervisor">Supervisor: {teach.supervisor}</p>
+          <p class="institution">{teach.organization}</p>
+          <Location
+            location={{
+              city: teach.city,
+              state: teach.state,
+              country: teach.country,
+            }}
+          />
         </div>
-      {/if}
-      <Achievements experience={teach}/>
+        <div class="row">
+          <p class="position">
+            {teach.title}{teach.course ? ` - ${teach.course.name}` : ""}
+          </p>
+          <p>
+            {getPeriodFromDates(
+              teach.startDate,
+              teach.endDate,
+              teach.isCurrent
+            )}
+          </p>
+        </div>
+        {#if teach.supervisor}
+          <div class="row">
+            <p class="supervisor">Supervisor: {teach.supervisor}</p>
+          </div>
+        {/if}
+      </div>
+      <Achievements experience={teach} />
     </div>
   {/each}
 </section>

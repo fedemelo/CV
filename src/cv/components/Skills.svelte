@@ -7,7 +7,7 @@
 <section>
   <h2>Technical Skills</h2>
   {#each filterForCV(skills) as skillCategory}
-    <div>
+    <div class="no-break">
       <span class="category-title">{skillCategory.category}:</span>
       <span class="skills-list">{skillCategory.skills.join(', ')}</span>
     </div>

@@ -9,7 +9,7 @@
 <section>
   <h2>Education</h2>
   {#each filterForCV(education) as edu}
-    <div class="margin-bottom">
+    <div class="margin-bottom no-break">
       <div class="row">
         <p class="institution" style="font-weight: bold;">{edu.organization}</p>
         <Location location={{

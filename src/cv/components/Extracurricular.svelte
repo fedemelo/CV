@@ -7,7 +7,7 @@
 <section>
   <h2>Extracurricular Activities</h2>
   {#each filterForCV(extracurriculars) as extracurricular}
-    <div class="extracurricular-item">
+    <div class="extracurricular-item no-break">
       <div class="row">
         <p style="font-weight: bold;">{extracurricular.description}</p>
       </div>
