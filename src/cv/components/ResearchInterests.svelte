@@ -4,7 +4,7 @@
 </script>
 
 <section>
-  {#if !researchInterests.isHidden}
+  {#if researchInterests.showInCV}
     <h2>Research Interests</h2>
     <p>{researchInterests.text}</p>
   {/if}

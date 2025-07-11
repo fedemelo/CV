@@ -3,13 +3,13 @@
   import { getPeriodFromDates } from "../../utils/period";
   import Location from "../../components/Location.svelte";
   import Achievements from "../../components/Achievements.svelte";
-
+  import { filterForCV } from "../../utils/show";
   export let teaching: Teaching[];
 </script>
 
 <section>
   <h2>Teaching Experience</h2>
-  {#each teaching.filter((teach) => !teach.isHidden) as teach}
+  {#each filterForCV(teaching) as teach}
     <div class="margin-bottom">
       <div class="row">
         <p class="institution">{teach.organization}</p>

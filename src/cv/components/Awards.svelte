@@ -1,12 +1,13 @@
 <script lang="ts">
   import type { Award } from "../../../api/schemas/award";
+  import { filterForCV } from "../../utils/show";
   import { getYearRange, getYearSequence } from "../../utils/year";
   export let awards: Award[];
 </script>
 
 <section>
   <h2>Awards and Honors</h2>
-  {#each awards as award}
+  {#each filterForCV(awards) as award}
     <div class="margin-bottom">
       <p style="font-weight: bold;">{award.title}</p>
       <div class="row">

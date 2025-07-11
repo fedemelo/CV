@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Education } from "../../../api/schemas/education";
+  import { filterForCV } from "../../utils/show";
   import { getYearRange } from "../../utils/year";
   import Location from "../../components/Location.svelte";
   export let education: Education[];
@@ -7,7 +8,7 @@
 
 <section>
   <h2>Education</h2>
-  {#each education.filter((edu) => !edu.isHidden) as edu}
+  {#each filterForCV(education) as edu}
     <div class="margin-bottom">
       <div class="row">
         <p class="institution" style="font-weight: bold;">{edu.organization}</p>

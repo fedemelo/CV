@@ -1,11 +1,12 @@
 <script lang="ts">
   import type { Publication } from "../../../api/schemas/publication";
+  import { filterForCV } from "../../utils/show";
   export let publications: Publication[];
 </script>
 
 <section>
   <h2>Publications</h2>
-  {#each publications as publication}
+  {#each filterForCV(publications) as publication}
     <div class="publication">
       <p>
         {#each publication.authors as author, index}

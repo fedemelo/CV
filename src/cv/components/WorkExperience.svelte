@@ -3,12 +3,13 @@
   import { getYearRange } from "../../utils/year";
   import Location from "../../components/Location.svelte";
   import Achievements from "../../components/Achievements.svelte";
+  import { filterForCV } from "../../utils/show";
   export let workExperience: WorkExperience[];
 </script>
 
 <section>
   <h2>Work Experience</h2>
-  {#each workExperience.filter((work) => !work.isHidden) as work}
+  {#each filterForCV(workExperience) as work}
     <div class="work-item">
       <div class="row">
         <p class="company">{work.organization}</p>
