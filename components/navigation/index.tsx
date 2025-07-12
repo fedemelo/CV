@@ -1,6 +1,8 @@
 "use client"
 
-import { DesktopNavigation, MobileNavigation, ThemeToggle } from "./navigation/index"
+import { DesktopNavigation } from "./desktop-navigation"
+import { MobileNavigation } from "./mobile-navigation"
+import { ThemeToggle } from "./theme-toggle"
 
 export function Navigation() {
   return (
