@@ -9,7 +9,8 @@ import type {
   Teaching,
   Extracurricular,
   PersonalInfo,
-  ApiError
+  Publication,
+  ApiError,
 } from '@/types'
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8003'
@@ -86,6 +87,10 @@ class ApiClient {
 
   getPersonalInfo = async (): Promise<PersonalInfo[]> => {
     return this.request<PersonalInfo[]>('/api/personal-info')
+  }
+
+  getPublications = async (): Promise<Publication[]> => {
+    return this.request<Publication[]>('/api/publications')
   }
 
   getHealth = async (): Promise<{ status: string; timestamp: string }> => {

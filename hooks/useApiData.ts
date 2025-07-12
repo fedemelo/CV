@@ -10,6 +10,7 @@ import type {
   Teaching,
   Extracurricular,
   PersonalInfo,
+  Publication,
 } from '@/types'
 
 export interface UseApiDataReturn<T> {
@@ -95,4 +96,8 @@ export function useExtracurricular(): UseApiDataReturn<Extracurricular> {
 
 export function usePersonalInfo(): UseApiDataReturn<PersonalInfo> {
   return useApiData(apiClient.getPersonalInfo)
+}
+
+export function usePublications(): UseApiDataReturn<Publication> {
+  return useApiData(apiClient.getPublications)
 }
