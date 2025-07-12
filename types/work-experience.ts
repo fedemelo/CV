@@ -1,8 +1,7 @@
-export interface WorkExperience {
-  showInCV?: boolean
-  city: string
-  state?: string
-  country?: string
+import { Location } from "./location"
+import { Hideable } from "./hideable"
+
+export interface WorkExperience extends Location, Hideable {
   title: string
   team?: string
   squad?: string

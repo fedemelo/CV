@@ -1,5 +1,6 @@
-export interface LanguageCertification {
-  showInCV?: boolean
+import { Hideable } from "./hideable"
+
+export interface LanguageCertification extends Hideable {
   name: string
   id: string
   grade: string
@@ -7,8 +8,7 @@ export interface LanguageCertification {
   date: string
 }
 
-export interface Language {
-  showInCV?: boolean
+export interface Language extends Hideable {
   name: string
   proficiency: string
   certifications?: LanguageCertification[]

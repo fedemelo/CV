@@ -1,8 +1,6 @@
-export interface Extracurricular {
-  isHidden?: boolean
-  city: string
-  state?: string
-  country?: string
+import { Hideable } from "./hideable"
+
+export interface Extracurricular extends Hideable {
   description: string
   events: string[]
 }

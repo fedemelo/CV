@@ -1,10 +1,8 @@
+import { Location } from "./location"
 import { Course } from "./relevant-coursework"
+import { Hideable } from "./hideable"
 
-export interface Education {
-  showInCv?: boolean
-  city: string
-  state?: string
-  country?: string
+export interface Education extends Location, Hideable {
   degree: string
   organization: string
   startDate?: string

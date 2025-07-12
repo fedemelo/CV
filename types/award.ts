@@ -1,12 +1,11 @@
+import { Location } from "./location"
+
 export interface AwardInstance {
   description: string
   date: string
 }
 
-export interface Award {
-  city: string
-  state?: string
-  country?: string
+export interface Award extends Location {
   title: string
   description: string
   organization: string

@@ -1,5 +1,6 @@
-export interface Course {
-  showInCV?: boolean
+import { Hideable } from "./hideable"
+
+export interface Course extends Hideable {
   name: string
   originalName?: string
   code: string
