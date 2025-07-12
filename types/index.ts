@@ -1,4 +1,5 @@
 export * from "./award"
+export * from "./publication"
 export * from "./relevant-coursework"
 export * from "./education"
 export * from "./extracurricular"
