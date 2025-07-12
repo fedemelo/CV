@@ -39,10 +39,6 @@ export function useApiData<T = any>(
       setError(null)
       let result = await serviceFunction()
 
-      result = result.filter(item => {
-        return !(item as { showInCv?: boolean }).showInCv === false
-      })
-
       if (transform) result = transform(result)
 
       setData(result)
