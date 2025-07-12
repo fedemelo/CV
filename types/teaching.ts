@@ -12,8 +12,7 @@ export interface Teaching {
   supervisor?: string
   startDate: string
   endDate?: string
-  description: string
-  responsibilities: string[]
+  description?: string
   achievements?: string[]
   isCurrent?: boolean
 }
