@@ -2,6 +2,7 @@ import { FastifyInstance } from 'fastify';
 import { LANGUAGES } from '../../src/data/languages.js';
 import { LanguageSchema } from '../schemas/language';
 import { createDataRoute } from './utils';
+import { filterForCV } from '../../src/utils/show';
 
 export async function languagesRoutes(fastify: FastifyInstance) {
   createDataRoute(fastify, {
@@ -9,7 +10,7 @@ export async function languagesRoutes(fastify: FastifyInstance) {
     tag: 'Languages',
     summary: 'Get languages',
     description: 'Returns a list of languages with proficiency levels',
-    data: LANGUAGES.filter(l => l.showInCV),
+    data: filterForCV(LANGUAGES),
     schema: LanguageSchema,
   });
 } 
