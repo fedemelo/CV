@@ -6,7 +6,7 @@ interface HeroSectionProps {
 
 export function HeroSection({ personalInfo }: HeroSectionProps) {
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 pt-12">
       <div className="space-y-4">
         <h1 className="text-4xl md:text-7xl tracking-tight">
           {personalInfo.name}
