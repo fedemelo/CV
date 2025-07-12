@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { ArrowUpRight } from "lucide-react"
 import { navigationItems } from "@/components/navigation/navigation-items"
 
 interface NavigationCardProps {
@@ -26,11 +27,13 @@ export function NavigationCard({ card, isVisible, animationStarted }: Navigation
           : 'translateY(100vh)'
       }}
     >
-      <div className="p-6 border rounded-lg hover:border-primary hover:shadow-lg transition-all duration-300 hover:scale-105">
-        <h3 className="font-semibold mb-2 group-hover:text-primary font-display transition-colors">
+      <div className="relative p-6 border rounded-lg hover:border-primary hover:shadow-lg transition-all duration-300 hover:scale-105">
+        <ArrowUpRight className="absolute top-4 right-4 h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+        
+        <h3 className="font-semibold mb-2 group-hover:text-primary font-display transition-colors pr-6">
           {card.label}
         </h3>
-        <p className="text-sm text-muted-foreground transition-colors min-h-[2.5rem]">
+        <p className="text-sm text-muted-foreground transition-colors min-h-[2.5rem] leading-5">
           {card.description}
         </p>
       </div>
