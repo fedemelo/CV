@@ -10,9 +10,10 @@ export interface Publication extends Location, Hideable {
   showInResume: boolean
   title: string
   authors: Author[]
-  year: number
+  year: string
   description: string
   institution: string
   url?: string
   linkText?: string
+  pdfUrl?: string
 } 

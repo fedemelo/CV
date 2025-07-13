@@ -11,4 +11,5 @@ export interface Award extends Location {
   organization: string
   date?: string
   instances?: AwardInstance[]
+  images?: string[]
 }
