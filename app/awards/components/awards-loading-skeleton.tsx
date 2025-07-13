@@ -1,4 +1,4 @@
-import { DisplayDateLocationOrganizationLoadingSkeleton } from "@/components/display-date-location-organization"
+import { DisplayDateLocationOrganizationLoadingSkeleton } from "@/components/display-context-info"
 
 export function AwardsLoadingSkeleton() {
   return (
