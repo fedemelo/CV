@@ -39,7 +39,7 @@ function AwardHeader({ award }: { award: Award }) {
 
 function AwardDescription({ description }: { description: string }) {
   return (
-    <p className="text-muted-foreground leading-relaxed text-justify">
+    <p className="leading-relaxed text-justify">
       {description}
     </p>
   )
@@ -69,7 +69,7 @@ function AwardInstancesIfMultipleInstances({ award }: { award: Award }) {
 function AwardInstance({ description, date }: { description: string; date: string }) {
   return (
     <div className="flex items-center justify-between text-sm w-full">
-      <span className="text-muted-foreground">{description}</span>
+      <span>{description}</span>
       <div className="flex items-center gap-1">
         <Calendar className="h-3 w-3 text-primary" />
         <span className="font-medium">{formatShortDate(date)}</span>
