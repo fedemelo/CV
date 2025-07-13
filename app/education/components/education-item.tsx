@@ -1,6 +1,6 @@
 import { MapPin, Calendar, GraduationCap } from "lucide-react"
 import type { Education } from "@/types"
-import { formatDate } from "../utils"
+import { formatDate } from "@/utils/date"
 
 interface EducationItemProps {
   education: Education

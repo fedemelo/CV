@@ -10,8 +10,8 @@ export const navigationItems = [
     description: "Professional roles and achievements"
   },
   {
-    href: "/academic-experience",
-    label: "Academic Experience",
+    href: "/education",
+    label: "Education",
     description: "Education and research background"
   },
   
