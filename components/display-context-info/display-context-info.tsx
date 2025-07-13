@@ -1,9 +1,16 @@
-import { Calendar, MapPin, Building2, Users } from "lucide-react"
+import { Calendar, MapPin, Building2, Users, BookOpen, User } from "lucide-react"
 import type { Location } from "@/types"
 import { formatDate } from "@/utils/date"
 
 export function DisplayContextInfo({
-  date, startDate, endDate, location, organization, team,
+  date,
+  startDate,
+  endDate,
+  location,
+  organization,
+  team,
+  department,
+  supervisor,
 }: {
   date?: string | Date | number
   startDate?: string | Date | number
@@ -11,6 +18,8 @@ export function DisplayContextInfo({
   location?: Location
   organization?: string
   team?: string
+  department?: string
+  supervisor?: string
 }) {
 
   if (startDate && endDate && date)
@@ -20,8 +29,7 @@ export function DisplayContextInfo({
     throw new Error("endDate must have a startDate")
 
   return (
-    <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-      {date && <SingleDateDisplay date={date} />}
+    <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">      {date && <SingleDateDisplay date={date} />}
       {startDate && <DateRangeDisplay startDate={startDate} endDate={endDate} />}
 
       {location && <LocationDisplay location={location} />}
@@ -29,6 +37,10 @@ export function DisplayContextInfo({
       {organization && <OrganizationDisplay organization={organization} />}
 
       {team && <TeamDisplay team={team} />}
+
+      {department && <DepartmentDisplay department={department} />}
+
+      {supervisor && <SupervisorDisplay supervisor={supervisor} />}
     </div>
   )
 }
@@ -78,6 +90,24 @@ function TeamDisplay({ team }: { team: string }) {
     <div className="flex items-center">
       <Users className="mr-1 h-4 w-4" />
       {team}
+    </div>
+  )
+}
+
+function DepartmentDisplay({ department }: { department: string }) {
+  return (
+    <div className="flex items-center">
+      <BookOpen className="mr-1 h-4 w-4" />
+      Department: {department}
+    </div>
+  )
+}
+
+function SupervisorDisplay({ supervisor }: { supervisor: string }) {
+  return (
+    <div className="flex items-center">
+      <User className="mr-1 h-4 w-4" />
+      Supervisor: {supervisor}
     </div>
   )
 }
