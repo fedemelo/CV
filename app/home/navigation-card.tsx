@@ -1,6 +1,8 @@
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { navigationItems } from "@/components/navigation/navigation-items"
+import { usePathname } from "next/navigation"
+import { useNavigationAnimation } from "@/contexts/navigation-animation-context"
 
 interface NavigationCardProps {
   card: typeof navigationItems[0]
@@ -9,6 +11,8 @@ interface NavigationCardProps {
 }
 
 export function NavigationCard({ card, isVisible, animationStarted }: NavigationCardProps) {
+  const { setNavigatedInternally } = useNavigationAnimation()
+
   return (
     <Link 
       href={card.href} 
@@ -26,6 +30,7 @@ export function NavigationCard({ card, isVisible, animationStarted }: Navigation
             : 'translateY(100vh)'
           : 'translateY(100vh)'
       }}
+      onClick={setNavigatedInternally}
     >
       <div className="relative p-6 border rounded-lg hover:border-primary hover:shadow-lg transition-all duration-300 hover:scale-105">
         <ArrowUpRight className="absolute top-4 right-4 h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
