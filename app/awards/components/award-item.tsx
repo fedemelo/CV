@@ -1,6 +1,6 @@
 import { Calendar, Trophy } from "lucide-react"
 import type { Award } from "@/types"
-import { DisplayDateLocationOrganization } from "@/components/display-date-location-organization"
+import { DisplayDateLocationOrganization } from "@/components/display-date-location-organization/display-date-location-organization"
 import { formatShortDate } from "@/utils/date"
 
 interface AwardItemProps {
@@ -9,7 +9,7 @@ interface AwardItemProps {
 
 export function AwardItem({ award }: AwardItemProps) {
   return (
-    <div className="border rounded-lg p-6 hover:shadow-lg transition-shadow">
+    <div className="border rounded-lg p-6">
       <div className="flex items-start">
         <div className="flex-1 space-y-4 w-full">
           <AwardHeader award={award} />
