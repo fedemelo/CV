@@ -6,7 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Navigation } from "@/components/navigation/navigation"
 import { NavigationAnimationProvider } from "@/contexts/navigation-animation-context"
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 })
@@ -19,7 +19,7 @@ const josefinSans = Josefin_Sans({
 
 export const metadata: Metadata = {
   title: "Federico Melo Barrero - Personal Portfolio",
-  description:"Professional portfolio showcasing work experience, academic background, publications, and achievements.",
+  description: "Professional portfolio showcasing work experience, academic background, publications, and achievements.",
 }
 
 export default function RootLayout({

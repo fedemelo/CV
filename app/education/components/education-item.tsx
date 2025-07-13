@@ -12,7 +12,7 @@ export function EducationItem({ education }: EducationItemProps) {
     <div className="border rounded-lg p-6 space-y-3">
       <div className="flex flex-row justify-between">
         <EducationHeader degree={education.degree} organization={education.organization} />
-        
+
         <EducationDetails gpa={education.gpa} honors={education.honors} />
       </div>
 
