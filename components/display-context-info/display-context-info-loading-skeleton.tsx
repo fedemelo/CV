@@ -1,4 +1,4 @@
-export function DisplayDateLocationOrganizationLoadingSkeleton() {
+export function DisplayContextInfoLoadingSkeleton() {
   return (
     <div className="flex flex-wrap items-center gap-4 text-sm">
       {[1, 2, 3].map((i) => (
