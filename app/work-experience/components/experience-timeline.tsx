@@ -3,7 +3,7 @@ import { ExperienceItem } from "./experience-item"
 import { ExperienceLoadingSkeleton } from "./experience-loading-skeleton"
 import { Error } from "@/components/error"
 import { NoItemsAvailable } from "@/components/no-items-available"
-import { VerticalTimeline, TimelineItem } from "@/components/ui/vertical-timeline"
+import { VerticalTimeline, TimelineItem } from "@/components/vertical-timeline"
 
 interface ExperienceTimelineProps {
   experiences: WorkExperience[]
