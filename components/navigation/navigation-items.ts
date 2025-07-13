@@ -14,10 +14,11 @@ export const navigationItems = [
     label: "Academic Experience",
     description: "Education and research background"
   },
+  
   {
-    href: "/publications",
-    label: "Publications",
-    description: "Research papers and articles"
+    href: "/awards",
+    label: "Awards",
+    description: "Recognition and achievements"
   },
   {
     href: "/teaching",
@@ -25,8 +26,8 @@ export const navigationItems = [
     description: "Educational roles and courses"
   },
   {
-    href: "/awards",
-    label: "Awards",
-    description: "Recognition and achievements"
-  }
+    href: "/publications",
+    label: "Publications",
+    description: "Research papers and articles"
+  },
 ]
