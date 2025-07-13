@@ -11,7 +11,7 @@ export function DescriptionAndBullets({ description, achievements }: { descripti
 
       {hasAchievements && (
         <div className="space-y-2">
-          <ul className="list-disc list-inside space-y-1">
+          <ul className="list-disc list-outside space-y-1 ml-4">
             {achievements.map((achievement, i) => (
               <li key={i}>{achievement}</li>
             ))}
