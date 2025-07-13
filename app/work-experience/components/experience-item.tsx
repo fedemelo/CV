@@ -1,7 +1,7 @@
 import { MapPin, Calendar, Briefcase } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import type { WorkExperience } from "@/types"
-import { DisplayContextInfo } from "@/components/display-context-info"
+import { ContextInfo } from "@/components/context-info"
 import { DescriptionAndBullets } from "@/components/description-and-bullets"
 
 interface ExperienceItemProps {
@@ -14,7 +14,7 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
       <ExperienceHeader title={experience.title} />
 
       <div className="flex flex-row justify-between">
-        <DisplayContextInfo
+        <ContextInfo
           startDate={experience.startDate}
           endDate={experience.endDate}
           location={{

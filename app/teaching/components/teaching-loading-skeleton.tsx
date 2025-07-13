@@ -1,5 +1,5 @@
 import { VerticalTimeline, TimelineItem } from "@/components/vertical-timeline"
-import { DisplayContextInfoLoadingSkeleton } from "@/components/display-context-info"
+import { ContextInfoSkeleton } from "@/components/context-info"
 import { DescriptionAndBulletsSkeleton } from "@/components/description-and-bullets"
 
 export function TeachingLoadingSkeleton() {
@@ -10,7 +10,7 @@ export function TeachingLoadingSkeleton() {
           <div className="animate-pulse border rounded-lg p-6 space-y-3">
             <TeachingHeaderSkeleton />
             
-            <DisplayContextInfoLoadingSkeleton />
+            <ContextInfoSkeleton />
 
             <CourseInformationSkeleton />
 

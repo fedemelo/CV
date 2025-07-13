@@ -1,5 +1,5 @@
 import { VerticalTimeline, TimelineItem } from "@/components/vertical-timeline"
-import { DisplayContextInfoLoadingSkeleton } from "@/components/display-context-info"
+import { ContextInfoSkeleton } from "@/components/context-info"
 import { DescriptionAndBulletsSkeleton } from "@/components/description-and-bullets"
 
 export function ExperienceLoadingSkeleton() {
@@ -11,7 +11,7 @@ export function ExperienceLoadingSkeleton() {
             <ExperienceHeaderSkeleton />
             
             <div className="flex flex-row justify-between">
-              <DisplayContextInfoLoadingSkeleton />
+              <ContextInfoSkeleton />
               <WorkDetailsTagsSkeleton />
             </div>
 

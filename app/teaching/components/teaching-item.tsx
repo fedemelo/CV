@@ -1,6 +1,6 @@
 import { BookOpen, GraduationCap, User } from "lucide-react"
 import type { Teaching } from "@/types"
-import { DisplayContextInfo } from "@/components/display-context-info"
+import { ContextInfo } from "@/components/context-info"
 import { DescriptionAndBullets } from "@/components/description-and-bullets"
 
 interface TeachingItemProps {
@@ -20,7 +20,7 @@ export function TeachingItem({ teaching }: TeachingItemProps) {
       </div>
 
       <div className="flex flex-row justify-between">
-        <DisplayContextInfo
+        <ContextInfo
           startDate={teaching.startDate}
           endDate={displayEndDate}
           location={{

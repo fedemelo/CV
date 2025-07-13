@@ -2,10 +2,11 @@ import { Calendar, MapPin, Building2, Users, BookOpen, User } from "lucide-react
 import type { Location } from "@/types"
 import { formatDate } from "@/utils/date"
 
-export function DisplayContextInfo({
+export function ContextInfo({
   date,
   startDate,
   endDate,
+  period,
   location,
   organization,
   team,
@@ -14,6 +15,7 @@ export function DisplayContextInfo({
 }: {
   date?: string | Date | number
   startDate?: string | Date | number
+  period?: string
   endDate?: string | Date | number
   location?: Location
   organization?: string
@@ -28,9 +30,14 @@ export function DisplayContextInfo({
   if (endDate && !startDate)
     throw new Error("endDate must have a startDate")
 
+  if (period && (startDate || date))
+    throw new Error("Cannot have both period and startDate or date")
+
   return (
-    <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">      {date && <SingleDateDisplay date={date} />}
+    <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">      
+      {date && <SingleDateDisplay date={date} />}
       {startDate && <DateRangeDisplay startDate={startDate} endDate={endDate} />}
+      {period && <PeriodDisplay period={period} />}
 
       {location && <LocationDisplay location={location} />}
 
@@ -61,6 +68,15 @@ function DateRangeDisplay({ startDate, endDate }: { startDate: string | Date | n
       <Calendar className="mr-1 h-4 w-4" />
       {typeof startDate === "number" ? startDate : formatDate(startDate)}
       {endDate ? ` - ${typeof endDate === "number" ? endDate : formatDate(endDate)}` : " - Present"}
+    </div>
+  )
+}
+
+function PeriodDisplay({ period }: { period: string }) {
+  return (
+    <div className="flex items-center">
+      <Calendar className="mr-1 h-4 w-4" />
+      {period}
     </div>
   )
 }

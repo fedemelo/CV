@@ -1,4 +1,4 @@
-import { DisplayContextInfoLoadingSkeleton } from "@/components/display-context-info"
+import { ContextInfoSkeleton } from "@/components/context-info"
 
 export function AwardsLoadingSkeleton() {
   return (
@@ -12,7 +12,7 @@ export function AwardsLoadingSkeleton() {
                 <div className="h-6 bg-muted rounded w-3/4"></div>
               </div>
 
-              <DisplayContextInfoLoadingSkeleton />
+              <ContextInfoSkeleton />
 
               <div className="space-y-2 max-w-2xl">
                 <div className="h-4 bg-muted rounded w-full"></div>
