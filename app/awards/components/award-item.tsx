@@ -1,6 +1,6 @@
 import { Calendar, Trophy } from "lucide-react"
 import type { Award } from "@/types"
-import { DisplayDateLocationOrganization } from "@/components/display-date-location-organization/display-date-location-organization"
+import { DisplayDateLocationOrganization } from "@/components/display-date-location-organization"
 import { formatShortDate } from "@/utils/date"
 
 interface AwardItemProps {
