@@ -11,7 +11,16 @@ const fastify = Fastify({
 
 await registerSwagger(fastify);
 await fastify.register(cors, {
-  origin: ['http://localhost:8003', 'http://localhost:3001', 'https://fedemelo.github.io'],
+  origin: [
+    // Development only
+    // 'http://localhost:8003',
+    // 'http://localhost:3000',
+
+    // Production only
+    'https://fedemelo.github.io',
+    'https://fedemelo.com',
+    'https://www.fedemelo.com',
+  ],
   methods: ['GET']
 });
 await fastify.register(registerRoutes, { prefix: '/api' });
