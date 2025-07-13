@@ -10,7 +10,7 @@ interface ExperienceItemProps {
 export function ExperienceItem({ experience }: ExperienceItemProps) {
   return (
     <div className="border rounded-lg p-6 space-y-3">
-      <ExperienceHeader title={experience.title} organization={experience.organization} />
+      <ExperienceHeader title={experience.title} />
 
       <div className="flex flex-row justify-between">
         <DisplayContextInfo
@@ -34,7 +34,7 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
   )
 }
 
-function ExperienceHeader({ title, organization }: { title: string, organization: string }) {
+function ExperienceHeader({ title }: { title: string }) {
   return (
     <div className="space-y-0">
       <div className="flex items-center gap-2">
