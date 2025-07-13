@@ -1,5 +1,6 @@
 import { VerticalTimeline, TimelineItem } from "@/components/vertical-timeline"
 import { DisplayContextInfoLoadingSkeleton } from "@/components/display-context-info"
+import { DescriptionAndBulletsSkeleton } from "@/components/description-and-bullets"
 
 export function ExperienceLoadingSkeleton() {
   return (
@@ -14,7 +15,7 @@ export function ExperienceLoadingSkeleton() {
               <WorkDetailsTagsSkeleton />
             </div>
 
-            <FullWorkDescriptionSkeleton />
+            <DescriptionAndBulletsSkeleton />
             
             <TechnologiesTagsSkeleton />
           </div>
@@ -40,24 +41,6 @@ function WorkDetailsTagsSkeleton() {
     <div className="flex items-center gap-4">
       <div className="h-6 bg-muted rounded-md w-16"></div>
       <div className="h-6 bg-muted rounded-md w-20"></div>
-    </div>
-  )
-}
-
-function FullWorkDescriptionSkeleton() {
-  return (
-    <div className="space-y-1">
-      <div className="space-y-2">
-        <div className="h-4 bg-muted rounded w-full"></div>
-        <div className="h-4 bg-muted rounded w-5/6"></div>
-        <div className="h-4 bg-muted rounded w-4/6"></div>
-      </div>
-      <div className="space-y-2">
-        <div className="space-y-1">
-          <div className="h-4 bg-muted rounded w-11/12"></div>
-          <div className="h-4 bg-muted rounded w-10/12"></div>
-        </div>
-      </div>
     </div>
   )
 }

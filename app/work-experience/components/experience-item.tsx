@@ -2,6 +2,7 @@ import { MapPin, Calendar, Briefcase } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import type { WorkExperience } from "@/types"
 import { DisplayContextInfo } from "@/components/display-context-info"
+import { DescriptionAndBullets } from "@/components/description-and-bullets"
 
 interface ExperienceItemProps {
   experience: WorkExperience
@@ -27,7 +28,7 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
         <WorkDetailsTags workMode={experience.workMode} employmentType={experience.employmentType} />
       </div>
 
-      <FullWorkDescription description={experience.description} achievements={experience.achievements} />
+      <DescriptionAndBullets description={experience.description} achievements={experience.achievements} />
 
       <TechnologiesTags technologies={experience.technologies} />
     </div>
@@ -36,12 +37,10 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
 
 function ExperienceHeader({ title }: { title: string }) {
   return (
-    <div className="space-y-0">
       <div className="flex items-center gap-2">
         <Briefcase className="h-5 w-5 text-primary flex-shrink-0" />
         <h3 className="text-xl font-semibold leading-tight">{title}</h3>
       </div>
-    </div>
   )
 }
 
@@ -50,27 +49,6 @@ function WorkDetailsTags({ workMode, employmentType }: { workMode: string, emplo
     <div className="flex items-center gap-4 text-sm text-muted-foreground">
       <span className="px-2 py-1 bg-muted rounded-md">{workMode}</span>
       <span className="px-2 py-1 bg-muted rounded-md">{employmentType}</span>
-    </div>
-  )
-}
-
-function FullWorkDescription({ description, achievements }: { description: string, achievements?: string[] }) {
-
-  const hasAchievements = achievements && achievements.length > 0
-
-  return (
-    <div className="space-y-1">
-      <p className="leading-relaxed text-justify">{description}</p>
-
-      {hasAchievements && (
-        <div className="space-y-2">
-          <ul className="list-disc list-inside space-y-1">
-            {achievements.map((achievement, i) => (
-              <li key={i}>{achievement}</li>
-            ))}
-          </ul>
-        </div>
-      )}
     </div>
   )
 }

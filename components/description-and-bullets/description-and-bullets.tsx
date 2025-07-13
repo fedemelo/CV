@@ -1,0 +1,23 @@
+export function DescriptionAndBullets({ description, achievements }: { description?: string, achievements?: string[] }) {
+
+  const hasAchievements = achievements && achievements.length > 0
+
+  if (!description && !hasAchievements) return null
+
+
+  return (
+    <div className="space-y-1">
+      <p className="leading-relaxed text-justify">{description}</p>
+
+      {hasAchievements && (
+        <div className="space-y-2">
+          <ul className="list-disc list-inside space-y-1">
+            {achievements.map((achievement, i) => (
+              <li key={i}>{achievement}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  )
+}
