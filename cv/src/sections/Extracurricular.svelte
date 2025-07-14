@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { Extracurricular } from "../../shared/schemas/extracurricular";
-  import { filterForCV } from "../../shared/utils/show";
+  import type { Extracurricular } from "../../../shared/schemas/extracurricular";
+  import { filterForCV } from "../../../shared/utils/show";
   export let extracurriculars: Extracurricular[];
 </script>
 

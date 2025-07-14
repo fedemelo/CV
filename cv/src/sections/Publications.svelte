@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { Publication } from "../../shared/schemas/publication";
-  import { filterForCV } from "../../shared/utils/show";
+  import type { Publication } from "../../../shared/schemas/publication";
+  import { filterForCV } from "../../../shared/utils/show";
   export let publications: Publication[];
 </script>
 

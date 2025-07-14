@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { Education } from "../../shared/schemas/education";
-  import { filterForCV } from "../../shared/utils/show";
-  import { getYearRange } from "../../shared/utils/year";
+  import type { Education } from "../../../shared/schemas/education";
+  import { filterForCV } from "../../../shared/utils/show";
+  import { getYearRange } from "../../../shared/utils/year";
   import Location from "../components/Location.svelte";
   export let education: Education[];
 </script>

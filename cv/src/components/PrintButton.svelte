@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Printer } from "lucide-svelte";
-  import { generatePdf } from "../../shared/utils/print";
+  import { generatePdf } from "../../../shared/utils/print";
 
   let generating = false;
   export let currentView: 'cv' | 'resume';

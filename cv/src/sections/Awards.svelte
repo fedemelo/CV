@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { Award } from "../../shared/schemas/award";
-  import { filterForCV } from "../../shared/utils/show";
-  import { getYearRange, getYearSequence } from "../../shared/utils/year";
+  import type { Award } from "../../../shared/schemas/award";
+  import { filterForCV } from "../../../shared/utils/show";
+  import { getYearRange, getYearSequence } from "../../../shared/utils/year";
   export let awards: Award[];
 </script>
 

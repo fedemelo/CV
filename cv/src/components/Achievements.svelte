@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { WorkExperience } from "../../shared/schemas/workExperience";
-  import type { Teaching } from "../../shared/schemas/teaching";
+  import type { WorkExperience } from "../../../shared/schemas/workExperience";
+  import type { Teaching } from "../../../shared/schemas/teaching";
   export let experience: WorkExperience | Teaching;
 </script>
 
