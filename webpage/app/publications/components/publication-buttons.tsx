@@ -1,0 +1,35 @@
+import { ExternalLink, FileText } from "lucide-react"
+import Link from "next/link"
+import type { Publication } from "@/types"
+import { CiteButton } from "./cite-button"
+import { GreenButton } from "@/components/green-button"
+
+interface PublicationButtonsProps {
+  publication: Publication
+}
+
+export function PublicationButtons({ publication }: PublicationButtonsProps) {
+  return (
+    <div className="flex flex-wrap gap-2 pt-2">
+      <CiteButton publication={publication} />
+      
+      {publication.pdfUrl && (
+        <GreenButton asChild>
+          <Link href={publication.pdfUrl} target="_blank" rel="noopener noreferrer">
+            <FileText className="mr-2 h-4 w-4" />
+            PDF
+          </Link>
+        </GreenButton>
+      )}
+      
+      {publication.url && (
+        <GreenButton asChild>
+          <Link href={publication.url} target="_blank" rel="noopener noreferrer">
+            <ExternalLink className="mr-2 h-4 w-4" />
+            {publication.linkText || "DOI/Site"}
+          </Link>
+        </GreenButton>
+      )}
+    </div>
+  )
+} 
