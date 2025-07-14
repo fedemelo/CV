@@ -72,9 +72,54 @@ pnpm --filter @fedemelo/resume test
 pnpm --filter @fedemelo/api test
 ```
 
-## Docker Deployment
+## Deployment
 
-### Local Docker Development
+### Cloudflare Pages (Production)
+
+Each module deploys to its own subdomain:
+- `fedemelo.com` → webpage (Next.js)
+- `cv.fedemelo.com` → CV (Svelte)
+- `resume.fedemelo.com` → Resume (Svelte)
+
+Cloudflare Pages doesn't support pnpm directly, so the build commands use `npm run build` instead.
+
+Each module requires a separate Cloudflare Pages project with these settings:
+
+**Main Webpage (fedemelo.com)**
+- Build command: `cd webpage && npm run build`
+- Build output directory: `webpage/out`
+- Node.js version: `20.x`
+
+**CV (cv.fedemelo.com)**
+- Build command: `cd cv && npm run build`
+- Build output directory: `cv/dist`
+- Node.js version: `20.x`
+
+**Resume (resume.fedemelo.com)**
+- Build command: `cd resume && npm run build`
+- Build output directory: `resume/dist`
+- Node.js version: `20.x`
+
+#### Deployment Process
+
+1. **Domain Setup**: Buy `fedemelo.com` from Cloudflare
+2. **Create 3 Projects**: One for each module in Cloudflare Pages
+3. **Configure Builds**: Use the commands and directories above
+4. **Set Custom Domains**: Add the respective subdomains to each project
+5. **Deploy**: Each project deploys independently from the same repository
+
+#### Key Benefits
+
+- **Independent Deployments**: Each module can be updated separately
+- **Static Hosting**: All modules are static sites (no server required)
+- **Automatic SSL**: Cloudflare provides SSL certificates
+- **Global CDN**: Fast loading worldwide
+
+### Docker Deployment (Alternative)
+
+For VPS or containerized deployments:
+
+#### Local Docker Development
 
 Run all services with Docker Compose:
 ```bash
@@ -91,7 +136,7 @@ Services will be available at:
 - **Resume**: http://localhost:5174/
 - **API**: http://localhost:8003/ ([docs](http://localhost:8003/docs))
 
-### Building Individual Images
+#### Building Individual Images
 
 ```bash
 # Build specific services
@@ -104,7 +149,7 @@ pnpm docker:build:webpage # Build webpage image
 pnpm docker:build
 ```
 
-### Production Deployment
+#### Production Deployment
 
 Each module has its own Dockerfile in its directory:
 
@@ -122,7 +167,7 @@ docker run -d -p 80:80 resume-frontend  # → fedemelo.com/resume
 docker run -d -p 8003:8003 api-backend  # → api.fedemelo.com
 ```
 
-### Health Monitoring
+#### Health Monitoring
 
 All services include health check endpoints for monitoring and load balancer integration.
 
@@ -141,3 +186,5 @@ The API serves static data - it imports from hardcoded data files in `/data` and
 - Automatic OpenAPI/Swagger documentation
 - Health checks and monitoring endpoints
 - Consistent data format across all applications
+
+**Note**: The webpage module has been converted to use static data imports instead of API calls, making it deployable as a static site while maintaining the same hook-based interface for potential future dynamic data.
