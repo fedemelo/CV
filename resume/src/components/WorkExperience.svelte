@@ -1,9 +1,9 @@
 <script lang="ts">
-  import type { WorkExperience } from "../../shared/schemas/workExperience";
-  import type { Teaching } from "../../shared/schemas/teaching";
-  import { getYearRange } from "../../shared/utils/year";
-  import { getPeriodFromDates } from "../../shared/utils/period";
-  import { filterForResume } from "../../shared/utils/show";
+  import type { WorkExperience } from "../../../shared/schemas/workExperience";
+  import type { Teaching } from "../../../shared/schemas/teaching";
+  import { getYearRange } from "../../../shared/utils/year";
+  import { getPeriodFromDates } from "../../../shared/utils/period";
+  import { filterForResume } from "../../../shared/utils/show";
   export let experiences: (WorkExperience | Teaching)[];
 
   function sortExperiences(experiences: (WorkExperience | Teaching)[]) {

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Skill } from "../../shared/schemas/skill";
+  import type { Skill } from "../../../shared/schemas/skill";
   
   export let skills: Skill[];
 </script>
