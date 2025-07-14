@@ -1,9 +1,9 @@
 <script lang="ts">
-  import type { Teaching } from "../../../api/schemas/teaching";
-  import { getPeriodFromDates } from "../../utils/period";
+  import type { Teaching } from "../../shared/schemas/teaching";
+  import { getPeriodFromDates } from "../../shared/utils/period";
   import Location from "../../components/Location.svelte";
   import Achievements from "../../components/Achievements.svelte";
-  import { filterForCV } from "../../utils/show";
+  import { filterForCV } from "../../shared/utils/show";
   export let teaching: Teaching[];
 </script>
 

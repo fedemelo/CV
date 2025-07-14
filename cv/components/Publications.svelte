@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { Publication } from "../../../api/schemas/publication";
-  import { filterForCV } from "../../utils/show";
+  import type { Publication } from "../../api/schemas/publication";
+  import { filterForCV } from "../utils/show";
   export let publications: Publication[];
 </script>
 

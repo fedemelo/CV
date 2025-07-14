@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { Skill } from "../../../api/schemas/skill";
-  import { filterForCV } from "../../utils/show";
+  import type { Skill } from "../../shared/schemas/skill";
+  import { filterForCV } from "../../shared/utils/show";
   export let skills: Skill[];
 </script>
 

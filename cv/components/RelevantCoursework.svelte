@@ -1,7 +1,7 @@
 <!-- src/components/RelevantCoursework.svelte -->
 <script lang="ts">
-  import type { RelevantCoursework } from "../../../api/schemas/relevantCoursework";
-  import { filterForCV } from "../../utils/show";
+  import type { RelevantCoursework } from "../../shared/schemas/relevantCoursework";
+  import { filterForCV } from "../../shared/utils/show";
   export let relevantCoursework: RelevantCoursework[];
 </script>
 
