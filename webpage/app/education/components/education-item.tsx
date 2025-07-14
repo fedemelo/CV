@@ -18,7 +18,7 @@ export function EducationItem({ education }: EducationItemProps) {
 
       <ContextInfo
         startDate={education.startDate}
-        endDate={education.graduationDate}
+        endDate={education.trueEndDate || education.graduationDate}
         location={{
           city: education.city,
           state: education.state,
