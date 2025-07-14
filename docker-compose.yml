@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    ports:
+      - "8003:8003"
+    environment:
+      - NODE_ENV=development
+      - PORT=8003
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:8003/api/health', (res) => process.exit(res.statusCode === 200 ? 0 : 1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+  cv:
+    build:
+      context: .
+      dockerfile: cv/Dockerfile
+    ports:
+      - "8001:80"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/cv/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+  resume:
+    build:
+      context: .
+      dockerfile: resume/Dockerfile
+    ports:
+      - "8002:80"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/resume/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+networks:
+  default:
+    name: cv-network 
