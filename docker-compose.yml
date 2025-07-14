@@ -43,6 +43,23 @@ services:
       retries: 3
     restart: unless-stopped
 
+  webpage:
+    build:
+      context: .
+      dockerfile: webpage/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://api:8003
+    depends_on:
+      - api
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
 networks:
   default:
     name: cv-network 

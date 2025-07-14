@@ -1,44 +1,76 @@
-# Dockerfile
-FROM node:20-alpine AS base
+# Webpage Frontend Dockerfile
+FROM node:18-alpine AS base
 
 # Install dependencies only when needed
 FROM base AS deps
+# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-# Pnpm usage
-COPY package.json pnpm-lock.yaml* ./
-RUN npm install -g pnpm && pnpm install --frozen-lockfile
+# Install pnpm
+RUN npm install -g pnpm
+
+# Copy workspace files
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY webpage/package.json ./webpage/
+COPY shared/ ./shared/
+
+# Install dependencies
+RUN pnpm install --frozen-lockfile
 
 # Rebuild the source code only when needed
 FROM base AS builder
 WORKDIR /app
+
+# Install pnpm
+RUN npm install -g pnpm
+
+# Copy dependencies from deps stage
 COPY --from=deps /app/node_modules ./node_modules
-COPY . .
+COPY --from=deps /app/webpage/node_modules ./webpage/node_modules
 
-# Accept build-time environment variables
-ARG NEXT_PUBLIC_API_URL
-ENV NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+# Copy workspace configuration
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY shared/ ./shared/
 
-RUN npm install -g pnpm && pnpm run build
+# Copy webpage source code
+COPY webpage/ ./webpage/
+
+# Set environment variables for build
+ENV NEXT_TELEMETRY_DISABLED 1
+ENV NODE_ENV production
+
+# Build the webpage
+RUN cd webpage && pnpm build
 
 # Production image, copy all the files and run next
 FROM base AS runner
 WORKDIR /app
 
-ENV NODE_ENV=production
+ENV NODE_ENV production
+ENV NEXT_TELEMETRY_DISABLED 1
 
+# Create non-root user
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-COPY --from=builder /app/public ./public
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+# Copy built application
+COPY --from=builder /app/webpage/public ./webpage/public
+
+# Set the correct permission for prerender cache
+RUN mkdir ./webpage/.next
+RUN chown nextjs:nodejs ./webpage/.next
+
+# Automatically leverage output traces to reduce image size
+COPY --from=builder --chown=nextjs:nodejs /app/webpage/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/webpage/.next/static ./webpage/.next/static
 
 USER nextjs
 
 EXPOSE 3000
 
-ENV PORT=3000
+ENV PORT 3000
+ENV HOSTNAME "0.0.0.0"
 
-CMD ["node", "server.js"]
+# Server.js is created by next build from the standalone output
+CMD ["node", "webpage/server.js"]
