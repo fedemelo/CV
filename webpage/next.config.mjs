@@ -9,7 +9,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  output: 'standalone', // Required for Docker
+  output: 'export', // Static export for Cloudflare Pages
+  trailingSlash: true, // Helps with static hosting
 }
 
 export default nextConfig
