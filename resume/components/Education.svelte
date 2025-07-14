@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { Education } from "../../../api/schemas/education";
-  import { getYearRange } from "../../utils/year";
-  import { filterForResume } from "../../utils/show";
+  import type { Education } from "../../shared/schemas/education";
+  import { getYearRange } from "../../shared/utils/year";
+  import { filterForResume } from "../../shared/utils/show";
   export let education: Education[];
 </script>
 
