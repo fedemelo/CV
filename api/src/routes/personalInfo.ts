@@ -1,6 +1,6 @@
 import { FastifyInstance } from 'fastify';
-import { PERSONAL_INFO } from '../../shared/data/personalInfo';
-import { PersonalInfoSchema } from '../../shared/schemas/personalInfo';
+import { PERSONAL_INFO } from '../../../shared/data/personalInfo';
+import { PersonalInfoSchema } from '../../../shared/schemas/personalInfo';
 import { createDataRoute } from './utils';
 
 export async function personalInfoRoutes(fastify: FastifyInstance) {

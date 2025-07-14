@@ -1,8 +1,8 @@
 import { FastifyInstance } from 'fastify';
-import { RESEARCH_INTERESTS } from '../../shared/data/researchInterests.js';
-import { ResearchInterestSchema } from '../../shared/schemas/researchInterest.js';
+import { RESEARCH_INTERESTS } from '../../../shared/data/researchInterests.js';
+import { ResearchInterestSchema } from '../../../shared/schemas/researchInterest.js';
 import { createDataRoute } from './utils';
-import { filterForCV } from '../../shared/utils/show.js';
+import { filterForCV } from '../../../shared/utils/show.js';
 
 export async function researchInterestsRoutes(fastify: FastifyInstance) {
   createDataRoute(fastify, {
