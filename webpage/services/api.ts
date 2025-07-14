@@ -1,4 +1,10 @@
-import axios, { AxiosInstance, AxiosError, AxiosResponse } from 'axios'
+// This was formerly an axios client that fetched data from the API.
+// Now it's just a static client that fetches data from the static data files.
+// It still provides the original interface of async getters for the 
+// data to allow for future dynamic data.
+// This is the single connection point to the rest of the monorepo - other
+// modules should not import from the shared data directory directly.
+
 import type {
   Education,
   WorkExperience,
@@ -10,92 +16,144 @@ import type {
   Extracurricular,
   PersonalInfo,
   Publication,
-  ApiError,
 } from '@/types'
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8003'
+// Import static data from the shared data directory
+import { EDUCATION } from '../../shared/data/education'
+import { WORK_EXPERIENCE } from '../../shared/data/workExperience'
+import { LANGUAGES } from '../../shared/data/languages'
+import { AWARDS } from '../../shared/data/awards'
+import { RELEVANT_COURSEWORK } from '../../shared/data/relevantCoursework'
+import { RESEARCH_INTERESTS } from '../../shared/data/researchInterests'
+import { TEACHING } from '../../shared/data/teaching'
+import { EXTRACURRICULARS } from '../../shared/data/extracurricular'
+import { PERSONAL_INFO } from '../../shared/data/personalInfo'
+import { PUBLICATIONS } from '../../shared/data/publications'
 
-class ApiClient {
-  private client: AxiosInstance
+// Simulate API delay to show loaders
+const simulateApiDelay = (ms: number = 100) => new Promise(resolve => setTimeout(resolve, ms))
 
-  constructor(baseUrl: string) {
-    this.client = axios.create({
-      baseURL: baseUrl,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
+const dateToString = (date: Date | undefined): string | undefined => {
+  return date ? date.toISOString().split('T')[0] : undefined
+}
 
-    this.client.interceptors.response.use(
-      (response: AxiosResponse) => response,
-      (error: AxiosError<ApiError>) => {
-        if (error.response?.data) {
-          const apiError = error.response.data
-          throw new Error(apiError.message || `HTTP error! status: ${error.response.status}`)
-        } else if (error.request) {
-          throw new Error('Network error: Unable to reach the server')
-        } else {
-          throw new Error(`Request failed: ${error.message}`)
-        }
-      }
-    )
-  }
+const convertEducation = (data: typeof EDUCATION): Education[] => {
+  return data.map(item => ({
+    ...item,
+    startDate: dateToString(item.startDate),
+    graduationDate: dateToString(item.graduationDate),
+    trueEndDate: dateToString(item.trueEndDate),
+  }))
+}
 
-  private async request<T>(endpoint: string): Promise<T> {
-    try {
-      const response = await this.client.get<T>(endpoint)
-      return response.data
-    } catch (error) {
-      if (error instanceof Error) {
-        throw error
-      }
-      throw new Error('Unknown API error occurred')
-    }
-  }
+const convertWorkExperience = (data: typeof WORK_EXPERIENCE): WorkExperience[] => {
+  return data.map(item => ({
+    ...item,
+    startDate: dateToString(item.startDate) || '',
+    endDate: dateToString(item.endDate),
+    responsibilities: item.achievements || [item.description],
+    description: item.description,
+  }))
+}
 
+const convertLanguages = (data: typeof LANGUAGES): Language[] => {
+  return data.map(item => ({
+    ...item,
+    certifications: item.certifications?.map(cert => ({
+      ...cert,
+      date: dateToString(cert.date) || '',
+    })),
+  }))
+}
+
+const convertAwards = (data: typeof AWARDS): Award[] => {
+  return data.map(item => ({
+    ...item,
+    date: dateToString(item.date),
+    instances: item.instances?.map(instance => ({
+      ...instance,
+      date: dateToString(instance.date) || '',
+    })),
+  }))
+}
+
+const convertTeaching = (data: typeof TEACHING): Teaching[] => {
+  return data.map(item => ({
+    ...item,
+    startDate: dateToString(item.startDate) || '',
+    endDate: dateToString(item.endDate),
+  }))
+}
+
+const convertPublications = (data: typeof PUBLICATIONS): Publication[] => {
+  return data.map(item => ({
+    ...item,
+    year: String(item.year),
+    authors: item.authors.map(author => ({
+      ...author,
+      isUser: author.isUser ?? false,
+    })),
+  }))
+}
+
+class StaticDataClient {
   getEducation = async (): Promise<Education[]> => {
-    return this.request<Education[]>('/api/education')
+    await simulateApiDelay()
+    return convertEducation(EDUCATION)
   }
 
   getWorkExperience = async (): Promise<WorkExperience[]> => {
-    return this.request<WorkExperience[]>('/api/work-experience')
+    await simulateApiDelay()
+    return convertWorkExperience(WORK_EXPERIENCE)
   }
 
   getLanguages = async (): Promise<Language[]> => {
-    return this.request<Language[]>('/api/languages')
+    await simulateApiDelay()
+    return convertLanguages(LANGUAGES)
   }
 
   getAwards = async (): Promise<Award[]> => {
-    return this.request<Award[]>('/api/awards')
+    await simulateApiDelay()
+    return convertAwards(AWARDS)
   }
 
   getRelevantCoursework = async (): Promise<RelevantCoursework[]> => {
-    return this.request<RelevantCoursework[]>('/api/relevant-coursework')
+    await simulateApiDelay()
+    return RELEVANT_COURSEWORK
   }
 
   getResearchInterests = async (): Promise<ResearchInterest[]> => {
-    return this.request<ResearchInterest[]>('/api/research-interests')
+    await simulateApiDelay()
+    return [{ text: RESEARCH_INTERESTS.text, showInCV: RESEARCH_INTERESTS.showInCV }]
   }
 
   getTeaching = async (): Promise<Teaching[]> => {
-    return this.request<Teaching[]>('/api/teaching')
+    await simulateApiDelay()
+    return convertTeaching(TEACHING)
   }
 
   getExtracurricular = async (): Promise<Extracurricular[]> => {
-    return this.request<Extracurricular[]>('/api/extracurricular')
+    await simulateApiDelay()
+    return EXTRACURRICULARS
   }
 
   getPersonalInfo = async (): Promise<PersonalInfo[]> => {
-    return this.request<PersonalInfo[]>('/api/personal-info')
+    await simulateApiDelay()
+    return [PERSONAL_INFO]
   }
 
   getPublications = async (): Promise<Publication[]> => {
-    return this.request<Publication[]>('/api/publications')
+    await simulateApiDelay()
+    return convertPublications(PUBLICATIONS)
   }
 
   getHealth = async (): Promise<{ status: string; timestamp: string }> => {
-    return this.request<{ status: string; timestamp: string }>('/api/health')
+    await simulateApiDelay()
+    return {
+      status: 'healthy',
+      timestamp: new Date().toISOString()
+    }
   }
 }
 
-export const apiClient = new ApiClient(API_BASE_URL)
+export const apiClient = new StaticDataClient()
