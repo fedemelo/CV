@@ -27,16 +27,13 @@ export function ContextInfo({
   if (startDate && endDate && date)
     throw new Error("Cannot have both startDate and endDate and date")
 
-  if (endDate && !startDate)
-    throw new Error("endDate must have a startDate")
-
   if (period && (startDate || date))
     throw new Error("Cannot have both period and startDate or date")
 
   return (
     <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">      
-      {date && <SingleDateDisplay date={date} />}
-      {startDate && <DateRangeDisplay startDate={startDate} endDate={endDate} />}
+      {(date || (endDate && !startDate)) && <SingleDateDisplay date={(date || endDate)!} />}
+      {startDate && endDate && <DateRangeDisplay startDate={startDate} endDate={endDate} />}
       {period && <PeriodDisplay period={period} />}
 
       {location && <LocationDisplay location={location} />}
