@@ -10,10 +10,10 @@ export function getYearRange(
   if (!startDate && !endDate)
     throw new Error("No dates provided");
   
-  if (!startDate)
+  if (!startDate && endDate)
     return `${endDate.getFullYear()}`;
 
-  if (!endDate)
+  if (!endDate && startDate)
     return isCurrent ? `${startDate.getFullYear()} - Present` : `${startDate.getFullYear()}`;
 
   if (startDate.getFullYear() === endDate.getFullYear())
