@@ -1,5 +1,5 @@
 import { UNIANDES } from "./constants";
-import type { Award } from "../../api/schemas/award";
+import type { Award } from "../schemas/award";
 
 export const AWARDS: Award[] = [
   {

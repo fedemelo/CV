@@ -1,5 +1,5 @@
 import { UNIANDES } from "./constants";
-import type { Publication } from "../../api/schemas/publication";
+import type { Publication } from "../schemas/publication";
 
 export const PUBLICATIONS: Publication[] = [
   {

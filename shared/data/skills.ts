@@ -1,4 +1,4 @@
-import type { Skill } from "../../api/schemas/skill";
+import type { Skill } from "../schemas/skill";
 
 export const SKILLS: Skill[] = [
   {

@@ -1,5 +1,5 @@
 import { UNIANDES } from "./constants";
-import type { Education } from "../../api/schemas/education";
+import type { Education } from "../schemas/education";
 
 export const EDUCATION: Education[] = [
   {

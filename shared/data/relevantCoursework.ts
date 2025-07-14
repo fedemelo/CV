@@ -1,4 +1,4 @@
-import type { RelevantCoursework } from "../../api/schemas/relevantCoursework";
+import type { RelevantCoursework } from "../schemas/relevantCoursework";
 
 export const RELEVANT_COURSEWORK: RelevantCoursework[] = [
   {

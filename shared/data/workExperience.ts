@@ -1,5 +1,5 @@
 import { UNIANDES } from "./constants";
-import type { WorkExperience } from "../../api/schemas/workExperience";
+import type { WorkExperience } from "../schemas/workExperience";
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {

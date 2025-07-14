@@ -1,4 +1,4 @@
-import type { PersonalInfo } from "../../api/schemas/personalInfo";
+import type { PersonalInfo } from "../schemas/personalInfo";
 
 export const PERSONAL_INFO: PersonalInfo = {
   name: "Federico Melo Barrero",
