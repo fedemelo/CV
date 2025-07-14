@@ -1,8 +1,8 @@
 import { FastifyInstance } from 'fastify';
-import { WORK_EXPERIENCE } from '../../src/data/workExperience.js';
-import { WorkExperienceSchema } from '../schemas/workExperience';
+import { WORK_EXPERIENCE } from '../../shared/data/workExperience.js';
+import { WorkExperienceSchema } from '../../shared/schemas/workExperience.js';
 import { createDataRoute } from './utils';
-import { filterForCV } from '../../src/utils/show';
+import { filterForCV } from '../../shared/utils/show.js';
 
 export async function workExperienceRoutes(fastify: FastifyInstance) {
   createDataRoute(fastify, {

@@ -1,6 +1,6 @@
 import { FastifyInstance } from 'fastify';
 import { z } from 'zod';
-import { ErrorSchema, zodArrayToSwaggerSchema, zodToSwaggerSchema } from '../schemas/utils';
+import { ErrorSchema, zodArrayToSwaggerSchema, zodToSwaggerSchema } from '../../shared/schemas/utils';
 
 interface ArrayRouteConfig<T> {
   path: string;

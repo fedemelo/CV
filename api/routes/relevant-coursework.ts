@@ -1,8 +1,8 @@
 import { FastifyInstance } from 'fastify';
-import { RELEVANT_COURSEWORK } from '../../src/data/relevantCoursework.js';
-import { RelevantCourseworkSchema } from '../schemas/relevantCoursework';
+import { RELEVANT_COURSEWORK } from '../../shared/data/relevantCoursework.js';
+import { RelevantCourseworkSchema } from '../../shared/schemas/relevantCoursework.js';
 import { createDataRoute } from './utils';
-import { filterForCV } from '../../src/utils/show';
+import { filterForCV } from '../../shared/utils/show.js';
 
 export async function relevantCourseworkRoutes(fastify: FastifyInstance) {
   createDataRoute(fastify, {

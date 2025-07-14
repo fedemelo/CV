@@ -1,8 +1,8 @@
 import { FastifyInstance } from 'fastify';
-import { LANGUAGES } from '../../src/data/languages.js';
-import { LanguageSchema } from '../schemas/language';
+import { LANGUAGES } from '../../shared/data/languages.js';
+import { LanguageSchema } from '../../shared/schemas/language.js';
 import { createDataRoute } from './utils';
-import { filterForCV } from '../../src/utils/show';
+import { filterForCV } from '../../shared/utils/show.js';
 
 export async function languagesRoutes(fastify: FastifyInstance) {
   createDataRoute(fastify, {

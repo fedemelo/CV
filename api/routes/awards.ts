@@ -1,8 +1,8 @@
 import { FastifyInstance } from 'fastify';
-import { AWARDS } from '../../src/data/awards';
-import { AwardSchema } from '../schemas/award';
+import { AWARDS } from '../../shared/data/awards';
+import { AwardSchema } from '../../shared/schemas/award';
 import { createDataRoute } from './utils';
-import { filterForCV } from '../../src/utils/show';
+import { filterForCV } from '../../shared/utils/show';
 
 export async function awardsRoutes(fastify: FastifyInstance) {
   createDataRoute(fastify, {

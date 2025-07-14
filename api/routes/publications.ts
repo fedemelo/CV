@@ -1,8 +1,8 @@
 import { FastifyInstance } from 'fastify';
-import { PUBLICATIONS } from '../../src/data/publications';
-import { PublicationSchema } from '../schemas/publication';
+import { PUBLICATIONS } from '../../shared/data/publications';
+import { PublicationSchema } from '../../shared/schemas/publication';
 import { createDataRoute } from './utils';
-import { filterForCV } from '../../src/utils/show';
+import { filterForCV } from '../../shared/utils/show';
 
 export async function publicationsRoutes(fastify: FastifyInstance) {
   createDataRoute(fastify, {

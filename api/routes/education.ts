@@ -1,8 +1,8 @@
 import { FastifyInstance } from 'fastify';
-import { EDUCATION } from '../../src/data/education.js';
-import { EducationSchema } from '../schemas/education';
+import { EDUCATION } from '../../shared/data/education.js';
+import { EducationSchema } from '../../shared/schemas/education.js';
 import { createDataRoute } from './utils';
-import { filterForCV } from '../../src/utils/show';
+import { filterForCV } from '../../shared/utils/show.js';
 
 export async function educationRoutes(fastify: FastifyInstance) {
   createDataRoute(fastify, {

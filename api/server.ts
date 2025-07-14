@@ -13,8 +13,9 @@ await registerSwagger(fastify);
 await fastify.register(cors, {
   origin: [
     // Development only
-    // 'http://localhost:8003',
-    // 'http://localhost:3000',
+    'http://localhost:8003',
+    'http://localhost:3000',
+    'http://localhost:80',
 
     // Production only
     'https://fedemelo.github.io',

@@ -1,8 +1,8 @@
 import { FastifyInstance } from 'fastify';
-import { SKILLS } from '../../src/data/skills';
-import { SkillSchema } from '../schemas/skill';
+import { SKILLS } from '../../shared/data/skills';
+import { SkillSchema } from '../../shared/schemas/skill';
 import { createDataRoute } from './utils';
-import { filterForCV } from '../../src/utils/show';
+import { filterForCV } from '../../shared/utils/show';
 
 export async function skillsRoutes(fastify: FastifyInstance) {
   createDataRoute(fastify, {
