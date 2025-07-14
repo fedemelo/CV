@@ -1,190 +1,70 @@
-# Federico Melo Portfolio
+# Federico Melo Barrero's Portfolio
 
 A monorepo containing Federico Melo Barrero's personal portfolio applications:
 
-- **CV**: [cv.fedemelo.com](https://cv.fedemelo.com)
-- **Resume**: [resume.fedemelo.com](https://resume.fedemelo.com)  
 - **Webpage**: [fedemelo.com](https://fedemelo.com)
+- **CV**: [cv.fedemelo.com](https://cv.fedemelo.com)
+- **Resume**: [resume.fedemelo.com](https://resume.fedemelo.com)
 - **API**: [api.fedemelo.com](https://api.fedemelo.com) [[/docs](https://api.fedemelo.com/docs)]
+
+Note: The API is not open for public use, only the documentation is available.
 
 ## Architecture
 
-This is a pnpm workspace with independent modules that share common hardcoded data and [Zod](https://zod.dev/) schemas.
+This is a pnpm workspace with independent modules that share common data.
 
-- **`/shared`** - Data definitions, constants, and schemas used across all modules
-- **`/cv`** - CV frontend ([Svelte](https://svelte.dev/) + [TS](https://www.typescriptlang.org/) + [Vite](https://vitejs.dev/))
-- **`/resume`** - Resume frontend ([Svelte](https://svelte.dev/) + [TS](https://www.typescriptlang.org/) + [Vite](https://vitejs.dev/))
-- **`/api`** - RESTful API backend ([Fastify](https://www.fastify.io/) + [Zod](https://zod.dev/) + [Swagger](https://swagger.io/)) serving static data
-- **`/webpage`** - Personal webpage ([Next.js](https://nextjs.org/) + [TS](https://www.typescriptlang.org/) + [Tailwind CSS](https://tailwindcss.com/))
-
-Each module is independent from the others and can be developed, built, and deployed separately. 
+| Workspace | Description | Tech stack |
+|-----------|-------------|-------------|
+| `shared`  | Common data definitions, schemas and utilities | [TS](https://www.typescriptlang.org/) + [Zod](https://zod.dev/) |
+| `api`     | RESTful API backend | [Fastify](https://www.fastify.io/) + [TS](https://www.typescriptlang.org/) + [Swagger](https://swagger.io/) |
+| `cv`      | CV frontend | [Svelte](https://svelte.dev/) + [TS](https://www.typescriptlang.org/) + [Vite](https://vitejs.dev/) |
+| `resume`  | Resume frontend | [Svelte](https://svelte.dev/) + [TS](https://www.typescriptlang.org/) + [Vite](https://vitejs.dev/) |
+| `webpage` | Personal webpage | [Next.js](https://nextjs.org/) + [TS](https://www.typescriptlang.org/) + [Tailwind CSS](https://tailwindcss.com/) |
 
 ## Development
 
-Prerequisites:
-- [Node.js 20](https://nodejs.org/)
-- [pnpm](https://pnpm.io/)
-- [Docker](https://docker.com/)
+Prerequisites are [Node.js 20](https://nodejs.org/), [pnpm](https://pnpm.io/), and [Docker](https://docker.com/).
 
-### Setup
+Install dependencies for all modules with `pnpm install`.
 
-Install dependencies for all modules:
-```bash
-pnpm install
-```
+Each module can be developed, built, and deployed separately. 
 
-### Local Development
+| Module | Develop          | Port                   | Build              |
+|--------|------------------|-----------------------|--------------------|
+| CV     | `pnpm dev:cv`      | [5173](http://localhost:5173) | `pnpm build:cv`      |
+| Resume | `pnpm dev:resume`  | [5174](http://localhost:5174) | `pnpm build:resume`  |
+| API    | `pnpm dev:api`     | [8003](http://localhost:8003) | `pnpm build:api`     |
+| Webpage| `pnpm dev:webpage` | [3000](http://localhost:3000) | `pnpm build:webpage` |
 
-Each module can be developed independently:
+Development via Docker is also supported, see [Docker Deployment](#docker-deployment).
 
-```bash
-# Develop specific modules
-pnpm dev:cv        # CV frontend → http://localhost:5173
-pnpm dev:resume    # Resume frontend → http://localhost:5174  
-pnpm dev:api       # API backend → http://localhost:8003
-pnpm dev:webpage   # Personal webpage → http://localhost:3000
-
-# API documentation available at http://localhost:8003/docs
-```
-
-### Building
-
-```bash
-# Build specific modules
-pnpm build:cv      # Build CV frontend
-pnpm build:resume  # Build Resume frontend
-pnpm build:api     # Build API backend
-pnpm build:webpage # Build personal webpage
-
-# Build all modules
-pnpm build:all
-```
-
-### Testing
-
-```bash
-# Run tests for all modules
-pnpm test
-
-# Run tests for specific module
-pnpm --filter @fedemelo/cv test
-pnpm --filter @fedemelo/resume test
-pnpm --filter @fedemelo/api test
-```
+[//]: # (TODO: Add test commands)
 
 ## Deployment
 
-### Cloudflare Pages (Production)
+### Cloudflare Pages
 
-Each module deploys to its own subdomain:
-- `fedemelo.com` → webpage (Next.js)
-- `cv.fedemelo.com` → CV (Svelte)
-- `resume.fedemelo.com` → Resume (Svelte)
+Each module deploys to its own domain or subdomain via an independent Cloudflare Pages project. Cloudflare Pages doesn't support [pnpm](https://pnpm.io/) directly, so the build commands use [npm](https://www.npmjs.com/) instead. All modules use [Node.js 20](https://nodejs.org/).
 
-Cloudflare Pages doesn't support pnpm directly, so the build commands use `npm run build` instead.
+| Module | Domain / Subdomain | Build Command | Build Output Directory | 
+|--------|--------------------|---------------|-------------------------|
+| Webpage| [fedemelo.com](https://fedemelo.com)     | `cd webpage && npm run build` | `webpage/out` | 
+| CV     | [cv.fedemelo.com](https://cv.fedemelo.com)  | `cd cv && npm run build` | `cv/dist` |
+| Resume | [resume.fedemelo.com](https://resume.fedemelo.com) | `cd resume && npm run build` | `resume/dist`|
 
-Each module requires a separate Cloudflare Pages project with these settings:
+### Docker Deployment
 
-**Main Webpage (fedemelo.com)**
-- Build command: `cd webpage && npm run build`
-- Build output directory: `webpage/out`
-- Node.js version: `20.x`
-
-**CV (cv.fedemelo.com)**
-- Build command: `cd cv && npm run build`
-- Build output directory: `cv/dist`
-- Node.js version: `20.x`
-
-**Resume (resume.fedemelo.com)**
-- Build command: `cd resume && npm run build`
-- Build output directory: `resume/dist`
-- Node.js version: `20.x`
-
-#### Deployment Process
-
-1. **Domain Setup**: Buy `fedemelo.com` from Cloudflare
-2. **Create 3 Projects**: One for each module in Cloudflare Pages
-3. **Configure Builds**: Use the commands and directories above
-4. **Set Custom Domains**: Add the respective subdomains to each project
-5. **Deploy**: Each project deploys independently from the same repository
-
-#### Key Benefits
-
-- **Independent Deployments**: Each module can be updated separately
-- **Static Hosting**: All modules are static sites (no server required)
-- **Automatic SSL**: Cloudflare provides SSL certificates
-- **Global CDN**: Fast loading worldwide
-
-### Docker Deployment (Alternative)
-
-For VPS or containerized deployments:
-
-#### Local Docker Development
-
-Run all services with Docker Compose:
+For VPS or containerized deployments, build all images and run all services with Docker Compose:
 ```bash
-# Build and run all services
 pnpm docker:dev
-
-# Or use docker-compose directly
-docker-compose up --build
 ```
 
-Services will be available at:
-- **Webpage**: http://localhost:3000/
-- **CV**: http://localhost:5173/
-- **Resume**: http://localhost:5174/
-- **API**: http://localhost:8003/ ([docs](http://localhost:8003/docs))
+To only build (and not run) all images, run: `pnpm docker:build`.
 
-#### Building Individual Images
-
-```bash
-# Build specific services
-pnpm docker:build:cv      # Build CV image
-pnpm docker:build:resume  # Build Resume image  
-pnpm docker:build:api     # Build API image
-pnpm docker:build:webpage # Build webpage image
-
-# Build all images
-pnpm docker:build
-```
-
-#### Production Deployment
-
-Each module has its own Dockerfile in its directory:
-
-```bash
-# Build production images
-docker build -f cv/Dockerfile -t cv-frontend .
-docker build -f resume/Dockerfile -t resume-frontend .
-docker build -f api/Dockerfile -t api-backend .
-docker build -f webpage/Dockerfile -t webpage-frontend .
-
-# Deploy independently
-docker run -d -p 80:80 webpage-frontend # → fedemelo.com
-docker run -d -p 80:80 cv-frontend      # → fedemelo.com/cv
-docker run -d -p 80:80 resume-frontend  # → fedemelo.com/resume  
-docker run -d -p 8003:8003 api-backend  # → api.fedemelo.com
-```
-
-#### Health Monitoring
-
-All services include health check endpoints for monitoring and load balancer integration.
-
-## Module Independence
-
-Each module in this monorepo is **completely self-contained**:
-- Has its own `package.json` with specific dependencies
-- Can be built and deployed independently  
-- Can be extracted to a separate repository by moving its directory
-- Shares only data from `/data` directory
-
-## API Architecture
-
-The API serves static data - it imports from hardcoded data files in `/data` and serves them via HTTP endpoints. While the data is static, the API provides:
-- RESTful endpoints for each data category
-- Automatic OpenAPI/Swagger documentation
-- Health checks and monitoring endpoints
-- Consistent data format across all applications
-
-**Note**: The webpage module has been converted to use static data imports instead of API calls, making it deployable as a static site while maintaining the same hook-based interface for potential future dynamic data.
+Commands per service:
+| Service | Build | URL | Build production image | Run production image |
+|---------|---------|---------|---------|---------|
+| Webpage | `pnpm docker:build:webpage` | http://localhost:3000/ | `docker build -f webpage/Dockerfile -t webpage-frontend .` | `docker run -d -p 80:80 webpage-frontend` |
+| CV      | `pnpm docker:build:cv` | http://localhost:5173/ | `docker build -f cv/Dockerfile -t cv-frontend .` | `docker run -d -p 80:80 cv-frontend` |
+| Resume  | `pnpm docker:build:resume` | http://localhost:5174/ | `docker build -f resume/Dockerfile -t resume-frontend .` | `docker run -d -p 80:80 resume-frontend` |
+| API     | `pnpm docker:build:api` | http://localhost:8003/ | `docker build -f api/Dockerfile -t api-backend .` | `docker run -d -p 8003:8003 api-backend` |
