@@ -3,13 +3,16 @@
 import { usePersonalInfo } from "@/hooks/useApiData"
 import { HeroSection } from "./home/hero-section"
 import { SocialLinks } from "./home/social-links"
-import { QuickNavigation } from "./home/quick-navigation"
+import { useIsMobile } from "@/hooks/use-mobile"
+import { MobileQuickNavigation } from "./home/mobile-quick-navigation"
+import { DesktopQuickNavigation } from "./home/desktop-quick-navigation"
 import { HomeLoadingSkeleton } from "./home/home-loading-skeleton"
 import { Error } from "@/components/error"
 import { NoItemsAvailable } from "@/components/no-items-available"
 
 export default function HomePage() {
   const { data: personalInfo, loading, error } = usePersonalInfo()
+  const isMobile = useIsMobile()
 
   if (loading)return <HomeLoadingSkeleton />
 
@@ -23,7 +26,7 @@ export default function HomePage() {
       <div className="space-y-8">
         <HeroSection personalInfo={info} />
         <SocialLinks personalInfo={info} />
-        <QuickNavigation />
+        {isMobile ? <MobileQuickNavigation /> : <DesktopQuickNavigation />}
       </div>
     </div>
   )
