@@ -1,11 +1,8 @@
 "use client"
 
 import { usePersonalInfo } from "@/hooks/useApiData"
-import { HeroSection } from "./home/hero-section"
-import { SocialLinks } from "./home/social-links"
 import { useIsMobile } from "@/hooks/use-mobile"
-import { MobileQuickNavigation } from "./home/mobile-quick-navigation"
-import { DesktopQuickNavigation } from "./home/desktop-quick-navigation"
+import { HeroSection, SocialLinks, MobileQuickNavigation, DesktopQuickNavigation } from "./home"
 import { HomeLoadingSkeleton } from "./home/home-loading-skeleton"
 import { Error } from "@/components/error"
 import { NoItemsAvailable } from "@/components/no-items-available"
