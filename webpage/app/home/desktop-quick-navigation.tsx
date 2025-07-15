@@ -29,7 +29,6 @@ export function DesktopQuickNavigation() {
           setStackedCardsCount(prev => prev + 1)
 
           const lastCardIsStacked = index === navigationItems.length - 1
-          
           if (lastCardIsStacked) resolve()
         }, index * pauseBetweenStacking)
       })
@@ -51,38 +50,28 @@ export function DesktopQuickNavigation() {
     })
   }
 
+  async function runAnimation() {
+    await sleep(INITIAL_DELAY)
+    
+    animationStartedRef.current = true
+    setAnimationStarted(true)
+    setAnimationPhase('stacking')
+    
+    await stackAllCards(PAUSE_BETWEEN_STACKING)
+    
+    await sleep(PAUSE_BETWEEN_STACKING_AND_DEALING)
+    
+    setAnimationPhase('dealing')
+    await dealAllCards(PAUSE_BETWEEN_DEALING)
+    
+    await sleep(PAUSE_BEFORE_END_ANIMATION)
+    
+    setAnimationPhase('complete')
+    setHomeAnimationComplete()
+  }
+
   useEffect(() => {
-    if (animationStartedRef.current) return
-
-    async function runAnimation() {
-      animationStartedRef.current = true
-      setAnimationStarted(true)
-      setAnimationPhase('stacking')
-      
-      // Stack all cards
-      await stackAllCards(PAUSE_BETWEEN_STACKING)
-      
-      // Brief pause between stacking and dealing
-      await sleep(PAUSE_BETWEEN_STACKING_AND_DEALING)
-      
-      // Start dealing phase
-      setAnimationPhase('dealing')
-      await dealAllCards(PAUSE_BETWEEN_DEALING)
-      
-      // Brief pause before completion
-      await sleep(PAUSE_BEFORE_END_ANIMATION)
-      
-      // Complete animation
-      setAnimationPhase('complete')
-      setHomeAnimationComplete()
-    }
-
-    async function startWithDelay() {
-      await sleep(INITIAL_DELAY)
-      runAnimation()
-    }
-
-    startWithDelay()
+    if (!animationStartedRef.current) runAnimation()
   }, [setHomeAnimationComplete])
 
   return (
@@ -99,7 +88,6 @@ export function DesktopQuickNavigation() {
             animationPhase={animationPhase}
             isStacked={stackedCardsCount > index}
             isDealt={dealtCardsCount > index}
-            stackIndex={index}
           />
         ))}
       </div>
