@@ -13,7 +13,7 @@ export function TeachingItem({ teaching }: TeachingItemProps) {
   return (
     <div className="border rounded-lg p-6 space-y-3">
 
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-col sm:flex-row sm:justify-between gap-3">
         <TeachingHeader title={teaching.title} organization={teaching.organization} />
 
         <CourseInformation course={teaching.course} />
