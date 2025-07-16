@@ -16,17 +16,17 @@ export function DesktopQuickNavigation() {
   const { setHomeAnimationComplete } = useNavigationAnimation()
   const animationStartedRef = useRef(false)
 
-  const INITIAL_DELAY = 600
-  const PAUSE_BETWEEN_STACKING = 200
-  const PAUSE_BETWEEN_DEALING = 750
-  const PAUSE_BETWEEN_STACKING_AND_DEALING = 500
+  const INITIAL_DELAY = 300
+  const PAUSE_BETWEEN_STACKING = 500
+  const PAUSE_BETWEEN_STACKING_AND_DEALING = 700
+  const PAUSE_BETWEEN_DEALING = 500
   const PAUSE_BEFORE_END_ANIMATION = 300
 
   function stackAllCards(pauseBetweenStacking: number): Promise<void> {
     return new Promise((resolve) => {
       navigationItems.forEach((_card, index) => {
         setTimeout(() => {
-          setStackedCardsCount(prev => prev + 1)
+          setStackedCardsCount(prev => prev | (1 << index)) // Use bitmask to track specific cards
 
           const lastCardIsStacked = index === navigationItems.length - 1
           if (lastCardIsStacked) resolve()
@@ -41,7 +41,7 @@ export function DesktopQuickNavigation() {
       
       dealingOrder.forEach((_card, index) => {
         setTimeout(() => {
-          setDealtCardsCount(prev => prev + 1)
+          setDealtCardsCount(prev => prev | (1 << index))
           
           const lastCardIsDealt = index === dealingOrder.length - 1
           if (lastCardIsDealt) resolve()
@@ -74,7 +74,9 @@ export function DesktopQuickNavigation() {
     if (!animationStartedRef.current) runAnimation()
   }, [setHomeAnimationComplete])
 
-  const gapPixels = 16;    // Fixed gap in pixels
+  // Not using Tailwind gap class because it works with rem, relative 
+  // to the font size, and it makes animation calculations harder.
+  const gapPixels = 16;
 
   return (
     <div className="mt-12">
@@ -92,8 +94,8 @@ export function DesktopQuickNavigation() {
             animationStarted={animationStarted}
             isMobile={false}
             animationPhase={animationPhase}
-            isStacked={stackedCardsCount > index}
-            isDealt={dealtCardsCount > index}
+            isStacked={(stackedCardsCount & (1 << index)) !== 0}
+            isDealt={(dealtCardsCount & (1 << index)) !== 0}
           />
         ))}
       </div>
