@@ -19,7 +19,6 @@ export function DesktopQuickNavigation() {
   const PAUSE_BETWEEN_STACKING = 100
   const PAUSE_BETWEEN_STACKING_AND_DEALING = 1000
   const PAUSE_BETWEEN_DEALING = 500
-  const PAUSE_BEFORE_END_ANIMATION = 300
 
   const CARDS_PER_ROW = 3
 
@@ -45,8 +44,6 @@ export function DesktopQuickNavigation() {
     
     setAnimationPhase('dealing')
     await dealAllCards(PAUSE_BETWEEN_DEALING)
-    
-    await sleep(PAUSE_BEFORE_END_ANIMATION)
     
     setAnimationPhase('complete')
     setHomeAnimationComplete()
