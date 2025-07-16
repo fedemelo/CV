@@ -1,21 +1,24 @@
-import { Download } from "lucide-react"
+import { ExternalLink } from "lucide-react"
 import { GreenButton } from "./green-button"
+import { PORTFOLIO_URLS } from "../../shared/data/constants"
 
-export function DownloadCVOrResume() {
+export function OpenCVOrResume() {
   return (
     <div className="flex flex-row gap-4">
-      <DownloadButton name="CV" />
-      <DownloadButton name="Resume" />
+      <OpenTabButton url={PORTFOLIO_URLS.CV} name="CV" />
+      <OpenTabButton url={PORTFOLIO_URLS.RESUME} name="Resume" />
     </div>
   )
 }
 
-function DownloadButton({ name }: { name: string }) {
-  const tooltipText = name === "CV" ? "Download my CV as PDF" : "Download my resume as PDF"
+function OpenTabButton({ url, name }: { url: string, name: string }) {
+  const handleClick = () => {
+    window.open(url, '_blank')
+  }
   
   return (
-    <GreenButton tooltip={tooltipText}>
-      <Download className="h-full w-full text-primary" />
+    <GreenButton tooltip={`View my ${name} online`} onClick={handleClick}>
+      <ExternalLink className="h-full w-full text-primary" />
       {name}
     </GreenButton>
   )

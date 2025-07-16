@@ -1,5 +1,5 @@
 import type { PersonalInfo } from "@/types"
-import { DownloadCVOrResume } from "@/components/download-cv-or-resume"
+import { OpenCVOrResume } from "@/components/download-cv-or-resume"
 import { SocialLinks } from "./social-links"
 
 interface HeroSectionProps {
@@ -14,7 +14,7 @@ export function HeroSection({ personalInfo }: HeroSectionProps) {
           {personalInfo.name}
         </h1>
         <div className="flex flex-col items-center gap-2 sm:gap-0 sm:flex-row sm:justify-between">
-          <DownloadCVOrResume />
+          <OpenCVOrResume />
           <SocialLinks personalInfo={personalInfo} />
         </div>
         <p className="text-xl md:text-2xl lg:text-3xl text-muted-foreground font-display font-light text-justify w-full">
