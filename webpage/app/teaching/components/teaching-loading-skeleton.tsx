@@ -6,7 +6,7 @@ export function TeachingLoadingSkeleton() {
   return (
     <VerticalTimeline>
       {[1, 2, 3].map((i) => (
-        <TimelineItem key={i}>
+        <TimelineItem key={i} loading>
           <div className="animate-pulse border rounded-lg p-6 space-y-3">
             <TeachingHeaderSkeleton />
             
