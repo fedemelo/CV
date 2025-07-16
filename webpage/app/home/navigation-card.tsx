@@ -5,6 +5,7 @@ import { useState } from "react"
 import { navigationItems } from "@/components/navigation/navigation-items"
 import { useNavigationAnimation } from "@/contexts/navigation-animation-context"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { isCurrentPath } from "@/utils/path"
 
 interface NavigationCardProps {
   getTransform: () => string
@@ -27,7 +28,7 @@ export function NavigationCard({
     zIndex: getZIndex()
   }
 
-  const isCurrentTab = pathname === navigationItem.href
+  const isCurrentTab = isCurrentPath(pathname, navigationItem.href)
 
   const handleClick = (e: React.MouseEvent) => {
     if (isCurrentTab) {
