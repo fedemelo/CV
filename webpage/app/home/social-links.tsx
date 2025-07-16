@@ -22,7 +22,6 @@ export function SocialLinks({ personalInfo }: SocialLinksProps) {
       href: `https://github.com/${personalInfo.gitHubPath}`,
       icon: Github,
       label: "GitHub", 
-      iconClassName: "text-black",
       isExternal: true
     },
     {
@@ -49,7 +48,7 @@ function createSocialLink(
   href: string,
   Icon: LucideIcon,
   label: string,
-  iconClassName: string,
+  iconClassName?: string,
   isExternal = false
 ) {
   const linkProps = isExternal 
