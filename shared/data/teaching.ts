@@ -8,6 +8,7 @@ export const TEACHING: Teaching[] = [
       name: "Introduction to Programming",
       originalName: "Introducción a la Programación",
       code: "ISIS-1221",
+      credits: 3,
     },
     department: "Systems and Computing Engineering",
     startDate: new Date("2025-08-04T12:00:00-05:00"),
