@@ -12,10 +12,10 @@ interface NavigationCardProps {
   navigationItem: typeof navigationItems[0]
 }
 
-export function NavigationCard({ 
+export function NavigationCard({
   getTransform,
   getZIndex,
-  navigationItem, 
+  navigationItem,
 }: NavigationCardProps) {
   const { setNavigatedInternally } = useNavigationAnimation()
   const pathname = usePathname()
@@ -28,7 +28,7 @@ export function NavigationCard({
   }
 
   const isCurrentTab = pathname === navigationItem.href
-  
+
   const handleClick = (e: React.MouseEvent) => {
     if (isCurrentTab) {
       e.preventDefault()
@@ -39,28 +39,34 @@ export function NavigationCard({
     setNavigatedInternally()
   }
 
+  function renderCard() {
+    return (
+      <Link
+        href={navigationItem.href}
+        className="group block transition-all duration-700 ease-out pointer-events-auto"
+        style={styles}
+        onClick={handleClick}
+      >
+        <div className="relative p-6 border rounded-lg hover:border-primary hover:shadow-lg transition-all duration-300 hover:scale-105 bg-background">
+          <ArrowUpRight className="absolute top-4 right-4 h-4 w-4 text-muted-foreground text-primary transition-colors" />
+
+          <h3 className="font-semibold mb-2 group-hover:text-primary font-display transition-colors pr-6">
+            {navigationItem.label}
+          </h3>
+          <p className="text-sm text-muted-foreground transition-colors min-h-[2.5rem] leading-5">
+            {navigationItem.description}
+          </p>
+        </div>
+      </Link>
+    )
+  }
+
   if (isCurrentTab) {
     return (
       <TooltipProvider>
         <Tooltip open={tooltipOpen} onOpenChange={setTooltipOpen}>
           <TooltipTrigger asChild>
-            <Link 
-              href={navigationItem.href} 
-              className="group block transition-all duration-700 ease-out pointer-events-auto"
-              style={styles}
-              onClick={handleClick}
-            >
-              <div className="relative p-6 border rounded-lg hover:border-primary hover:shadow-lg transition-all duration-300 hover:scale-105 bg-background">
-                <ArrowUpRight className="absolute top-4 right-4 h-4 w-4 text-muted-foreground text-primary transition-colors" />
-                
-                <h3 className="font-semibold mb-2 group-hover:text-primary font-display transition-colors pr-6">
-                  {navigationItem.label}
-                </h3>
-                <p className="text-sm text-muted-foreground transition-colors min-h-[2.5rem] leading-5">
-                  {navigationItem.description}
-                </p>
-              </div>
-            </Link>
+            {renderCard()}
           </TooltipTrigger>
           <TooltipContent>
             <p>You are currently on the {navigationItem.label} tab</p>
@@ -70,23 +76,5 @@ export function NavigationCard({
     )
   }
 
-  return (
-    <Link 
-      href={navigationItem.href} 
-      className="group block transition-all duration-700 ease-out pointer-events-auto"
-      style={styles}
-      onClick={setNavigatedInternally}
-    >
-      <div className="relative p-6 border rounded-lg hover:border-primary hover:shadow-lg transition-all duration-300 hover:scale-105 bg-background">
-        <ArrowUpRight className="absolute top-4 right-4 h-4 w-4 text-muted-foreground text-primary transition-colors" />
-        
-        <h3 className="font-semibold mb-2 group-hover:text-primary font-display transition-colors pr-6">
-          {navigationItem.label}
-        </h3>
-        <p className="text-sm text-muted-foreground transition-colors min-h-[2.5rem] leading-5">
-          {navigationItem.description}
-        </p>
-      </div>
-    </Link>
-  )
+  return renderCard()
 } 
