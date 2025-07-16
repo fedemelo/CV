@@ -13,7 +13,7 @@ export function HeroSection({ personalInfo }: HeroSectionProps) {
         <h1 className="text-4xl md:text-7xl tracking-tight">
           {personalInfo.name}
         </h1>
-        <div className="flex justify-between">
+        <div className="flex flex-col items-center gap-2 sm:gap-0 sm:flex-row sm:justify-between">
           <DownloadCVOrResume />
           <SocialLinks personalInfo={personalInfo} />
         </div>

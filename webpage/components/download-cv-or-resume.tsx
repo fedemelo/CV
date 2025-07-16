@@ -3,7 +3,7 @@ import { GreenButton } from "./green-button"
 
 export function DownloadCVOrResume() {
   return (
-    <div className="flex flex-col sm:flex-row gap-4">
+    <div className="flex flex-row gap-4">
       <DownloadButton name="CV" />
       <DownloadButton name="Resume" />
     </div>
