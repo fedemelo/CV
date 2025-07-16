@@ -27,8 +27,13 @@ export function DesktopQuickNavigation() {
   // Using the amount of pixels so that the gap's offset is consistent
   // and can be considered on the stacking animation.
   const GAP_PIXELS = 16
+  const NUMBER_OF_CARDS = 6
 
   async function runAnimation() {
+    // Guard clause to warn developers when changing the number of cards
+    if (navigationItems.length !== NUMBER_OF_CARDS) 
+      throw new Error(`DesktopQuickNavigation only supports ${NUMBER_OF_CARDS} cards`)
+
     await sleep(INITIAL_DELAY)
     
     animationStartedRef.current = true
@@ -79,7 +84,7 @@ export function DesktopQuickNavigation() {
 
   function dealAllCards(pauseBetweenDealing: number): Promise<void> {
     // Clockwise order for 6 elements
-    const dealingOrder = [2, 5, 4, 3, 0, 1]
+    const dealingOrder = navigationItems.length === NUMBER_OF_CARDS ? [2, 5, 4, 3, 0, 1] : undefined
     
     return trackCardProgressWithIntervals(
       pauseBetweenDealing,
