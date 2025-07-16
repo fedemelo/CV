@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { Menu } from "lucide-react"
 import { usePathname } from "next/navigation"
+import { useState } from "react"
 import { navigationItems } from "./navigation-items"
 import { useNavigationAnimation } from "@/contexts/navigation-animation-context"
 import {
@@ -17,9 +18,15 @@ import {
 export function MobileNavigation() {
   const pathname = usePathname()
   const { setNavigatedInternally } = useNavigationAnimation()
+  const [isOpen, setIsOpen] = useState(false)
+
+  const handleNavigationClick = () => {
+    setNavigatedInternally()
+    setIsOpen(false) // Close the sheet
+  }
 
   return (
-    <Sheet>
+    <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
         <button className="md:hidden p-2">
           <Menu className="h-6 w-6" />
@@ -42,7 +49,7 @@ export function MobileNavigation() {
                   ? "text-primary"
                   : "text-muted-foreground"
               }`}
-              onClick={setNavigatedInternally}
+              onClick={handleNavigationClick}
             >
               {item.label}
             </Link>
