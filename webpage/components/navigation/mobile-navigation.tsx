@@ -8,6 +8,9 @@ import { useNavigationAnimation } from "@/contexts/navigation-animation-context"
 import {
   Sheet,
   SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
 
@@ -23,6 +26,12 @@ export function MobileNavigation() {
         </button>
       </SheetTrigger>
       <SheetContent side="left" className="w-[300px] sm:w-[400px]">
+        <SheetHeader>
+          <SheetTitle>Navigation Menu</SheetTitle>
+          <SheetDescription>
+            Navigate to different sections
+          </SheetDescription>
+        </SheetHeader>
         <nav className="flex flex-col gap-4 mt-8">
           {navigationItems.map((item) => (
             <Link
