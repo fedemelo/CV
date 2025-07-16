@@ -50,12 +50,12 @@ export function CitationActions({ publication }: CitationActionsProps) {
   }
 
   return (
-    <div className="flex justify-end space-x-2">
-      <GreenButton onClick={handleCopy}>
+    <div className="flex justify-center space-x-2">
+      <GreenButton onClick={handleCopy} tooltip="Copy BibTeX citation to clipboard">
         <Copy className="mr-2 h-4 w-4" />
         Copy
       </GreenButton>
-      <GreenButton onClick={handleDownload}>
+      <GreenButton onClick={handleDownload} tooltip="Download BibTeX citation file">
         <Download className="mr-2 h-4 w-4" />
         Download
       </GreenButton>

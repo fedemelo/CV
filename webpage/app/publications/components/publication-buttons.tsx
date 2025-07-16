@@ -14,7 +14,7 @@ export function PublicationButtons({ publication }: PublicationButtonsProps) {
       <CiteButton publication={publication} />
       
       {publication.pdfUrl && (
-        <GreenButton asChild>
+        <GreenButton asChild tooltip="Download PDF">
           <Link href={publication.pdfUrl} target="_blank" rel="noopener noreferrer" className="flex items-center">
             <FileText className="h-4 w-4" />
             PDF
@@ -23,7 +23,7 @@ export function PublicationButtons({ publication }: PublicationButtonsProps) {
       )}
       
       {publication.url && (
-        <GreenButton asChild>
+        <GreenButton asChild tooltip="View publication online">
           <Link href={publication.url} target="_blank" rel="noopener noreferrer" className="flex items-center">
             <ExternalLink className="h-4 w-4" />
             {publication.linkText || "DOI/Site"}
