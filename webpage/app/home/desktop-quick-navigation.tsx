@@ -131,8 +131,8 @@ export function DesktopQuickNavigation() {
   }
 
   function getZIndex(cardIndex: number) {
-    if (cardIndex === 0) return 100  // First card is on top
-    return 100 - cardIndex  // Cards are stacked under the first card
+    if (cardIndex === 0) return 10  // First card is on top
+    return 10 - cardIndex  // Cards are stacked under the first card
   }
 
   useEffect(() => {
