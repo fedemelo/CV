@@ -4,6 +4,7 @@ import { ExperienceLoadingSkeleton } from "./experience-loading-skeleton"
 import { Error } from "@/components/error"
 import { NoItemsAvailable } from "@/components/no-items-available"
 import { VerticalTimeline, TimelineItem } from "@/components/vertical-timeline"
+import { useBreakpoint } from "@/hooks/use-breakpoint"
 
 interface ExperienceTimelineProps {
   experiences: WorkExperience[]
@@ -12,11 +13,19 @@ interface ExperienceTimelineProps {
 }
 
 export function ExperienceTimeline({ experiences, loading, error }: ExperienceTimelineProps) {
+  const isMobile = useBreakpoint(768) // md breakpoint
+  
   if (loading) return <ExperienceLoadingSkeleton />
 
   if (error) return <Error pageName="work experience" error={error} />
 
   if (experiences.length === 0) return <NoItemsAvailable itemName="work experience" />
+
+  if (isMobile) return <div className="space-y-6">
+    {experiences.map((experience, index) => (
+      <ExperienceItem key={index} experience={experience} />
+    ))}
+  </div>
 
   return (
     <VerticalTimeline>
