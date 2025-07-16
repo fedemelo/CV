@@ -74,11 +74,17 @@ export function DesktopQuickNavigation() {
     if (!animationStartedRef.current) runAnimation()
   }, [setHomeAnimationComplete])
 
+  const gapPixels = 16;    // Fixed gap in pixels
+
   return (
     <div className="mt-12">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div 
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" 
+        style={{ gap: `${gapPixels}px` }}
+      >
         {navigationItems.map((card, index) => (
           <NavigationCard
+            gapPixels={gapPixels}
             key={card.href}
             card={card}
             cardIndex={index}

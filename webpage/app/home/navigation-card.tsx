@@ -6,6 +6,7 @@ import { useNavigationAnimation } from "@/contexts/navigation-animation-context"
 type AnimationPhase = 'stacking' | 'dealing' | 'complete'
 
 interface NavigationCardProps {
+  gapPixels: number
   card: typeof navigationItems[0]
   cardIndex: number
   // Mobile props
@@ -16,10 +17,10 @@ interface NavigationCardProps {
   animationPhase?: AnimationPhase
   isStacked?: boolean
   isDealt?: boolean
-  stackIndex?: number
 }
 
 export function NavigationCard({ 
+  gapPixels,
   card, 
   cardIndex, 
   isVisible, 
@@ -28,7 +29,6 @@ export function NavigationCard({
   animationPhase = 'complete',
   isStacked = false,
   isDealt = false,
-  stackIndex = 0
 }: NavigationCardProps) {
   const { setNavigatedInternally } = useNavigationAnimation()
 
@@ -42,11 +42,18 @@ export function NavigationCard({
     const { row: finalRow, col: finalCol } = getGridPosition(cardIndex)
     const stackPosition = getGridPosition(0)
 
+    const translateToDealingPosition = `translate(${(stackPosition.col - finalCol) * 100}%,
+    ${(stackPosition.row - finalRow) * 100}%)`
+    
+    // Gap adjustment: each card crosses different number of gaps
+    const gapsToCloseX = stackPosition.col - finalCol  // negative means moving left
+    const gapsToCloseY = stackPosition.row - finalRow  // negative means moving up
+    const considerGap = `translate(${gapsToCloseX * gapPixels}px, ${gapsToCloseY * gapPixels}px)`
+
     switch (animationPhase) {
       case 'stacking':
         if (isStacked) {
-          const stackOffset = 100 + stackIndex * 100
-          return `translate(${(stackPosition.col - finalCol) * 100}%, ${(stackPosition.row - finalRow) * 100}%) translateZ(${stackOffset}px)`
+          return `${translateToDealingPosition} ${considerGap}`
         } else {
           return 'translateY(100vh)'
         }
@@ -54,8 +61,7 @@ export function NavigationCard({
         if (isDealt || cardIndex === 0) {
           return 'translate(0%, 0%)'
         } else if (isStacked) {
-          const stackOffset = 100 + stackIndex * 100
-          return `translate(${(stackPosition.col - finalCol) * 100}%, ${(stackPosition.row - finalRow) * 100}%) translateZ(${stackOffset}px)`
+          return `${translateToDealingPosition} ${considerGap}`
         } else {
           return 'translateY(100vh)'
         }
@@ -75,7 +81,15 @@ export function NavigationCard({
   }
 
   function getZIndex() {
-    if (!isMobile && animationPhase === 'stacking' && isStacked) return 10 + stackIndex
+    if (!isMobile) {
+      switch (cardIndex) {
+        case 0:
+          return 100  // First card is on top
+        default:
+          return 100 - cardIndex  // Cards are stacked under the first card
+      }
+    }
+      
     return 1
   }
 
