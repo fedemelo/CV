@@ -10,7 +10,7 @@ interface EducationItemProps {
 export function EducationItem({ education }: EducationItemProps) {
   return (
     <div className="border rounded-lg p-6 space-y-3">
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-col gap-2 md:gap-0 md:flex-row md:justify-between">
         <EducationHeader degree={education.degree} organization={education.organization} />
 
         <EducationDetails gpa={education.gpa} honors={education.honors} />
@@ -48,7 +48,7 @@ function EducationDetails({ gpa, honors }: { gpa?: string; honors?: string }) {
   if (!gpa && !honors) return null
 
   return (
-    <div className="flex flex-col items-end gap-2 text-sm">
+    <div className="flex flex-col items-start md:items-end gap-2 text-sm">
       {gpa && (
         <div className="flex items-center gap-2">
           <span className="text-muted-foreground">GPA:</span>
