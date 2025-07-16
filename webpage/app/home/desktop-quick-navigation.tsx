@@ -47,37 +47,45 @@ export function DesktopQuickNavigation() {
     setHomeAnimationComplete()
   }
 
-  function stackAllCards(pauseBetweenStacking: number): Promise<void> {
+  /**
+   * Goes through the cards in order, updating a bitmask
+   * The bitmask is used to track the progress of some process
+   * Resolves when all cards' bitmask is set
+   */
+  function trackCardProgressWithIntervals(
+    delayBetweenOperations: number,
+    setBitmask: React.Dispatch<React.SetStateAction<number>>,
+    operationOrder?: number[]
+  ): Promise<void> {
     return new Promise((resolve) => {
       navigationItems.forEach((_card, index) => {
+        const cardIndex = operationOrder?.at(index) ?? index
         setTimeout(() => {
-          setStackedCardsBitmask(prev => prev | (1 << index))  // Use bitmask to track specific cards
-
-          const lastCardIsStacked = index === navigationItems.length - 1
-          if (lastCardIsStacked) resolve()
-        }, index * pauseBetweenStacking)
+          setBitmask(prev => prev | (1 << cardIndex))
+          
+          const lastCardIsProcessed = index === navigationItems.length - 1
+          if (lastCardIsProcessed) resolve()
+        }, index * delayBetweenOperations)
       })
     })
   }
 
+  function stackAllCards(pauseBetweenStacking: number): Promise<void> {
+    return trackCardProgressWithIntervals(
+      pauseBetweenStacking,
+      setStackedCardsBitmask
+    )
+  }
+
   function dealAllCards(pauseBetweenDealing: number): Promise<void> {
-    return new Promise((resolve) => {
-
-
-      const dealingOrder = navigationItems.length === 6 ? [
-        2, 5, 4, 3, 0, 1  // Clockwise order for 6 elements
-      ] : []
-      
-      navigationItems.forEach((_card, index) => {
-        const cardIndex = dealingOrder?.at(index) ?? index
-        setTimeout(() => {
-          setDealtCardsBitmask(prev => prev | (1 << cardIndex))
-          
-          const lastCardIsDealt = index === navigationItems.length - 1
-          if (lastCardIsDealt) resolve()
-        }, index * pauseBetweenDealing)
-      })
-    })
+    // Clockwise order for 6 elements
+    const dealingOrder = [2, 5, 4, 3, 0, 1]
+    
+    return trackCardProgressWithIntervals(
+      pauseBetweenDealing,
+      setDealtCardsBitmask,
+      dealingOrder
+    )
   }
 
   function getGridPosition(index: number) {
