@@ -30,7 +30,7 @@ export function NavigationCard({
       onClick={setNavigatedInternally}
     >
       <div className="relative p-6 border rounded-lg hover:border-primary hover:shadow-lg transition-all duration-300 hover:scale-105 bg-background">
-        <ArrowUpRight className="absolute top-4 right-4 h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+        <ArrowUpRight className="absolute top-4 right-4 h-4 w-4 text-muted-foreground text-primary transition-colors" />
         
         <h3 className="font-semibold mb-2 group-hover:text-primary font-display transition-colors pr-6">
           {navigationItem.label}
