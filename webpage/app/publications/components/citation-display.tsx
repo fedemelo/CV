@@ -12,8 +12,8 @@ export function CitationDisplay({ publication }: CitationDisplayProps) {
   return (
     <div>
       <h4 className="text-sm font-medium mb-2">BibTeX Citation:</h4>
-      <div className="bg-muted p-4 rounded-lg w-full">
-        <pre className="text-sm font-mono whitespace-pre-wrap text-wrap w-full">
+      <div className="bg-muted p-3 sm:p-4 rounded-lg w-full overflow-hidden">
+        <pre className="text-xs sm:text-sm font-mono whitespace-pre-wrap break-words break-all w-full overflow-wrap-anywhere">
           {bibTexCitation}
         </pre>
       </div>
