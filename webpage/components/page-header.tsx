@@ -1,4 +1,4 @@
-import { OpenCVOrResume } from "./download-cv-or-resume"
+import { OpenCVOrResume } from "./open-cv-or-resume"
 
 export function PageHeader({title, subtitle, downloadButtons}: {title: string, subtitle?: string, downloadButtons?: boolean}) {
   return (

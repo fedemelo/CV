@@ -1,5 +1,5 @@
 import type { PersonalInfo } from "@/types"
-import { OpenCVOrResume } from "@/components/download-cv-or-resume"
+import { OpenCVOrResume } from "@/components/open-cv-or-resume"
 import { SocialLinks } from "./social-links"
 
 interface HeroSectionProps {
