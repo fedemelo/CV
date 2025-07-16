@@ -27,7 +27,7 @@ export function NavigationCard({
     zIndex: getZIndex()
   }
 
-  const isCurrentTab = pathname === navigationItem.href || (pathname === "/" && navigationItem.href === "/")
+  const isCurrentTab = pathname === navigationItem.href
   
   const handleClick = (e: React.MouseEvent) => {
     if (isCurrentTab) {
