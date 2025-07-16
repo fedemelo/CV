@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from "react"
 
-export function useIsMobile() {
+export function useBreakpoint(breakpoint: number = 767) {
   const [isMobile, setIsMobile] = useState<boolean | null>(null)
   const hasInitialized = useRef(false)
 
   useEffect(() => {
     const checkIsMobile = () => {
-      const mobile = window.innerWidth < 1024
+      const mobile = window.innerWidth < breakpoint
       
       if (!hasInitialized.current) {
         // First time - set immediately without causing extra re-render

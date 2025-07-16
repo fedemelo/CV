@@ -1,7 +1,7 @@
 "use client"
 
 import { usePersonalInfo } from "@/hooks/useApiData"
-import { useIsMobile } from "@/hooks/use-mobile"
+import { useBreakpoint } from "@/hooks/use-breakpoint"
 import { HeroSection, SocialLinks, MobileQuickNavigation, DesktopQuickNavigation } from "./home"
 import { HomeLoadingSkeleton } from "./home/home-loading-skeleton"
 import { Error } from "@/components/error"
@@ -9,7 +9,7 @@ import { NoItemsAvailable } from "@/components/no-items-available"
 
 export default function HomePage() {
   const { data: personalInfo, loading, error } = usePersonalInfo()
-  const isMobile = useIsMobile()
+  const usePhoneAnimation = useBreakpoint(1024)
 
   if (loading)return <HomeLoadingSkeleton />
 
@@ -23,7 +23,7 @@ export default function HomePage() {
       <div className="space-y-8">
         <HeroSection personalInfo={info} />
         <SocialLinks personalInfo={info} />
-        {isMobile ? <MobileQuickNavigation /> : <DesktopQuickNavigation />}
+        {usePhoneAnimation ? <MobileQuickNavigation /> : <DesktopQuickNavigation />}
       </div>
     </div>
   )
