@@ -15,8 +15,8 @@ export function PublicationButtons({ publication }: PublicationButtonsProps) {
       
       {publication.pdfUrl && (
         <GreenButton asChild>
-          <Link href={publication.pdfUrl} target="_blank" rel="noopener noreferrer">
-            <FileText className="mr-2 h-4 w-4" />
+          <Link href={publication.pdfUrl} target="_blank" rel="noopener noreferrer" className="flex items-center">
+            <FileText className="h-4 w-4" />
             PDF
           </Link>
         </GreenButton>
@@ -24,8 +24,8 @@ export function PublicationButtons({ publication }: PublicationButtonsProps) {
       
       {publication.url && (
         <GreenButton asChild>
-          <Link href={publication.url} target="_blank" rel="noopener noreferrer">
-            <ExternalLink className="mr-2 h-4 w-4" />
+          <Link href={publication.url} target="_blank" rel="noopener noreferrer" className="flex items-center">
+            <ExternalLink className="h-4 w-4" />
             {publication.linkText || "DOI/Site"}
           </Link>
         </GreenButton>

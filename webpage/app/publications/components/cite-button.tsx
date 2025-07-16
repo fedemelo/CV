@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { FileText } from "lucide-react"
+import { SiLatex } from "react-icons/si"
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
@@ -24,8 +24,8 @@ export function CiteButton({ publication }: CiteButtonProps) {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline" size="sm" className="hover:border-primary/90 hover:bg-primary/10">
-          <FileText className="mr-2 h-4 w-4" />
+        <Button variant="outline" size="sm" className="hover:border-primary/90 hover:bg-primary/10 flex items-center">
+          <SiLatex className="h-4 w-4" />
           Cite
         </Button>
       </DialogTrigger>
