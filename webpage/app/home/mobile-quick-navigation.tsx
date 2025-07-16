@@ -7,7 +7,6 @@ import { useNavigationAnimation } from "@/contexts/navigation-animation-context"
 
 export function MobileQuickNavigation() {
   const [visibleCards, setVisibleCards] = useState<number[]>([])
-  const [animationStarted, setAnimationStarted] = useState(false)
   const { setHomeAnimationComplete } = useNavigationAnimation()
   const animationStartedRef = useRef(false)
 
@@ -20,7 +19,6 @@ export function MobileQuickNavigation() {
 
     const startAnimation = () => {
       animationStartedRef.current = true
-      setAnimationStarted(true)
       
       navigationItems.forEach((_, index) => {
         setTimeout(() => {
@@ -42,17 +40,19 @@ export function MobileQuickNavigation() {
     return () => clearTimeout(timeoutId)
   }, [setHomeAnimationComplete])
 
+  function slideUpAnimation(cardIndex: number) {
+    return visibleCards.includes(cardIndex) ? 'translateY(0)' : 'translateY(100vh)'
+  }
+
   return (
     <div className="mt-12">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {navigationItems.map((card, index) => (
           <NavigationCard
             key={card.href}
-            card={card}
-            cardIndex={index}
-            isVisible={visibleCards.includes(index)}
-            animationStarted={animationStarted}
-            isMobile={true}
+            navigationItem={card}
+            getTransform={() => slideUpAnimation(index)}
+            getZIndex={() => 1}
           />
         ))}
       </div>
