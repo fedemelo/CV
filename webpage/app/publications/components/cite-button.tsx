@@ -6,6 +6,7 @@ import { GreenButton } from "@/components/green-button"
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -34,6 +35,9 @@ export function CiteButton({ publication }: CiteButtonProps) {
       <DialogContent className="max-w-[95vw] sm:max-w-2xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle>Cite</DialogTitle>
+          <DialogDescription>
+            Copy or download the BibTeX citation for this publication
+          </DialogDescription>
         </DialogHeader>
         
         <div className="space-y-4">
