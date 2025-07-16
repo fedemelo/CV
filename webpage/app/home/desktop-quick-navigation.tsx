@@ -10,14 +10,14 @@ type AnimationPhase = 'stacking' | 'dealing' | 'complete'
 
 export function DesktopQuickNavigation() {
   const [animationPhase, setAnimationPhase] = useState<AnimationPhase>('stacking')
-  const [stackedCardsCount, setStackedCardsCount] = useState<number>(0)
-  const [dealtCardsCount, setDealtCardsCount] = useState<number>(0)
+  const [stackedCardsBitmask, setStackedCardsBitmask] = useState<number>(0)
+  const [dealtCardsBitmask, setDealtCardsBitmask] = useState<number>(0)
   const { setHomeAnimationComplete } = useNavigationAnimation()
   const animationStartedRef = useRef(false)
 
-  const INITIAL_DELAY = 300
+  const INITIAL_DELAY = 500
   const PAUSE_BETWEEN_STACKING = 100
-  const PAUSE_BETWEEN_STACKING_AND_DEALING = 900
+  const PAUSE_BETWEEN_STACKING_AND_DEALING = 1000
   const PAUSE_BETWEEN_DEALING = 500
   const PAUSE_BEFORE_END_ANIMATION = 300
 
@@ -51,7 +51,7 @@ export function DesktopQuickNavigation() {
     return new Promise((resolve) => {
       navigationItems.forEach((_card, index) => {
         setTimeout(() => {
-          setStackedCardsCount(prev => prev | (1 << index))  // Use bitmask to track specific cards
+          setStackedCardsBitmask(prev => prev | (1 << index))  // Use bitmask to track specific cards
 
           const lastCardIsStacked = index === navigationItems.length - 1
           if (lastCardIsStacked) resolve()
@@ -71,7 +71,7 @@ export function DesktopQuickNavigation() {
       navigationItems.forEach((_card, index) => {
         const cardIndex = dealingOrder?.at(index) ?? index
         setTimeout(() => {
-          setDealtCardsCount(prev => prev | (1 << cardIndex))
+          setDealtCardsBitmask(prev => prev | (1 << cardIndex))
           
           const lastCardIsDealt = index === navigationItems.length - 1
           if (lastCardIsDealt) resolve()
@@ -100,12 +100,12 @@ export function DesktopQuickNavigation() {
     ${(stackPosition.row - finalRow) * 100}%)`
     
     // Gap adjustment: each card crosses different number of gaps
-    const gapsToCloseX = stackPosition.col - finalCol  // Move left
-    const gapsToCloseY = stackPosition.row - finalRow  // Move up
+    const gapsToCloseX = stackPosition.col - finalCol  // Adjust gap offset to the left
+    const gapsToCloseY = stackPosition.row - finalRow  //    "    "    "    upwards
     const considerGap = `translate(${gapsToCloseX * GAP_PIXELS}px, ${gapsToCloseY * GAP_PIXELS}px)`
 
-    const isStacked = (stackedCardsCount & (1 << cardIndex)) !== 0
-    const isDealt = (dealtCardsCount & (1 << cardIndex)) !== 0
+    const isStacked = (stackedCardsBitmask & (1 << cardIndex)) !== 0
+    const isDealt = (dealtCardsBitmask & (1 << cardIndex)) !== 0
 
     switch (animationPhase) {
       case 'stacking':
