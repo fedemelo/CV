@@ -13,8 +13,8 @@ export function DownloadCVOrResume() {
 function DownloadButton({ name }: { name: string }) {
   return (
     <GreenButton>
-      <Download className="mr-2 h-5 w-5" />
-      Download {name}
+      <Download className="h-full w-full text-primary" />
+      {name}
     </GreenButton>
   )
 }
