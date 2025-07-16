@@ -13,7 +13,7 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
     <div className="border rounded-lg p-6 space-y-3">
       <ExperienceHeader title={experience.title} />
 
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-col gap-2 sm:gap-0 sm:flex-row sm:justify-between">
         <ContextInfo
           startDate={experience.startDate}
           endDate={experience.endDate}
