@@ -30,9 +30,6 @@ import { EXTRACURRICULARS } from '../../shared/data/extracurricular'
 import { PERSONAL_INFO } from '../../shared/data/personalInfo'
 import { PUBLICATIONS } from '../../shared/data/publications'
 
-// Simulate API delay to show loaders
-const simulateApiDelay = (ms: number = 100) => new Promise(resolve => setTimeout(resolve, ms))
-
 const dateToString = (date: Date | undefined): string | undefined => {
   return date ? date.toISOString().split('T')[0] : undefined
 }
@@ -98,57 +95,46 @@ const convertPublications = (data: typeof PUBLICATIONS): Publication[] => {
 
 class StaticDataClient {
   getEducation = async (): Promise<Education[]> => {
-    await simulateApiDelay()
     return convertEducation(EDUCATION)
   }
 
   getWorkExperience = async (): Promise<WorkExperience[]> => {
-    await simulateApiDelay()
     return convertWorkExperience(WORK_EXPERIENCE)
   }
 
   getLanguages = async (): Promise<Language[]> => {
-    await simulateApiDelay()
     return convertLanguages(LANGUAGES)
   }
 
   getAwards = async (): Promise<Award[]> => {
-    await simulateApiDelay()
     return convertAwards(AWARDS)
   }
 
   getRelevantCoursework = async (): Promise<RelevantCoursework[]> => {
-    await simulateApiDelay()
     return RELEVANT_COURSEWORK
   }
 
   getResearchInterests = async (): Promise<ResearchInterest[]> => {
-    await simulateApiDelay()
     return [{ text: RESEARCH_INTERESTS.text, showInCV: RESEARCH_INTERESTS.showInCV }]
   }
 
   getTeaching = async (): Promise<Teaching[]> => {
-    await simulateApiDelay()
     return convertTeaching(TEACHING)
   }
 
   getExtracurricular = async (): Promise<Extracurricular[]> => {
-    await simulateApiDelay()
     return EXTRACURRICULARS
   }
 
   getPersonalInfo = async (): Promise<PersonalInfo[]> => {
-    await simulateApiDelay()
     return [PERSONAL_INFO]
   }
 
   getPublications = async (): Promise<Publication[]> => {
-    await simulateApiDelay()
     return convertPublications(PUBLICATIONS)
   }
 
   getHealth = async (): Promise<{ status: string; timestamp: string }> => {
-    await simulateApiDelay()
     return {
       status: 'healthy',
       timestamp: new Date().toISOString()
