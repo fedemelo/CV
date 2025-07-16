@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 import { usePathname } from 'next/navigation'
+import { useBreakpoint } from '@/hooks/use-breakpoint'
 
 interface NavigationAnimationContextType {
   shouldShowNavigation: boolean
@@ -17,12 +18,13 @@ export function NavigationAnimationProvider({ children }: { children: ReactNode 
   const [shouldRunNavBarAnimation, setShouldRunNavBarAnimation] = useState(true)
   const [navigatedInternally, setNavigatedInternallyState] = useState(false)
   const pathname = usePathname()
+  const isPhone = useBreakpoint()
 
   useEffect(() => {
     const isHomePage = pathname === '/'
     
     if (isHomePage) {
-      if (navigatedInternally) {
+      if (navigatedInternally || isPhone) {
         setShouldShowNavigation(true)
         setShouldRunNavBarAnimation(false)
       } else {
@@ -34,7 +36,7 @@ export function NavigationAnimationProvider({ children }: { children: ReactNode 
       setShouldShowNavigation(true)
       setShouldRunNavBarAnimation(false)
     }
-  }, [pathname])
+  }, [pathname, isPhone])
 
   const setHomeAnimationComplete = () => {
     if (shouldRunNavBarAnimation) setShouldShowNavigation(true)
