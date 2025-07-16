@@ -54,7 +54,7 @@ function CourseInformation({ course }: { course?: Teaching['course'] }) {
   if (!course) return null
 
   return (
-    <div className="bg-muted/50 rounded-lg p-4 space-y-2">
+    <div className="bg-muted rounded-lg p-4 space-y-2">
       <div className="flex items-center">
         <BookOpen className="mr-2 h-4 w-4 text-primary" />
         <span className="font-medium">{course.name}</span>
