@@ -2,9 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Roboto:wght@300&display=swap');
 
 :root {
-  --font-small: 14px;
-  --font-base: 16px;
-  --font-xxl: 30px;
+  --font-base: 11pt;
+  --font-xxl: 20pt;
+  --font-family: 'EB Garamond', serif;
 }
 
 .print-container {
@@ -12,7 +12,7 @@
   margin: 2em auto;
   padding: 7mm;
   font-size: var(--font-base);
-  font-family: 'EB Garamond', serif;
+  font-family: var(--font-family);
 }
 
 h1 {
@@ -23,21 +23,37 @@ h2 {
   text-transform: uppercase;
   font-size: var(--font-base);
   border-bottom: #000 0.5px solid;
-  padding-block-end: 0.2em;  /* Title and border */
-  margin-block-end: 0.4em;  /* Border and paragraph */
+  padding-block-end: 2pt;  /* Title and border */
+  margin-block-start: 10pt;  /* Title and previous section */
+  margin-block-end: 0pt;  /* Border and paragraph -- handled by first h3 title*/
+}
+h3 {
+  font-size: var(--font-base);
+  font-weight: bold;
+  margin-block-start: 7pt;  /* Title and previous section */
+  margin-block-end: 0pt;  /* Title and paragraph */
+}
+
+ul {
+  margin: 0.2rem 0;
+  padding-left: 1.5rem;
+}
+li {
+  margin-bottom: 0.2rem;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;  /* Align to the bottom */
 }
-
 .indented-details {
   direction: column;
   align-items: center;
   margin-left: var(--font-base);
-  margin-top: 0.2rem;
+  margin-top: 5pt;
 }
 
 p {
@@ -46,7 +62,4 @@ p {
   font-weight: normal;
   text-align: justify;
   text-justify: inter-word;
-}
-.margin-bottom {
-  margin-bottom: var(--font-base);
 }
