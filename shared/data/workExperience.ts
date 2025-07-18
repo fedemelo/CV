@@ -17,7 +17,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       + " and speed" // Numbers!
       + " through LLM prompt engineering, caching, model fine-tuning, and validation logic",
       "Developed text extraction algorithms for complex layouts (nested tables, side-by-side formats, schematics) supporting most file formats (PDF, DOCX, XLSX, MSG, EML, TIFF, etc.)",
-      "Created performance monitoring dashboards (Polars, Plotly) for Parsing team, later scaled to monitor 3 company teams (30+ engineers overall)",
+      "Created performance monitoring dashboards (Polars, Plotly) for Parsing team, later scaled to monitor 3 teams (30+ engineers)",
       "Built automated reliability tools that improved developer QOL and caught non-deterministic parsing failures before they reached customers",
     ],
     technologies: [
@@ -91,8 +91,8 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     achievements: [
       "Awarded the June Team Award for 'delivering impactful contributions and hard work' as part of the Data Analytics team",
       "Developed Python-based Jupyter notebooks for financial and auditing data analysis", // TODO: Get scale of data processed, for impact
-      "Optimized Java and TypeScript microservices performance using AWS S3 and DynamoDB, identifying and resolving bugs to improve system stability",
-      "Authored and delivered technical reports (SPIKEs, RFCs) that influenced team architecture decisions and established best practices for data validation logic",
+      "Optimized Java and TypeScript microservices performance using AWS S3 and DynamoDB, identifying and resolving bugs",
+      "Authored and delivered technical reports (SPIKEs, RFCs) that influenced team architecture decisions and established best practices",
     ],
     workMode: "remote",
     employmentType: "internship",
@@ -112,7 +112,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     achievements: [
       "Designed and implemented backend architecture for the Professors' Portfolio system (Java, Spring Boot), serving faculty members across the Engineering School",
       "Built persistence, logic, and control layers with CRUD operations, custom logic, and RESTful API endpoints",
-      "Devised efficient data migration methods to store large volumes of unstructured faculty data into relational databases (Oracle SQL Developer)",
+      "Devised efficient data migration methods to store large volumes of unstructured faculty data into relational databases",
       "Collaborated with Prof. José Bocanegra, Ph.D. on system architecture documentation and technical specifications, contributing to project planning and implementation roadmaps",
     ],
     workMode: "onsite",
