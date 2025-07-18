@@ -13,7 +13,7 @@
     <div class="margin-bottom">
       <div class="no-break">
         <div class="row">
-          <p class="institution">{teach.organization}</p>
+          <p style="font-weight: bold;">{teach.organization}</p>
           <Location
             location={{
               city: teach.city,
@@ -23,7 +23,7 @@
           />
         </div>
         <div class="row">
-          <p class="position">
+          <p style="font-style: italic;">
             {teach.title}{teach.course ? ` - ${teach.course.name}` : ""}
           </p>
           <p>
@@ -36,7 +36,7 @@
         </div>
         {#if teach.supervisor}
           <div class="row">
-            <p class="supervisor">Supervisor: {teach.supervisor}</p>
+            <p style="color: #666;">Supervisor: {teach.supervisor}</p>
           </div>
         {/if}
       </div>
@@ -44,7 +44,3 @@
     </div>
   {/each}
 </section>
-
-<style>
-  @import "../styles/Teaching.css";
-</style>
