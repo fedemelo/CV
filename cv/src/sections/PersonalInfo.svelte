@@ -3,7 +3,7 @@
   export let personalInfo: PersonalInfo;
 </script>
 
-<header class="margin-bottom">
+<header>
   <h1 style="font-variant: small-caps;">{personalInfo.name}</h1>
   <div class="contact-info">
     <div class="columns-container">

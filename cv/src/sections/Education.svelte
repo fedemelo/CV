@@ -9,14 +9,16 @@
 <section>
   <h2>Education</h2>
   {#each filterForCV(education) as edu}
-    <div class="margin-bottom no-break">
+    <div class="no-break">
       <div class="row">
         <p class="institution" style="font-weight: bold;">{edu.organization}</p>
-        <Location location={{
-          city: edu.city,
-          state: edu.state,
-          country: edu.country,
-        }} />
+        <Location
+          location={{
+            city: edu.city,
+            state: edu.state,
+            country: edu.country,
+          }}
+        />
       </div>
       <div class="row">
         <p>{edu.degree}</p>
