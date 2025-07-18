@@ -1,12 +1,5 @@
 import html2pdf from "html2pdf.js";
 
-interface PrintOptions {
-  margin: number;
-  a4Width: number;
-  baseScale: number;
-  baseFontSize: string;
-}
-
 interface PdfGenerationConfig {
   margin: [number, number];
   filename: string;
@@ -26,7 +19,7 @@ interface PdfGenerationConfig {
   jsPDF: {
     unit: string;
     format: string;
-    orientation: 'portrait' | 'landscape';
+    orientation: "portrait" | "landscape";
   };
   pagebreak: {
     mode: string[];
@@ -34,119 +27,85 @@ interface PdfGenerationConfig {
   };
 }
 
-const getCvElement = (): HTMLElement => {
+function getCvElement(): HTMLElement {
   const element = document.querySelector(".print-container");
   if (!element) throw new Error("Print container not found");
   return element as HTMLElement;
-};
+}
 
-const prepareClonedElement = (
-  element: HTMLElement,
-  options: PrintOptions
-): HTMLElement => {
+function getAndPrepareClonedElement(element: HTMLElement, margin: number): HTMLElement {
+  // Use a clone to avoid modifying the displayed HTML.
   const clonedElement = element.cloneNode(true) as HTMLElement;
-  
-  // Reset spacing
-  clonedElement.style.setProperty('margin', '0');
-  clonedElement.style.setProperty('padding', '0');
-  
-  // Set dimensions
-  clonedElement.style.setProperty(
-    'width', 
-    `${options.a4Width - options.margin * 2}mm`
-  );
-  
-  // Set font size
-  clonedElement.style.setProperty('font-size', options.baseFontSize);
-  
+
+  // Margins cannot be handled by the print-container because they are
+  // applied to the whole element, not per page.
+  clonedElement.style.setProperty("margin", "0");
+  clonedElement.style.setProperty("padding", "0");
+
+  // The paper size specified in the jsPDF.format property must coincide
+  // with the paper width below for margin calculation to work as expected.
+  const a4WidthMm = 210;
+
+  const widthWithoutMargins = a4WidthMm - margin * 2;
+  clonedElement.style.setProperty("width", `${widthWithoutMargins}mm`);
   return clonedElement;
-};
+}
 
-const removeLinksStyling = (element: HTMLElement): void => {
-  element.querySelectorAll("a").forEach((link) => {
-    link.style.color = "black";
-    link.style.textDecoration = "none";
-  });
-};
-
-const fixTextSpacing = (element: HTMLElement): void => {
-  element.querySelectorAll("p, li").forEach((textElement) => {
-    const el = textElement as HTMLElement;
-    el.style.setProperty('word-spacing', 'normal');
-    el.style.setProperty('letter-spacing', 'normal');
-  });
-  
-  element.style.setProperty('text-rendering', 'optimizeSpeed');
-};
-
-const fixH2FontSize = (element: HTMLElement): void => {
-  element.querySelectorAll("h2").forEach((h2Element) => {
-    const el = h2Element as HTMLElement;
-    el.style.setProperty('font-size', '10pt');
-  });
-};
-
-const getPdfConfig = (
-  options: PrintOptions,
-  filename: string
-): PdfGenerationConfig => ({
-  margin: [
-    options.margin - 10,  // Top margin slightly reduced
-    options.margin
-  ],
-  filename,
-  image: {
-    type: "jpeg",
-    quality: 100,
-  },
-  html2canvas: {
-    scale: options.baseScale,
-    useCORS: true,
-    letterRendering: false,  // Clearer text rendering
-    allowTaint: true,
-    backgroundColor: '#ffffff',
-    scrollX: 0,
-    scrollY: 0,
-  },
-  jsPDF: {
-    unit: "mm",
-    format: "a4",
-    orientation: "portrait",
-  },
-  pagebreak: {
-    mode: ["css", "legacy"],
-    avoid: ["h1", "h2", "h3", "h4", "h5", "h6", "p", ".row", ".item", "li", ".no-break"],
-  },
-});
-
-// Main print function
-export const generatePdf = async (view: 'cv' | 'resume'): Promise<void> => {
-  const printOptions: PrintOptions = {
-    margin: 25.4,  // 1 inch in mm
-    a4Width: 210,  // A4 width in mm
-    baseScale: 10,
-    baseFontSize: '10pt',
+function getPdfConfig(margin: number, filename: string): PdfGenerationConfig {
+  return {
+    margin: [margin, margin],
+    filename,
+    image: {
+      type: "jpeg",
+      quality: 100,
+    },
+    html2canvas: {
+      scale: 10,
+      useCORS: true,
+      letterRendering: false, // Clearer text rendering
+      allowTaint: true,
+      backgroundColor: "#ffffff",
+      scrollX: 0,
+      scrollY: 0,
+    },
+    jsPDF: {
+      unit: "mm",
+      format: "a4", // Paper size. Must coincide with the paper width in mm above
+      orientation: "portrait",
+    },
+    pagebreak: {
+      mode: ["css", "legacy"],
+      avoid: [
+        // This class is used to avoid page breaks on specific elements
+        ".no-break-on-print",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "p",
+        ".row",
+        ".item",
+        "li",
+      ],
+    },
   };
+}
+
+export async function generatePdf(view: "cv" | "resume"): Promise<void> {
+  const margin = 25.4 / 2; // 1/2 inch in mm
 
   try {
     const element = getCvElement();
-    const clonedElement = prepareClonedElement(element, printOptions);
-    removeLinksStyling(clonedElement);
-    fixTextSpacing(clonedElement);
-    fixH2FontSize(clonedElement);
+    const clonedElement = getAndPrepareClonedElement(element, margin);
 
-    const pdfConfig = getPdfConfig(
-      printOptions, 
-      `${view === 'cv' ? "CV" : "Resume"}_Federico_Melo_Barrero.pdf`
-    );
+    const filename = `${view === "cv" ? "CV" : "Resume"}_Federico_Melo_Barrero.pdf`;
+    const pdfConfig = getPdfConfig(margin, filename);
 
-    await html2pdf()
-      .set(pdfConfig)
-      .from(clonedElement)
-      .save();
-
+    await html2pdf().set(pdfConfig).from(clonedElement).save();
   } catch (error) {
-    console.error('Error generating PDF:', error);
+    console.error("Error generating PDF:", error);
     throw error;
   }
-};
+}
