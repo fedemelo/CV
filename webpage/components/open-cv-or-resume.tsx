@@ -1,6 +1,6 @@
 import { ExternalLink } from "lucide-react"
 import { GreenButton } from "./green-button"
-import { PORTFOLIO_URLS } from "../../shared/data/constants"
+import { PORTFOLIO_URLS } from "../lib/constants"
 
 export function OpenCVOrResume() {
   return (
