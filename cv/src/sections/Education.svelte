@@ -11,7 +11,7 @@
   {#each filterForCV(education) as edu}
     <div class="no-break-on-print">
       <div class="row">
-        <p class="institution" style="font-weight: bold;">{edu.organization}</p>
+        <h3>{edu.organization}</h3>
         <Location
           location={{
             city: edu.city,

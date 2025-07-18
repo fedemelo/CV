@@ -8,7 +8,6 @@ h1 {
   padding-bottom: 12px;  /* Title and border */
   margin-bottom: 12px;  /* Border and paragraph */
 }
-
 h1::after {
   content: '';
   position: absolute;
