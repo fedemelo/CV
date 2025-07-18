@@ -5,7 +5,6 @@
 
 <header style="text-align: center;">
   <h1>{personalInfo.name}</h1>
-  <div style="font-size: 10pt; color: #000;">
     <a href={`https://${personalInfo.webpage}`}>{personalInfo.webpage}</a>
     <span> | </span>
     <span>
@@ -19,5 +18,4 @@
     <span>
       <a href={`https://github.com/${personalInfo.gitHubPath}`}>github.com/{personalInfo.gitHubPath}</a>
     </span>
-  </div>
 </header>
