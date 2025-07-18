@@ -7,12 +7,12 @@
   --font-family: 'EB Garamond', serif;
 }
 
-.print-container {
-  max-width: 800px;
-  margin: 2em auto;
-  padding: 7mm;
+ main {
+  max-width: 210mm;  /* A4 width */
+  padding: 0.5in;  /* 1/2 inch */
   font-size: var(--font-base);
   font-family: var(--font-family);
+  text-rendering: optimizeSpeed;
 }
 
 h1 {
@@ -42,6 +42,19 @@ li {
   margin-bottom: 0.2rem;
   text-align: justify;
   text-justify: inter-word;
+  /* Needed to avoid occasional no spacing between words when printing */
+  word-spacing: normal;
+  letter-spacing: normal;
+}
+p {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  text-align: justify;
+  text-justify: inter-word;
+  /* Needed to avoid occasional no spacing between words when printing */
+  word-spacing: normal;
+  letter-spacing: normal;
 }
 
 .row {
@@ -56,10 +69,3 @@ li {
   margin-top: 5pt;
 }
 
-p {
-  margin: 0;
-  padding: 0;
-  font-weight: normal;
-  text-align: justify;
-  text-justify: inter-word;
-}

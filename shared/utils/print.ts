@@ -27,9 +27,9 @@ interface PdfGenerationConfig {
   };
 }
 
-function getCvElement(): HTMLElement {
-  const element = document.querySelector(".print-container");
-  if (!element) throw new Error("Print container not found");
+function getElementToPrint(): HTMLElement {
+  const element = document.querySelector("main");
+  if (!element) throw new Error("Main element not found");
   return element as HTMLElement;
 }
 
@@ -37,7 +37,7 @@ function getAndPrepareClonedElement(element: HTMLElement, margin: number): HTMLE
   // Use a clone to avoid modifying the displayed HTML.
   const clonedElement = element.cloneNode(true) as HTMLElement;
 
-  // Margins cannot be handled by the print-container because they are
+  // Margins cannot be handled by the main element because they would be
   // applied to the whole element, not per page.
   clonedElement.style.setProperty("margin", "0");
   clonedElement.style.setProperty("padding", "0");
@@ -97,7 +97,7 @@ export async function generatePdf(view: "cv" | "resume"): Promise<void> {
   const margin = 25.4 / 2; // 1/2 inch in mm
 
   try {
-    const element = getCvElement();
+    const element = getElementToPrint();
     const clonedElement = getAndPrepareClonedElement(element, margin);
 
     const filename = `${view === "cv" ? "CV" : "Resume"}_Federico_Melo_Barrero.pdf`;
