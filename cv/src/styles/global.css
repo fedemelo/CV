@@ -45,7 +45,7 @@ section .no-break-on-print:first-of-type h3:first-of-type {
 
 ul {
   margin: 2pt 0;
-  padding-left: var(--font-base);
+  padding-left: calc(1.5 * var(--font-base));
 }
 li {
   margin-bottom: 2pt;
