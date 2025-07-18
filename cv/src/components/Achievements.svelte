@@ -16,7 +16,3 @@
     {/if}
   </ul>
 </div>
-
-<style>
-  @import "../styles/Achievements.css";
-</style>
