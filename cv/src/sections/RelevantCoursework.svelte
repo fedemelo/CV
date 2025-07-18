@@ -13,7 +13,7 @@
         <div class="row">
           <p style="font-weight: bold;">{area.area}</p>
         </div>
-        <div class="indented-details">
+        <div class="indented-block">
           {#each area.courses as course}
             <p>{course.name}</p>
           {/each}

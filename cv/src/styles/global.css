@@ -62,7 +62,7 @@ p {
   justify-content: space-between;
   align-items: flex-end;  /* Align to the bottom */
 }
-.indented-details {
+.indented-block {
   direction: column;
   align-items: center;
   margin-left: var(--font-base);

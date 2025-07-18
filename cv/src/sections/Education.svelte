@@ -31,7 +31,7 @@
           <p class="honors" style="font-style: italic;">{edu.honors}</p>
         {/if}
       </div>
-      <div class="indented-details">
+      <div class="indented-block">
         {#if edu.gpa}
           <p>GPA: {edu.gpa}</p>
         {/if}

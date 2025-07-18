@@ -4,7 +4,7 @@
   export let experience: WorkExperience | Teaching;
 </script>
 
-<div class="indented-details">
+<div class="indented-block">
   {#if experience.description}
     <p>{experience.description}</p>
   {/if}

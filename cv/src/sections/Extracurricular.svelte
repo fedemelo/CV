@@ -11,7 +11,7 @@
       <div class="row">
         <h3>{extracurricular.description}</h3>
       </div>
-      <div class="indented-details">
+      <div class="indented-block">
         {#each extracurricular.events as event}
           <div class="row">
             <p>{event}</p>
