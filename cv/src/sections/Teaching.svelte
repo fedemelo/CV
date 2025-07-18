@@ -10,7 +10,7 @@
 <section>
   <h2>Teaching Experience</h2>
   {#each filterForCV(teaching) as teach}
-    <div class="no-break">
+    <div class="no-break-on-print">
       <div class="row">
         <h3>{teach.organization}</h3>
         <Location

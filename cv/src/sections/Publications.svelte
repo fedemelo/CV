@@ -7,7 +7,7 @@
 <section>
   <h2>Publications</h2>
   {#each filterForCV(publications) as publication}
-    <div class="publication no-break">
+    <div class="publication no-break-on-print">
       <p>
         {#each publication.authors as author, index}
           {#if author.isUser}
