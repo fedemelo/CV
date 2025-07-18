@@ -4,56 +4,68 @@
   import { getYearRange } from "../../../shared/utils/year";
   import { getPeriodFromDates } from "../../../shared/utils/period";
   import { filterForResume } from "../../../shared/utils/show";
+  import Location from "../../../shared/components/Location.svelte";
   export let experiences: (WorkExperience | Teaching)[];
 
   function sortExperiences(experiences: (WorkExperience | Teaching)[]) {
-    return experiences
-      .sort((a, b) => {
-        if (a.isCurrent && b.isCurrent) return 0;
-        if (!a.isCurrent && b.isCurrent) return 1;
-        if (a.isCurrent && !b.isCurrent) return -1;
-        
-        return new Date(b.startDate).getTime() - new Date(a.startDate).getTime();
-      });
+    return experiences.sort((a, b) => {
+      if (a.isCurrent && b.isCurrent) return 0;
+      if (!a.isCurrent && b.isCurrent) return 1;
+      if (a.isCurrent && !b.isCurrent) return -1;
+
+      return new Date(b.startDate).getTime() - new Date(a.startDate).getTime();
+    });
   }
-  const sortedExperiences = sortExperiences(filterForResume(experiences))
+  const sortedExperiences = sortExperiences(filterForResume(experiences));
 </script>
 
-<section class="work-experience">
-  <h2>PROFESSIONAL EXPERIENCE</h2>
-  {#each sortedExperiences as experience}
-    <div class="experience-item">
-      <div class="experience-header">
-        <div class="title-organization">
-          <strong>{experience.title}</strong>
-          <span class="separator">|</span>
-          <span>{experience.organization}</span>
+<section>
+  <h2>Experience</h2>
+  <div class="indented-block">
+    {#each sortedExperiences as experience}
+      <div class="no-break-on-print">
+        <div class="row">
+          <h3>{experience.title}</h3>
+          <p>
+            {#if "workMode" in experience}
+              {getYearRange(
+                experience.startDate,
+                experience.endDate,
+                experience.isCurrent ?? false
+              )}
+            {:else if experience.endDate}
+              {getPeriodFromDates(
+                experience.startDate,
+                experience.endDate,
+                experience.isCurrent ?? false
+              )}
+            {:else}
+              {getYearRange(
+                experience.startDate,
+                undefined,
+                experience.isCurrent ?? false
+              )}
+            {/if}
+          </p>
         </div>
-        <div class="dates">
-          {#if 'workMode' in experience}
-            {getYearRange(experience.startDate, experience.endDate, experience.isCurrent)}
-          {:else}
-            {getPeriodFromDates(experience.startDate, experience.endDate, experience.isCurrent)}
-          {/if}
+        <div class="row">
+          <p>{experience.organization}</p>
+          <Location
+            location={{
+              city: experience.city,
+              state: experience.state,
+              country: experience.country,
+            }}
+          />
         </div>
-      </div>
-      <div class="location">
-        {experience.city}{experience.state ? `, ${experience.state}` : ''}{experience.country ? `, ${experience.country}` : ''}
-        {#if 'workMode' in experience && experience.workMode}
-          <span class="work-mode">({experience.workMode})</span>
+        {#if experience.achievements && experience.achievements.length > 0}
+          <ul>
+            {#each experience.achievements.slice(0, 4) as achievement}
+              <li>{achievement}</li>
+            {/each}
+          </ul>
         {/if}
       </div>
-      {#if experience.achievements && experience.achievements.length > 0}
-        <ul class="achievements">
-          {#each experience.achievements.slice(0, 3) as achievement}
-            <li>{achievement}</li>
-          {/each}
-        </ul>
-      {/if}
-    </div>
-  {/each}
+    {/each}
+  </div>
 </section>
-
-<style>
-  @import "../styles/WorkExperience.css";
-</style> 

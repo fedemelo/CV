@@ -4,18 +4,8 @@
   import Footer from '../../shared/components/Footer.svelte';
 </script>
 
-<div class="app-container">
-  <div class="print-container">
-    <Resume />
-  </div>
+<div style="display: flex; flex-direction: column; align-items: center;">
+  <Resume />
   <Footer />
   <PrintButton currentView="resume" />
 </div>
-
-<style>
-  .app-container {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-</style> 

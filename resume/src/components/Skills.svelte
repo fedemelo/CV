@@ -4,18 +4,11 @@
   export let skills: Skill[];
 </script>
 
-<section class="skills">
-  <h2>TECHNICAL SKILLS</h2>
-  <div class="skills-grid">
-    {#each skills as skillCategory}
-      <div class="skill-category">
-        <strong>{skillCategory.category}:</strong>
-        <span class="skill-list">{skillCategory.skills.join(', ')}</span>
-      </div>
+<section>
+  <h2>Technical Skills</h2>
+  <div class="indented-block">
+      {#each skills as skillCategory}
+        <p><strong>{skillCategory.category}</strong>: {skillCategory.skills.join(', ')}</p>
     {/each}
   </div>
 </section>
-
-<style>
-  @import "../styles/Skills.css";
-</style> 
