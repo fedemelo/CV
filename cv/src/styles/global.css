@@ -7,11 +7,14 @@
   --font-family: 'EB Garamond', serif;
 }
 
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-base);
+}
+
  main {
   max-width: 210mm;  /* A4 width */
   padding: 0.5in;  /* 1/2 inch */
-  font-size: var(--font-base);
-  font-family: var(--font-family);
   text-rendering: optimizeSpeed;
 }
 
@@ -41,11 +44,11 @@ section .no-break-on-print:first-of-type h3:first-of-type {
 }
 
 ul {
-  margin: 0.2rem 0;
-  padding-left: 1.5rem;
+  margin: 2pt 0;
+  padding-left: var(--font-base);
 }
 li {
-  margin-bottom: 0.2rem;
+  margin-bottom: 2pt;
   text-align: justify;
   text-justify: inter-word;
   /* Needed to avoid occasional no spacing between words when printing */

@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Latin+Modern+Roman:wght@400;700&display=swap');
 
 :root {
-  --font-base: 11pt;
+  --font-base: 10.5pt;
   --font-xxl: 24pt;
   --font-family: 'Latin Modern Roman', 'Times New Roman', serif;
 }
@@ -15,6 +15,7 @@ body {
 main {
   max-width: 210mm;  /* A4 width */
   padding: 0.5in;  /* 1/2 inch */
+  text-rendering: optimizeSpeed;
 }
 
 h1 {
@@ -47,11 +48,11 @@ section .no-break-on-print:first-of-type h3:first-of-type {
 }
 
 ul {
-  margin: 0.2rem 0;
-  padding-left: 1.5rem;
+  margin: 2pt 0;
+  padding-left: var(--font-base);
 }
 li {
-  margin-bottom: 0.2rem;
+  margin-bottom: 2pt;
   text-align: justify;
   text-justify: inter-word;
   /* Needed to avoid occasional no spacing between words when printing */
