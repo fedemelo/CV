@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Teaching } from "../../../shared/schemas/teaching";
   import { getPeriodFromDates } from "../../../shared/utils/period";
-  import Location from "../components/Location.svelte";
+  import Location from "../../../shared/components/Location.svelte";
   import Achievements from "../components/Achievements.svelte";
   import { filterForCV } from "../../../shared/utils/show";
   export let teaching: Teaching[];
