@@ -11,7 +11,7 @@
     {#each filterForCV(relevantCoursework) as area}
       <div class="coursework-item">
         <div class="row">
-          <p class="area">{area.area}</p>
+          <p style="font-weight: bold;">{area.area}</p>
         </div>
         <div class="indented-details">
           {#each area.courses as course}
