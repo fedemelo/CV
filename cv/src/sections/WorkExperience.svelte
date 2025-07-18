@@ -10,31 +10,25 @@
 <section>
   <h2>Work Experience</h2>
   {#each filterForCV(workExperience) as work}
-    <div class="work-item">
-      <div class="no-break">
-        <div class="row">
-          <p class="company">{work.organization}</p>
-          <Location
-            location={{
-              city: work.city,
-              state: work.state,
-              country: work.country,
-            }}
-            workMode={work.workMode}
-          />
-        </div>
-        <div class="row">
-          <p class="position">{work.title}</p>
-          <p>
-            {getYearRange(work.startDate, work.endDate, work.isCurrent)}
-          </p>
-        </div>
+    <div class="no-break">
+      <div class="row">
+        <h3>{work.organization}</h3>
+        <Location
+          location={{
+            city: work.city,
+            state: work.state,
+            country: work.country,
+          }}
+          workMode={work.workMode}
+        />
       </div>
-      <Achievements experience={work} />
+      <div class="row">
+        <p style="font-style: italic;">{work.title}</p>
+        <p>
+          {getYearRange(work.startDate, work.endDate, work.isCurrent)}
+        </p>
+      </div>
     </div>
+    <Achievements experience={work} />
   {/each}
 </section>
-
-<style>
-  @import "../styles/WorkExperience.css";
-</style>
